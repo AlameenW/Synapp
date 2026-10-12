@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.build/
+.swiftpm/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+.npm-cache/
+*.tsbuildinfo
+
