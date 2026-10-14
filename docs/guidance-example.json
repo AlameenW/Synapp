@@ -1,0 +1,19 @@
+{
+  "regionId": "right_knee",
+  "description": "My knee feels uncomfortable after running.",
+  "activity": "running",
+  "onset": "gradual",
+  "durationDays": 3,
+  "painIntensity": 3,
+  "screening": {
+    "chestPain": "no",
+    "seriousAccident": "no",
+    "backNeurologicalSymptoms": "no",
+    "lossOfSensation": "no",
+    "unableToUseLimb": "no",
+    "feverWithHotSwollenJoint": "no",
+    "deformity": "no",
+    "suddenSeverePain": "no"
+  }
+}
+

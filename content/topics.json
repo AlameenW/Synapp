@@ -1,2 +1,284 @@
-[]
+[
+  {
+    "id": "shoulder-overview",
+    "regionIds": [
+      "left_shoulder",
+      "right_shoulder"
+    ],
+    "title": "Shoulder discomfort",
+    "overview": "Shoulder pain has several possible causes; a physical examination may be needed.",
+    "symptoms": [
+      "Pain with movement",
+      "Stiffness"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Keep gentle movement comfortable; reduce activities that worsen pain."
+    ],
+    "whenToSeekHelp": [
+      "Seek assessment for worsening or persistent symptoms; sudden severe pain or inability to move needs urgent help."
+    ],
+    "sourceIds": [
+      "nhs-shoulder"
+    ],
+    "contentStatus": "editorial_draft"
+  },
+  {
+    "id": "shoulder-tendon-irritation",
+    "regionIds": [
+      "left_shoulder",
+      "right_shoulder"
+    ],
+    "title": "Shoulder tendon irritation",
+    "overview": "Tendon or bursa irritation can be associated with pain when using the shoulder. Location alone cannot establish the cause.",
+    "symptoms": [
+      "Pain during arm use"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Avoid strenuous exercises that aggravate symptoms."
+    ],
+    "whenToSeekHelp": [
+      "Seek care if movement is very difficult or symptoms persist."
+    ],
+    "sourceIds": [
+      "nhs-shoulder"
+    ],
+    "contentStatus": "editorial_draft"
+  },
+  {
+    "id": "elbow-overview",
+    "regionIds": [
+      "left_elbow",
+      "right_elbow"
+    ],
+    "title": "Pain around the outer elbow",
+    "overview": "Outer elbow pain may occur with repeated gripping or wrist movements.",
+    "symptoms": [
+      "Pain with lifting or gripping"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce activities that provoke symptoms."
+    ],
+    "whenToSeekHelp": [
+      "Arrange assessment if pain persists despite reducing aggravating activity."
+    ],
+    "sourceIds": [
+      "nhs-elbow"
+    ],
+    "contentStatus": "editorial_draft"
+  },
+  {
+    "id": "tennis-elbow",
+    "regionIds": [
+      "left_elbow",
+      "right_elbow"
+    ],
+    "title": "Tennis elbow",
+    "overview": "Tennis elbow affects tendons near the outer elbow and can occur outside racket sports.",
+    "symptoms": [
+      "Outer elbow tenderness",
+      "Forearm discomfort"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Simple comfortable arm movements may help maintain motion."
+    ],
+    "whenToSeekHelp": [
+      "Seek assessment if symptoms persist after around two weeks of self-care."
+    ],
+    "sourceIds": [
+      "nhs-elbow"
+    ],
+    "contentStatus": "editorial_draft"
+  },
+  {
+    "id": "wrist-overview",
+    "regionIds": [
+      "left_wrist",
+      "right_wrist"
+    ],
+    "title": "Wrist discomfort",
+    "overview": "Injury is one cause of wrist pain, but nerve and tendon problems can also contribute.",
+    "symptoms": [
+      "Pain or stiffness",
+      "Difficulty gripping"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce painful tasks and heavy gripping."
+    ],
+    "whenToSeekHelp": [
+      "Severe pain, shape changes or loss of feeling need prompt medical help."
+    ],
+    "sourceIds": [
+      "nhs-wrist"
+    ],
+    "contentStatus": "editorial_draft"
+  },
+  {
+    "id": "wrist-sprain",
+    "regionIds": [
+      "left_wrist",
+      "right_wrist"
+    ],
+    "title": "Wrist sprain information",
+    "overview": "A sprain can involve pain and swelling, but similar symptoms can occur with a fracture.",
+    "symptoms": [
+      "Swelling or bruising",
+      "Pain with movement"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Rest from aggravating activities while seeking advice if an injury is suspected."
+    ],
+    "whenToSeekHelp": [
+      "Do not rely on self-care if you suspect a broken wrist."
+    ],
+    "sourceIds": [
+      "nhs-wrist"
+    ],
+    "contentStatus": "editorial_draft"
+  },
+  {
+    "id": "back-overview",
+    "regionIds": [
+      "lower_back"
+    ],
+    "title": "Lower back discomfort",
+    "overview": "Back pain is common and its cause is not always clear.",
+    "symptoms": [
+      "Back pain",
+      "Discomfort during daily activities"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Stay gently active as tolerated; avoid prolonged bed rest."
+    ],
+    "whenToSeekHelp": [
+      "Seek care if pain worsens or limits daily activities. New bladder or bowel changes with back pain require emergency help."
+    ],
+    "sourceIds": [
+      "nhs-back"
+    ],
+    "contentStatus": "editorial_draft"
+  },
+  {
+    "id": "back-strain",
+    "regionIds": [
+      "lower_back"
+    ],
+    "title": "Back muscle strain information",
+    "overview": "A pulled muscle can cause back pain, though other conditions can cause similar symptoms.",
+    "symptoms": [
+      "Pain after activity"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Stop exercises that worsen symptoms and seek advice."
+    ],
+    "whenToSeekHelp": [
+      "Seek emergency help for back pain after a serious accident or with new symptoms in both legs."
+    ],
+    "sourceIds": [
+      "nhs-back"
+    ],
+    "contentStatus": "editorial_draft"
+  },
+  {
+    "id": "knee-overview",
+    "regionIds": [
+      "left_knee",
+      "right_knee"
+    ],
+    "title": "Knee discomfort",
+    "overview": "Knee pain may follow twisting or overuse, but several joint conditions can cause similar discomfort.",
+    "symptoms": [
+      "Pain",
+      "Swelling"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce prolonged standing and painful loading."
+    ],
+    "whenToSeekHelp": [
+      "Inability to bear weight, marked swelling or a hot joint with fever needs urgent assessment."
+    ],
+    "sourceIds": [
+      "nhs-knee"
+    ],
+    "contentStatus": "editorial_draft"
+  },
+  {
+    "id": "knee-tendon-irritation",
+    "regionIds": [
+      "left_knee",
+      "right_knee"
+    ],
+    "title": "Knee tendon irritation",
+    "overview": "Repeated jumping or running can be associated with pain between the kneecap and shin.",
+    "symptoms": [
+      "Pain below the kneecap"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce aggravating loading while seeking appropriate advice."
+    ],
+    "whenToSeekHelp": [
+      "Seek assessment for persistent pain, locking or giving way."
+    ],
+    "sourceIds": [
+      "nhs-knee"
+    ],
+    "contentStatus": "editorial_draft"
+  },
+  {
+    "id": "ankle-overview",
+    "regionIds": [
+      "left_ankle",
+      "right_ankle"
+    ],
+    "title": "Ankle discomfort",
+    "overview": "Ankle pain may follow exercise or footwear pressure; an injury may also need examination.",
+    "symptoms": [
+      "Pain",
+      "Swelling"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Rest from aggravating activity and use comfortable footwear."
+    ],
+    "whenToSeekHelp": [
+      "Severe pain, an abnormal shape or inability to walk needs urgent assessment."
+    ],
+    "sourceIds": [
+      "nhs-ankle"
+    ],
+    "contentStatus": "editorial_draft"
+  },
+  {
+    "id": "ankle-sprain",
+    "regionIds": [
+      "left_ankle",
+      "right_ankle"
+    ],
+    "title": "Ankle sprain information",
+    "overview": "Swelling and bruising after exercise can occur with a sprain. These symptoms do not exclude a fracture.",
+    "symptoms": [
+      "Swelling or bruising"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Rest and elevate the ankle when comfortable."
+    ],
+    "whenToSeekHelp": [
+      "Seek medical advice if pain worsens, recurs or interferes with normal activity."
+    ],
+    "sourceIds": [
+      "nhs-ankle"
+    ],
+    "contentStatus": "editorial_draft"
+  }
+]
 

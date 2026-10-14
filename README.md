@@ -6,7 +6,7 @@ Synapp is a proposed class project for lifters, athletes, and people with active
 
 The defining feature is a polished visual experience: an inviting body model, expressive colors, smooth transitions, and useful information that is easy to explore.
 
-> Status: initial scaffold. React/TypeScript and Swift/Vapor source structures are present; dependencies and builds still need verification. The 3D model, reviewed content, and AI integration are not implemented. Synapp is a working name.
+> Status: interactive frontend and MVP backend implemented. The frontend includes a procedural 3D figure, light/dark themes, educational panels and a library companion. Swift compilation and runtime tests still need verification on a supported toolchain. Clinical review and external AI integration remain outstanding. Synapp is a working name.
 
 Confirmed constraints: a four-person team, a React + TypeScript frontend, and a Swift backend. UI library choices below are recommendations pending team selection.
 
@@ -48,16 +48,16 @@ Defer accounts, saved health histories, wearable integrations, photo analysis, d
 
 ## Visual direction
 
-Aim for a premium sports and wellness experience with a calm, readable information surface.
+The current frontend uses a bright wellness palette with lavender, lime and coral accents, plus a persistent dark-mode option. The interactive figure is a project-owned, stylized Three.js model, not clinical anatomical imagery.
 
 | Role | Starting color | Use |
 | --- | --- | --- |
-| Background | Midnight navy `#0B1220` | Main canvas and body stage |
-| Surface | Slate `#162235` | Cards and panels |
-| Primary accent | Teal `#2DD4BF` | Selection and primary actions |
-| Secondary accent | Lavender `#A78BFA` | Supporting highlights |
-| Main text | Off-white `#F8FAFC` | Headings and body copy |
-| Attention | Amber `#FBBF24` | Important guidance, paired with text and an icon |
+| Background | Cloud `#F7F8FA` | Main page |
+| Surface | White `#FFFFFF` | Cards and panels |
+| Primary accent | Violet `#7853E8` | Selection and primary actions |
+| Secondary accent | Lime `#D9F69B` | Supporting highlights |
+| Main text | Ink `#24243E` | Headings and body copy |
+| Attention | Soft coral `#FFEDE4` | Help-seeking guidance |
 
 These are starting tokens, not verified accessible color combinations. Check contrast for each actual text/background pairing.
 
@@ -182,7 +182,7 @@ Synapp/
 
 The directories above are present. Frontend features live under `frontend/src/features/`; shared components, API helpers, types, and styles have separate folders. See [development setup](docs/development.md) for run commands and [the API contract](docs/api.md) for current endpoint behavior.
 
-The starter frontend offers region selection and attempts to connect to the Swift API through Vite. If the backend is unavailable, it explicitly labels its local preview. Topic endpoints currently return no published content, and valid guidance requests return HTTP 503 until the AI service is implemented.
+The frontend offers clickable 3D regions, a keyboard-accessible selector, overview/symptom/care tabs, source links, and a library companion. Topic panels request the Swift API through Vite and fall back to the same bundled editorial content when it is unavailable. The companion uses local library summaries; AI is explicitly disabled pending provider selection. The backend's structured screening/guidance endpoint remains available for a future symptom form. See [frontend notes](frontend/README.md) and [backend setup](backend/README.md).
 
 ## AI behavior and content quality
 
