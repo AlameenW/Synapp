@@ -30,20 +30,20 @@ final class BackendTests: XCTestCase, @unchecked Sendable {
 
     func testHealthRegionsAndSources() async throws {
         try await withApp { app in
-            try await app.test(.GET, "/api/health") { response in
+            try await app.test(.GET, "/api/health") { response async throws in
                 XCTAssertEqual(response.status, .ok)
                 XCTAssertEqual(response.headers.first(name: "Cache-Control"), "no-store")
                 XCTAssertNotNil(response.headers.first(name: "X-Request-ID"))
             }
-            try await app.test(.GET, "/api/ready") { response in
+            try await app.test(.GET, "/api/ready") { response async throws in
                 XCTAssertEqual(response.status, .ok)
                 XCTAssertTrue(response.body.string.contains("\"aiEnabled\":false"))
             }
-            try await app.test(.GET, "/api/regions") { response in
+            try await app.test(.GET, "/api/regions") { response async throws in
                 let regions = try response.content.decode([BodyRegion].self)
                 XCTAssertEqual(regions.count, 11)
             }
-            try await app.test(.GET, "/api/sources/nhs-knee") { response in
+            try await app.test(.GET, "/api/sources/nhs-knee") { response async throws in
                 XCTAssertEqual(try response.content.decode(HealthSource.self).publisher, "NHS")
             }
         }
@@ -51,24 +51,24 @@ final class BackendTests: XCTestCase, @unchecked Sendable {
 
     func testTopicsAreLinkedToCorrectRegionAndSearchIsPaginated() async throws {
         try await withApp { app in
-            try await app.test(.GET, "/api/regions/right_knee/topics") { response in
+            try await app.test(.GET, "/api/regions/right_knee/topics") { response async throws in
                 let topics = try response.content.decode([Topic].self)
                 XCTAssertEqual(topics.count, 2)
                 XCTAssertTrue(topics.allSatisfy { $0.regionIds.contains("right_knee") })
                 XCTAssertTrue(topics.allSatisfy { !$0.sourceIds.isEmpty })
             }
-            try await app.test(.GET, "/api/topics?regionId=right_knee&limit=1&offset=1") { response in
+            try await app.test(.GET, "/api/topics?regionId=right_knee&limit=1&offset=1") { response async throws in
                 let page = try response.content.decode(TopicPage.self)
                 XCTAssertEqual(page.total, 2)
                 XCTAssertEqual(page.items.count, 1)
                 XCTAssertEqual(page.offset, 1)
             }
-            try await app.test(.GET, "/api/topics?q=gripping") { response in
+            try await app.test(.GET, "/api/topics?q=gripping") { response async throws in
                 let page = try response.content.decode(TopicPage.self)
                 XCTAssertGreaterThan(page.total, 0)
                 XCTAssertLessThan(page.total, 12)
             }
-            try await app.test(.GET, "/api/topics?offset=99999") { response in
+            try await app.test(.GET, "/api/topics?offset=99999") { response async throws in
                 XCTAssertTrue(try response.content.decode(TopicPage.self).items.isEmpty)
             }
         }
@@ -78,23 +78,23 @@ final class BackendTests: XCTestCase, @unchecked Sendable {
         try await withApp { app in
             for path in ["/api/regions/missing", "/api/regions/missing/topics", "/api/topics/missing",
                          "/api/sources/missing", "/api/missing"] {
-                try await app.test(.GET, path) { response in
+                try await app.test(.GET, path) { response async throws in
                     XCTAssertEqual(response.status, .notFound)
                     XCTAssertTrue(try response.content.decode(ErrorBody.self).error)
                 }
             }
             for path in ["/api/topics?limit=0", "/api/topics?offset=-1", "/api/topics?limit=abc",
                          "/api/topics?regionId=missing"] {
-                try await app.test(.GET, path) { response in XCTAssertEqual(response.status, .badRequest) }
+                try await app.test(.GET, path) { response async throws in XCTAssertEqual(response.status, .badRequest) }
             }
         }
     }
 
     func testGuidanceWithoutScreeningRequestsInformation() async throws {
         try await withApp { app in
-            try await app.test(.POST, "/api/guidance", beforeRequest: { request in
+            try await app.test(.POST, "/api/guidance", beforeRequest: { request async throws in
                 try request.content.encode(GuidanceInput(regionId: "right_knee", description: "Pain after running"))
-            }, afterResponse: { response in
+            }, afterResponse: { response async throws in
                 XCTAssertEqual(response.status, .ok)
                 let guidance = try response.content.decode(GuidanceResponse.self)
                 XCTAssertEqual(guidance.disposition, "needs_more_information")
@@ -109,9 +109,9 @@ final class BackendTests: XCTestCase, @unchecked Sendable {
     func testEducationalGuidanceDoesNotClaimToDiagnose() async throws {
         let answers = screening()
         try await withApp { app in
-            try await app.test(.POST, "/api/guidance", beforeRequest: { request in
+            try await app.test(.POST, "/api/guidance", beforeRequest: { request async throws in
                 try request.content.encode(GuidanceInput(regionId: "right_knee", description: "Pain after running", screening: answers))
-            }, afterResponse: { response in
+            }, afterResponse: { response async throws in
                 let guidance = try response.content.decode(GuidanceResponse.self)
                 XCTAssertEqual(guidance.mode, "educational")
                 XCTAssertEqual(guidance.disposition, "not_assessed")
@@ -126,9 +126,9 @@ final class BackendTests: XCTestCase, @unchecked Sendable {
     func testEmergencySignsSuppressLibraryCare() async throws {
         let answers = screening(chest: .yes)
         try await withApp { app in
-            try await app.test(.POST, "/api/guidance", beforeRequest: { request in
+            try await app.test(.POST, "/api/guidance", beforeRequest: { request async throws in
                 try request.content.encode(GuidanceInput(regionId: "right_knee", description: "Pain", screening: answers))
-            }, afterResponse: { response in
+            }, afterResponse: { response async throws in
                 let guidance = try response.content.decode(GuidanceResponse.self)
                 XCTAssertEqual(guidance.disposition, "emergency")
                 XCTAssertTrue(guidance.topics.isEmpty)
@@ -160,27 +160,27 @@ final class BackendTests: XCTestCase, @unchecked Sendable {
                 GuidanceInput(regionId: "right_knee", description: "Pain", activity: String(repeating: "a", count: 201))
             ]
             for input in invalid {
-                try await app.test(.POST, "/api/guidance", beforeRequest: { request in
+                try await app.test(.POST, "/api/guidance", beforeRequest: { request async throws in
                     try request.content.encode(input)
-                }, afterResponse: { response in
+                }, afterResponse: { response async throws in
                     XCTAssertEqual(response.status, .badRequest)
                     XCTAssertTrue(try response.content.decode(ErrorBody.self).error)
                 })
             }
             try await app.test(.POST, "/api/guidance",
-                               headers: ["Content-Type": "application/json"], body: ByteBuffer(string: "{bad")) { response in
+                               headers: ["Content-Type": "application/json"], body: ByteBuffer(string: "{bad")) { response async throws in
                 XCTAssertEqual(response.status, .badRequest)
                 XCTAssertFalse(response.body.string.contains("{bad"))
             }
-            try await app.test(.POST, "/api/guidance", body: ByteBuffer(string: "text")) { response in
+            try await app.test(.POST, "/api/guidance", body: ByteBuffer(string: "text")) { response async throws in
                 XCTAssertEqual(response.status, .unsupportedMediaType)
             }
             try await app.test(.POST, "/api/guidance", headers: ["Content-Type": "application/json"],
-                               body: ByteBuffer(string: String(repeating: "x", count: 17000))) { response in
+                               body: ByteBuffer(string: String(repeating: "x", count: 17000))) { response async throws in
                 XCTAssertEqual(response.status, .payloadTooLarge)
             }
             try await app.test(.POST, "/api/guidance",
-                               headers: ["Content-Type": "application/json"], body: ByteBuffer(string: "{\"regionId\":\"right_knee\",\"description\":\"Pain\",\"screening\":{}}")) { response in
+                               headers: ["Content-Type": "application/json"], body: ByteBuffer(string: "{\"regionId\":\"right_knee\",\"description\":\"Pain\",\"screening\":{}}")) { response async throws in
                 XCTAssertEqual(response.status, .badRequest)
             }
         }
@@ -189,12 +189,12 @@ final class BackendTests: XCTestCase, @unchecked Sendable {
     func testRateLimitAndRetryHeader() async throws {
         try await withApp(limit: 1) { app in
             let input = GuidanceInput(regionId: "right_knee", description: "Pain")
-            try await app.test(.POST, "/api/guidance", beforeRequest: { request in
+            try await app.test(.POST, "/api/guidance", beforeRequest: { request async throws in
                 try request.content.encode(input)
-            }, afterResponse: { response in XCTAssertEqual(response.status, .ok) })
-            try await app.test(.POST, "/api/guidance", beforeRequest: { request in
+            }, afterResponse: { response async throws in XCTAssertEqual(response.status, .ok) })
+            try await app.test(.POST, "/api/guidance", beforeRequest: { request async throws in
                 try request.content.encode(input)
-            }, afterResponse: { response in
+            }, afterResponse: { response async throws in
                 XCTAssertEqual(response.status, .tooManyRequests)
                 XCTAssertNotNil(response.headers.first(name: "Retry-After"))
             })
@@ -219,10 +219,10 @@ final class BackendTests: XCTestCase, @unchecked Sendable {
         try await withApp { app in
             try await app.test(.OPTIONS, "/api/guidance", headers: [
                 "Origin": "http://localhost:5173", "Access-Control-Request-Method": "POST"
-            ]) { response in
+            ]) { response async throws in
                 XCTAssertEqual(response.headers.first(name: "Access-Control-Allow-Origin"), "http://localhost:5173")
             }
-            try await app.test(.GET, "/api/regions", headers: ["Origin": "https://untrusted.example"]) { response in
+            try await app.test(.GET, "/api/regions", headers: ["Origin": "https://untrusted.example"]) { response async throws in
                 XCTAssertNil(response.headers.first(name: "Access-Control-Allow-Origin"))
             }
         }
