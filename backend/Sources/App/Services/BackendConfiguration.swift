@@ -6,6 +6,10 @@ struct BackendConfiguration: Sendable {
     var allowedOrigins: [String] = ["http://localhost:5173", "http://127.0.0.1:5173"]
     var guidanceLimit = 20
     var rateWindowSeconds = 60
+    /// Gemini API key for Tendi. nil means AI is off and Tendi uses the saved library.
+    var geminiApiKey: String? = nil
+    var geminiModel = "gemini-3.5-flash-lite"
+    var chatLimit = 10
 
     static func environment(workingDirectory: String) throws -> BackendConfiguration {
         let base = URL(fileURLWithPath: workingDirectory, isDirectory: true)
@@ -39,6 +43,21 @@ struct BackendConfiguration: Sendable {
                 throw ConfigurationError.invalid("GUIDANCE_REQUESTS_PER_MINUTE must be 1–1000.")
             }
             configuration.guidanceLimit = value
+        }
+        if let key = Environment.get("GEMINI_API_KEY")?.trimmingCharacters(in: .whitespacesAndNewlines), !key.isEmpty {
+            configuration.geminiApiKey = key
+        }
+        if let model = Environment.get("GEMINI_MODEL")?.trimmingCharacters(in: .whitespacesAndNewlines), !model.isEmpty {
+            guard model.range(of: "^[a-z0-9.-]{1,80}$", options: .regularExpression) != nil else {
+                throw ConfigurationError.invalid("GEMINI_MODEL must look like gemini-3.5-flash-lite.")
+            }
+            configuration.geminiModel = model
+        }
+        if let limit = Environment.get("CHAT_REQUESTS_PER_MINUTE") {
+            guard let value = Int(limit), (1...1000).contains(value) else {
+                throw ConfigurationError.invalid("CHAT_REQUESTS_PER_MINUTE must be 1–1000.")
+            }
+            configuration.chatLimit = value
         }
         return configuration
     }

@@ -1,0 +1,7 @@
+/* Sidebar logo (top left) */
+:root { --brand-mark-line: #9f86f5; --brand-mark-dot: #b9e08a; }
+[data-theme="dark"] { --brand-mark-line: #b49aff; --brand-mark-dot: #c4ee8c; }
+.brand-symbol.brand-mark { background: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-size: 0; line-height: 0; transition: transform .25s; }
+.brand-symbol.brand-mark svg { width: 44px; height: 44px; }
+.brand-symbol.brand-mark:hover { transform: rotate(22.5deg); }
+.brand-symbol.brand-mark:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }

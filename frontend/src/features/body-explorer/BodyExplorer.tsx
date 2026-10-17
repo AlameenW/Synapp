@@ -1,7 +1,7 @@
 import { Component, lazy, Suspense, useState, type ReactNode } from 'react'
 import { Icon } from '@/components/Icon'
 import { Button } from '@/components/ui/button'
-import { previewRegions } from './preview-regions'
+import './explorer-layout.css'
 
 const BodyModel = lazy(() => import('./BodyModel'))
 class ModelBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
@@ -9,7 +9,7 @@ class ModelBoundary extends Component<{ children: ReactNode }, { failed: boolean
   static getDerivedStateFromError() { return { failed: true } }
   render() {
     return this.state.failed
-      ? <div className="model-fallback"><Icon name="body" size={64} /><h3>Explore at your own pace</h3><p>3D isn't available on this device. Every region is still available in the selector below.</p></div>
+      ? <div className="model-fallback"><Icon name="body" size={64} /><h3>Explore at your own pace</h3><p>3D isn't available on this device. You can still pick a body part with the buttons above or from the search page.</p></div>
       : this.props.children
   }
 }
@@ -22,7 +22,6 @@ export function BodyExplorer({ selectedId, onSelect, dark, back, setBack }: {
     <div className="stage-header"><span className="eyebrow">THE BODY AT A GLANCE</span><span className="live-label"><span /> Interactive 3D</span></div>
     <div className="body-stage">
       <div className="orbit-ring ring-one" /><div className="orbit-ring ring-two" />
-      <span className="stage-word" aria-hidden="true">YOU.</span>
       <div className="model-canvas">
         <ModelBoundary><Suspense fallback={<div className="model-fallback"><span className="loading-orbit" /><p>Bringing your body into view…</p></div>}>
           <BodyModel selectedId={selectedId} onSelect={onSelect} dark={dark} back={back} zoom={zoom} reset={reset} />
@@ -36,7 +35,6 @@ export function BodyExplorer({ selectedId, onSelect, dark, back, setBack }: {
       </div>
     </div>
     <div className="stage-bottom"><div className="segmented"><button onClick={() => setBack(false)} aria-pressed={!back}>Front</button><button onClick={() => setBack(true)} aria-pressed={back}>Back</button></div><span><Icon name="rotate" size={13} /> Drag to rotate</span></div>
-    <div className="accessible-region"><label htmlFor="region-select">Or choose a region</label><select id="region-select" value={selectedId} onChange={event => onSelect(event.target.value)}>{previewRegions.map(region => <option key={region.id} value={region.id}>{region.name}</option>)}</select></div>
     <p className="anatomy-caption">Stylized anatomy · Left and right refer to your body</p>
   </section>
 }

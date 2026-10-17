@@ -1,0 +1,3 @@
+/* Let the 3D stage grow to fill the panel now that the region dropdown is gone */
+.workspace > .anatomy-panel { display: flex; flex-direction: column; }
+.workspace > .anatomy-panel > .body-stage { flex: 1 1 auto; }

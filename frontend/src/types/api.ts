@@ -63,3 +63,17 @@ export interface GuidanceResponse {
   limitations: string[]
 }
 
+
+export interface ChatTurn { role: 'user' | 'assistant'; text: string }
+export interface ChatRequest { regionId: string; message: string; history?: ChatTurn[] }
+/** mode: "ai" = Gemini wrote it, "library" = saved summary fallback, "safety" = warning-sign message (no AI call),
+ *  "off_topic" = the question wasn't about health or the body, so Tendi politely declined. */
+export interface ChatResponse {
+  mode: 'ai' | 'library' | 'safety' | 'off_topic'
+  aiEnabled: boolean
+  regionId: string
+  reply: string
+  sourceIds: string[]
+  notice?: string
+}
+export interface Readiness { status: string; aiEnabled: boolean; aiProvider?: string }

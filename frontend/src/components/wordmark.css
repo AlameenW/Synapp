@@ -1,0 +1,7 @@
+/* synapp logo in the header */
+:root { --wordmark-eye: #7f5ae8; --wordmark-spark: #7cbf3f; }
+[data-theme="dark"] { --wordmark-eye: #a88bff; --wordmark-spark: #c4ee8c; }
+.wordmark.brand-wordmark { display: inline-flex; align-items: baseline; text-decoration: none; color: var(--foreground); white-space: nowrap; }
+.wordmark.brand-wordmark > span { font-size: inherit; vertical-align: baseline; margin: 0; }
+.wordmark.brand-wordmark > .wordmark-eye { width: .95em; height: .68em; margin: 0 .01em; align-self: center; position: relative; top: .09em; flex-shrink: 0; }
+.wordmark.brand-wordmark > .wordmark-star { color: var(--primary); font-size: .55em; align-self: flex-start; margin-left: .06em; line-height: 1; position: relative; top: .1em; }
