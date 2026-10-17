@@ -65,7 +65,7 @@ export function TopicPanel({ regionId, regionName, onAsk }: { regionId: string; 
         </motion.div>
       </AnimatePresence>
     </div>
-    <button className="ask-region" onClick={() => onAsk('Help me understand ' + regionName.toLowerCase())}><Icon name="spark" size={17} /> Explore with your assistant <Icon name="arrow" size={17} /></button>
+    <button className="ask-region" onClick={() => onAsk('Help me understand ' + regionName.toLowerCase())}><Icon name="spark" size={17} /> Ask Tendi about this <Icon name="arrow" size={17} /></button>
     <div className="source-row"><Icon name="book" size={13} /><span>{saved ? 'Saved library' : 'Library'} · Educational draft</span>{sourceIds.map(id => {
       const source = sources.find(item => item.id === id)
       return source ? <a key={id} href={source.url} target="_blank" rel="noreferrer">{source.publisher} <Icon name="external" size={11} /></a> : null

@@ -38,12 +38,13 @@ struct APIMiddleware: AsyncMiddleware {
 
 struct GuidanceRateLimitMiddleware: AsyncMiddleware {
     let limiter: RateLimiter
+    var reason = "Too many guidance requests. Try again later."
 
     func respond(to request: Request, chainingTo next: any AsyncResponder) async throws -> Response {
         // Do not trust X-Forwarded-For from arbitrary callers.
         let key = request.remoteAddress?.ipAddress ?? "local"
         if let retryAfter = await limiter.consume(key: key) {
-            throw APIError(.tooManyRequests, "rate_limited", "Too many guidance requests. Try again later.", retryAfter: retryAfter)
+            throw APIError(.tooManyRequests, "rate_limited", reason, retryAfter: retryAfter)
         }
         return try await next.respond(to: request)
     }

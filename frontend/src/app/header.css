@@ -1,0 +1,6 @@
+/* Header: the "How it works" help button next to the theme toggle */
+.header-actions .help-toggle { font-size: 16px; font-weight: 650; color: var(--soft-text); }
+.header-actions .help-toggle:hover { border-color: var(--primary); color: var(--primary); }
+.header-actions { gap: 10px; }
+/* The sidebar's "?" moved to the header, so keep "MOVE WELL." pinned to the bottom. */
+.side-rail .rail-bottom { margin-top: auto; }
