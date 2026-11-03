@@ -6,7 +6,7 @@ Synapp is a proposed class project for lifters, athletes, and people with active
 
 The defining feature is a polished visual experience: an inviting body model, expressive colors, smooth transitions, and useful information that is easy to explore.
 
-> Status: interactive frontend and MVP backend implemented. The frontend includes a procedural 3D figure, light/dark themes, educational panels and a library companion. Swift compilation and runtime tests still need verification on a supported toolchain. Clinical review and external AI integration remain outstanding. Synapp is a working name.
+> Status: interactive frontend and MVP backend implemented. The frontend includes MakeHuman surface and Z-Anatomy muscle views, light/dark themes, educational panels and a library companion. Swift compilation and runtime tests still need verification on a supported toolchain. Clinical review and external AI integration remain outstanding. Synapp is a working name.
 
 Confirmed constraints: a four-person team, a React + TypeScript frontend, and a Swift backend. UI library choices below are recommendations pending team selection.
 
@@ -34,7 +34,7 @@ The educational library should remain usable when AI is unavailable.
 
 | Feature | Initial scope |
 | --- | --- |
-| Interactive body | One stylized model with shoulder, elbow, wrist, lower back, knee, and ankle regions; left/right selection where applicable |
+| Interactive body | MakeHuman surface and Z-Anatomy muscle views with shoulder, elbow, wrist, lower back, knee, and ankle regions; left/right selection where applicable |
 | Navigation | Rotate, zoom within limits, reset view, and front/back controls |
 | Selection feedback | Hover label, visible selected region, and a synchronized information panel |
 | Topic library | Two or three curated topics per region, with references and content review dates |
@@ -48,7 +48,7 @@ Defer accounts, saved health histories, wearable integrations, photo analysis, d
 
 ## Visual direction
 
-The current frontend uses a bright wellness palette with lavender, lime and coral accents, plus a persistent dark-mode option. The interactive figure is a project-owned, stylized Three.js model, not clinical anatomical imagery.
+The current frontend uses a bright wellness palette with lavender, lime and coral accents, plus a persistent dark-mode option. The viewer offers a MakeHuman surface and a Z-Anatomy muscle atlas. These are illustrative models with different proportions and poses, not matched layers of one person. Source credits, licenses and reproducible asset preparation are documented in `frontend/public/models/README.md`.
 
 | Role | Starting color | Use |
 | --- | --- | --- |

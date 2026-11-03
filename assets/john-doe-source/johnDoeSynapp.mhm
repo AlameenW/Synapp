@@ -1,0 +1,39 @@
+# Written by MakeHuman 1.2.1 alpha
+version v1.2.1
+name johnDoeSynapp
+camera 16.5 183.0 0.050561565696676906 1.0 -0.25211141442790963 1.0625
+modifier head/head-age-decr|incr 0.102000
+modifier head/head-angle-in|out -0.042000
+modifier head/head-fat-decr|incr -0.342000
+modifier head/head-oval 0.509000
+modifier head/head-invertedtriangular 0.072000
+modifier torso/torso-scale-depth-decr|incr 0.234000
+modifier torso/torso-scale-horiz-decr|incr 0.138000
+modifier torso/torso-scale-vert-decr|incr -0.006000
+modifier torso/torso-trans-down|up -0.042000
+modifier torso/torso-trans-backward|forward -0.126000
+modifier torso/torso-vshape-decr|incr -0.090000
+modifier torso/torso-muscle-dorsi-decr|incr -0.030000
+modifier armslegs/r-hand-scale-decr|incr -0.150000
+modifier armslegs/r-hand-trans-in|out 1.000000
+modifier breast/BreastSize 0.500000
+modifier breast/BreastFirmness 0.500000
+modifier macrodetails/Gender 1.000000
+modifier macrodetails/Age 0.557000
+modifier macrodetails/African 0.120000
+modifier macrodetails/Asian 0.029031
+modifier macrodetails/Caucasian 0.850969
+modifier macrodetails-universal/Muscle 1.000000
+modifier macrodetails-universal/Weight 0.737000
+modifier macrodetails-height/Height 0.599000
+modifier macrodetails-proportions/BodyProportions 0.593000
+modifier measure/measure-neck-height-decr|incr 0.054000
+hair short04 e09bfd91-f83f-4f9a-ba8c-4635cd1ae0d8
+eyebrows eyebrow001 9c81ec3a-faa5-4c94-9cdb-992300ba3084
+eyes HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6
+clothesHideFaces True
+skinMaterial skins/young_caucasian_male/young_caucasian_male.mhmat
+material short04 e09bfd91-f83f-4f9a-ba8c-4635cd1ae0d8 short04.mhmat
+material HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6 eyes/materials/brown.mhmat
+material eyebrow001 9c81ec3a-faa5-4c94-9cdb-992300ba3084 eyebrow001.mhmat
+subdivide False

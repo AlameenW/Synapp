@@ -1,0 +1,37 @@
+[
+  {
+    "file": "makehuman-body.glb",
+    "license": "CC0-1.0",
+    "referenceModel": "assets/john-doe-source/johnDoeSynapp.mhm",
+    "referenceSha256": "58741f74682d4b2f46c387249996c8a2b3f32d8bba871612ccdc0d883916c995",
+    "sourceObjSha256": "2d9ee39a2b33707b3144316e580eb8b658571e23ae6fa187a2bd3ed7b96740f8",
+    "sha256": "3593281248707d4e7c43cdbaa2a12c15cdb87bde95073f957a299ebc453a306c",
+    "bytes": 2218972
+  },
+  {
+    "file": "makehuman-hair.glb",
+    "license": "CC0-1.0",
+    "referenceModel": "assets/john-doe-source/johnDoeSynapp.mhm",
+    "referenceSha256": "58741f74682d4b2f46c387249996c8a2b3f32d8bba871612ccdc0d883916c995",
+    "sourceObjSha256": "2d9ee39a2b33707b3144316e580eb8b658571e23ae6fa187a2bd3ed7b96740f8",
+    "sha256": "24afb765bfd4669e0c17bab0a8ceacc89cf41ac2df18e99ef531fe9c9eb1d759",
+    "bytes": 869140
+  },
+  {
+    "file": "makehuman-shorts.glb",
+    "license": "CC0-1.0",
+    "referenceModel": "assets/john-doe-source/johnDoeSynapp.mhm",
+    "referenceSha256": "58741f74682d4b2f46c387249996c8a2b3f32d8bba871612ccdc0d883916c995",
+    "sourceObjSha256": "2d9ee39a2b33707b3144316e580eb8b658571e23ae6fa187a2bd3ed7b96740f8",
+    "sha256": "59d3e3b3b66f1e9b0f302ceed15dc693ae3452bea31a0576b144b603334226f1",
+    "bytes": 27784
+  },
+  {
+    "file": "z-anatomy-muscles.glb",
+    "license": "CC-BY-SA-4.0",
+    "sourceCommit": "4120ee68b6604b8f2f69105d6de6166fad4734c4",
+    "sha256": "d80bebc4045069b660ca8e7afe599d76d15ccc7d96410b3727c600ef01d24e54",
+    "bytes": 2545068,
+    "changes": "File unchanged"
+  }
+]
