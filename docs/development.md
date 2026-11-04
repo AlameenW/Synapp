@@ -66,3 +66,19 @@ External AI is intentionally deferred. Implement `GuidanceProviding` when select
 
 Production deployment still needs clinical review, HTTPS, operational monitoring and ingress limits appropriate to the audience. There are no accounts or persisted health histories in this MVP.
 
+
+## Guided exploration
+
+The library contains 51 issue pages covering all 37 selectable locations, supported by 38 source records. NHS, Cambridge University Hospitals and AAOS OrthoInfo summaries remain editorial drafts awaiting clinical review. Symptoms and care are grouped by issue so information from different conditions is not mixed into one treatment list.
+
+`content/exploration.json` version 2 defines 21 area profiles with 77 conditional follow-ups. Each path starts with an area-specific symptom choice, then asks only relevant questions. A `when` condition references an earlier active question and its selected option IDs; nested branches are supported. The browser removes stale child answers when an earlier answer changes. Swift independently calculates the active path and rejects missing or off-path answers.
+
+Each profile has source-linked topic comparisons. Explicit supporting observations and less-typical answers are returned beside each issue. A “closer” match requires at least two distinct supporting questions and no reported differences in that comparison; other overlaps remain “possible”. Results sort closer matches first, then fewer reported differences, then more supporting observations; equal comparisons retain the same label. This is an editorial feature comparison, not a validated diagnostic algorithm or a probability estimate. Duration or symptom uncertainty alone cannot manufacture a condition match. All library issues remain browsable.
+
+Ordinary symptom uncertainty leaves a detail unknown. Confirmed warning signs and explicit uncertainty about an urgent warning sign interrupt the flow. Normal results show condition-specific care, with routine-appointment language for ongoing or disruptive symptoms rather than an emergency message. Chest symptoms and focused shin pain retain their specific assessment advice.
+
+Warning signs and uncertainty about them interrupt the question flow. The browser displays the selected source-linked warning immediately, including when offline; the Swift API also enforces warning precedence for direct API callers. Incomplete or contradictory answers are rejected. The warning list is incomplete and is not validated triage.
+
+Questionnaire answers are not persisted or logged. This feature does not call an AI provider. The optional Tendi button prepares a draft; the user must press Send before its contents reach Tendi. If the Swift service is unavailable, the browser retains the answers and library but does not invent tailored results.
+
+Restart the Swift service after content changes. Both Vite development and preview forward `/api` to `127.0.0.1:8080`.

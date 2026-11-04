@@ -1,14 +1,16 @@
-/* Let the 3D stage grow to fill the panel now that the region dropdown is gone */
+/* Let the 3D stage grow with the information panel. */
 .workspace > .anatomy-panel { display: flex; flex-direction: column; }
 .workspace > .anatomy-panel > .body-stage { flex: 1 1 auto; }
 .anatomy-panel .stage-header { position: relative; padding-bottom: 12px; }
 .model-views { align-self: center; position: relative; z-index: 21; margin: 0 20px 8px; }
 .anatomy-panel .model-canvas { inset: 0; }
 .body-model-root { height: 100%; position: relative; }
-.model-marker-layer { position: absolute; inset: 0; pointer-events: none; }
-.model-marker-layer .body-pin { position: absolute; top: 0; left: 0; pointer-events: auto; }
-.model-marker-layer .body-pin[hidden] { display: none; }
-.model-marker-layer .pin-label { pointer-events: none; }
+/* Labels stay outside the model; hover and selection are drawn on its mesh. */
+.body-interaction-hint { margin: 3px 20px 8px; text-align: center; font-size: 10px; color: var(--soft-text); }
+.body-model-root[data-hovering=true] canvas { cursor: pointer; }
+.body-region-label { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); display: grid; gap: 3px; justify-items: center; padding: 7px 14px; border-radius: 9px; background: color-mix(in srgb, var(--card) 88%, transparent); color: var(--foreground); border: 1px solid var(--border); pointer-events: none; }
+.body-region-label > span { font-size: 7px; font-weight: 650; letter-spacing: 1.4px; color: var(--soft-text); }
+.body-region-label strong { font-size: 11px; font-weight: 600; white-space: nowrap; }
 .model-loading-overlay { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
 .model-loading { display: grid; justify-items: center; gap: 12px; color: var(--soft-text); font-size: 12px; white-space: nowrap; }
 .model-credits { margin: 0 22px 18px; color: var(--soft-text); font-size: 10px; line-height: 1.7; }

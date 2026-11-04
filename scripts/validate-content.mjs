@@ -9,9 +9,17 @@ const topics = read('content/topics.json')
 const sources = read('content/sources.json')
 const spec = read('docs/openapi.json')
 const example = read('docs/guidance-example.json')
-const regions = new Set(['shoulder', 'elbow', 'wrist', 'knee', 'ankle'].flatMap(
-  region => ['left_' + region, 'right_' + region],
-).concat('lower_back'))
+const areas = read('content/body-areas.json')
+const exploration = read('content/exploration.json')
+assert.equal(new Set(areas.map(area => area.id)).size, areas.length, 'Duplicate body area IDs')
+const regions = new Set(areas.flatMap(area => area.paired ? ['left_' + area.id, 'right_' + area.id] : [area.id]))
+const swiftRegions = readFileSync(resolve(root, 'backend/Sources/App/Models/BodyRegion.swift'), 'utf8')
+for (const [name, paired] of [['pairedAreas', true], ['midlineAreas', false]]) {
+  const declaration = swiftRegions.match(new RegExp('static let ' + name + ' = \\[([^\\]]+)\\]'))
+  assert(declaration, 'Missing Swift region catalog: ' + name)
+  const ids = [...declaration[1].matchAll(/"([a-z_]+)"/g)].map(match => match[1]).sort()
+  assert.deepEqual(ids, areas.filter(area => area.paired === paired).map(area => area.id).sort(), 'Swift and frontend region IDs differ')
+}
 
 function validate(value, schema, path = 'value') {
   if (schema.$ref) return validate(value, spec.components.schemas[schema.$ref.split('/').at(-1)], path)
@@ -58,6 +66,49 @@ for (const topic of topics) {
   }
 }
 assert.deepEqual(covered, regions, 'Some regions lack content')
+assert.equal(exploration.version, 2)
+assert.deepEqual(exploration.profiles.map(profile => profile.area).sort(), areas.map(area => area.id).sort(), 'Missing exploration profiles')
+assert.equal(new Set(exploration.warningSigns.map(warning => warning.id)).size, exploration.warningSigns.length)
+for (const warning of exploration.warningSigns) {
+  assert(['urgent', 'emergency'].includes(warning.level))
+  assert(warning.label && warning.action && warning.sourceIds.length)
+  warning.sourceIds.forEach(id => assert(sourceIDs.has(id), 'Unknown warning source ' + id))
+  warning.areas.forEach(id => assert(id === '*' || areas.some(area => area.id === id)))
+}
+for (const profile of exploration.profiles) {
+  const questionIds = new Set(profile.questions.map(question => question.id))
+  assert.equal(questionIds.size, profile.questions.length)
+  assert(['duration', 'impact', 'onset', 'pattern', 'trend'].every(id => questionIds.has(id)))
+  assert.equal(profile.questions[0].id, 'pattern')
+  assert(profile.questions.some(question => question.when), 'No adaptive branches: ' + profile.area)
+  const previous = new Map()
+  for (const question of profile.questions) {
+    assert.equal(new Set(question.options.map(option => option.id)).size, question.options.length)
+    assert(question.options.length >= 2 && question.options.every(option => option.label && option.id))
+    assert.equal(question.multiple, question.id === 'pattern')
+    if (question.when) {
+      assert(question.when.optionIds.length && question.when.optionIds.every(id => previous.get(question.when.questionId)?.has(id)), 'Invalid or cyclic branch: ' + question.id)
+    }
+    previous.set(question.id, new Set(question.options.map(option => option.id)))
+  }
+  const patternIds = new Set(profile.questions.find(question => question.id === 'pattern').options.map(option => option.id))
+  const relevant = topics.filter(topic => topic.regionIds.some(id => id === profile.area || id === 'left_' + profile.area || id === 'right_' + profile.area))
+  assert(relevant.length >= 2, 'Each area needs multiple issue pages: ' + profile.area)
+  assert(relevant.some(topic => (topic.explorationTags ?? []).some(tag => patternIds.has(tag))), 'No reading matches for ' + profile.area)
+  assert(profile.comparisons.length && new Set(profile.comparisons.map(item => item.topicId)).size === profile.comparisons.length)
+  for (const comparison of profile.comparisons) {
+    assert(relevant.some(topic => topic.id === comparison.topicId), 'Comparison outside region: ' + comparison.topicId)
+    assert(comparison.clues.length)
+    for (const condition of [...comparison.clues, ...comparison.lessTypical]) {
+      assert(condition.optionIds.length && condition.optionIds.every(id => !['other', 'unsure'].includes(id) && previous.get(condition.questionId)?.has(id)), 'Invalid comparison clue: ' + comparison.topicId)
+    }
+  }
+}
+for (const topic of topics) {
+  const profileAreas = new Set(topic.regionIds.map(id => id.replace(/^(left|right)_/, '')))
+  const ids = new Set(exploration.profiles.filter(profile => profileAreas.has(profile.area)).flatMap(profile => profile.questions.find(question => question.id === 'pattern').options.map(option => option.id)))
+  for (const tag of topic.explorationTags ?? []) assert(tag !== 'other' && ids.has(tag), 'Unknown exploration tag ' + topic.id + ': ' + tag)
+}
 for (const id of ['nhs-chest', 'nhs-back', 'nhs-sprains', 'nhs-knee']) {
   assert(sourceIDs.has(id), 'Missing screening source ' + id)
 }

@@ -56,7 +56,7 @@ final class ChatTests: XCTestCase, @unchecked Sendable {
                 XCTAssertEqual(chat.mode, "library")
                 XCTAssertFalse(chat.aiEnabled)
                 XCTAssertTrue(chat.reply.hasPrefix("From the right knee library:"))
-                XCTAssertEqual(chat.sourceIds, ["nhs-knee"])
+                XCTAssertEqual(chat.sourceIds, ["aaos-patellofemoral", "nhs-knee", "nhs-meniscus"])
             })
         }
     }
@@ -147,6 +147,18 @@ final class ChatTests: XCTestCase, @unchecked Sendable {
         XCTAssertTrue(text.contains("ONLY help with health and the human body"))
     }
 
+    func testExpandedAreasHaveCompanionLibrarySummaries() throws {
+        let companion = try service(nil)
+        for id in ["head", "neck", "abdomen", "upper_back", "left_chest", "right_upper_arm", "left_forearm", "right_hand", "left_hip", "right_glute", "left_thigh", "right_hamstring", "left_shin", "right_calf", "left_foot"] {
+            let region = BodyRegion.all.first { $0.id == id }!
+            let reply = companion.libraryReply(viewing: region, message: "Tell me about this", notice: "Test")
+            XCTAssertTrue(reply.reply.hasPrefix("From the \(region.name.lowercased()) library:"), id)
+            XCTAssertFalse(reply.sourceIds.isEmpty, id)
+        }
+        XCTAssertEqual(CompanionService.areasMentioned(in: "my forearm"), ["forearm"])
+        XCTAssertEqual(CompanionService.areasMentioned(in: "my hamstring"), ["hamstring"])
+    }
+
     func testInstructionsCoverTheWholeLibrary() throws {
         let library = try ContentLibrary(directory: contentDirectory)
         let region = BodyRegion.all.first { $0.id == "lower_back" }!
@@ -168,7 +180,8 @@ final class ChatTests: XCTestCase, @unchecked Sendable {
                                             client: app.client, logger: app.logger)
             XCTAssertEqual(ankle.mode, "library")
             XCTAssertTrue(ankle.reply.hasPrefix("From the ankle library:"))
-            XCTAssertEqual(ankle.sourceIds, ["nhs-ankle"])
+            XCTAssertTrue(ankle.sourceIds.contains("nhs-ankle"))
+            XCTAssertTrue(ankle.sourceIds.contains("aaos-achilles"))
 
             // No region at all and no body part named: Tendi asks which area.
             let general = await offline.reply(to: ChatInput(message: "How should I warm up?"),
@@ -182,7 +195,7 @@ final class ChatTests: XCTestCase, @unchecked Sendable {
             let reply = await ai.reply(to: ChatInput(regionId: "right_knee", message: "My arms ache after pull-ups"),
                                        client: app.client, logger: app.logger)
             XCTAssertEqual(reply.mode, "ai")
-            XCTAssertEqual(reply.sourceIds, ["nhs-elbow", "nhs-wrist"])
+            XCTAssertTrue(Set(["nhs-elbow", "nhs-wrist", "nhs-carpal"]).isSubset(of: Set(reply.sourceIds)))
         }
     }
 }

@@ -2,17 +2,11 @@ import { useMemo, useState } from 'react'
 import { motion } from 'motion/react'
 import { Icon } from '@/components/Icon'
 import { areaNames, localTopics } from '@/features/topics/library'
+import { bodyAreas, previewRegions } from '@/features/body-explorer/preview-regions'
 import './search.css'
 
 // Extra words people might type for each body area.
-const aliases: Record<string, string[]> = {
-  shoulder: ['arm', 'rotator cuff', 'collarbone'],
-  elbow: ['forearm', 'tennis', 'golfer'],
-  wrist: ['hand', 'carpal', 'grip'],
-  lower_back: ['back', 'spine', 'lumbar', 'hip'],
-  knee: ['leg', 'patella', 'kneecap'],
-  ankle: ['foot', 'heel', 'achilles'],
-}
+const aliases: Record<string, string[]> = Object.fromEntries(bodyAreas.map(area => [area.id, area.aliases]))
 
 interface Result { area: string; label: string; topics: string[]; match: string | null }
 
@@ -56,11 +50,8 @@ export function SearchPage({ onOpen }: { onOpen: (regionId: string) => void }) {
         {result.match && <p className="search-match">Matches “{result.match}”</p>}
         <ul className="search-topics">{result.topics.map(title => <li key={title}>{title}</li>)}</ul>
         <div className="search-sides">
-          {result.area === 'lower_back'
-            ? <button onClick={() => onOpen('lower_back')}>Explore lower back <Icon name="arrow" size={14} /></button>
-            : (['left', 'right'] as const).map(side => <button key={side} onClick={() => onOpen(side + '_' + result.area)}>
-              {side === 'left' ? 'Left' : 'Right'} {result.label.toLowerCase()} <Icon name="arrow" size={14} />
-            </button>)}
+          {previewRegions.filter(region => region.id === result.area || region.id === 'left_' + result.area || region.id === 'right_' + result.area).map(region =>
+            <button key={region.id} onClick={() => onOpen(region.id)}>{region.side === 'midline' ? 'Explore ' + region.name.toLowerCase() : region.name} <Icon name="arrow" size={14} /></button>)}
         </div>
       </motion.article>)}
     </div> : <div className="search-empty">

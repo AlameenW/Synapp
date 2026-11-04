@@ -25,7 +25,7 @@
     "title": "Back pain",
     "publisher": "NHS",
     "url": "https://www.nhs.uk/conditions/back-pain/",
-    "accessedOn": "2026-10-11"
+    "accessedOn": "2026-11-03"
   },
   {
     "id": "nhs-knee",
@@ -46,14 +46,223 @@
     "title": "Sprains and strains",
     "publisher": "NHS",
     "url": "https://www.nhs.uk/conditions/sprains-and-strains/",
-    "accessedOn": "2026-10-11"
+    "accessedOn": "2026-11-03"
   },
   {
     "id": "nhs-chest",
     "title": "Chest pain",
     "publisher": "NHS",
     "url": "https://www.nhs.uk/symptoms/chest-pain/",
-    "accessedOn": "2026-10-11"
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-head",
+    "title": "Headaches",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/headaches/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-neck",
+    "title": "Neck pain",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/neck-pain-and-stiff-neck/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-abdomen",
+    "title": "Stomach ache",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/stomach-ache/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-arm",
+    "title": "Elbow and arm pain",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/elbow-and-arm-pain/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-hand",
+    "title": "Pain in the palm of the hand",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/hand-pain/pain-in-the-palm-of-the-hand/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-hip",
+    "title": "Hip pain in adults",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/hip-pain/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-sciatica",
+    "title": "Sciatica",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/sciatica/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-hamstring",
+    "title": "Hamstring injury",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/hamstring-injury/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-shin",
+    "title": "Shin splints",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/shin-splints/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-dvt",
+    "title": "DVT (deep vein thrombosis)",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/deep-vein-thrombosis-dvt/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-foot",
+    "title": "Pain in the top of the foot",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/foot-pain/pain-in-the-top-of-the-foot/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-frozen",
+    "title": "Frozen shoulder",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/frozen-shoulder/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-bursitis",
+    "title": "Bursitis",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/bursitis/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-carpal",
+    "title": "Carpal tunnel syndrome",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/carpal-tunnel-syndrome/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-trigger",
+    "title": "Trigger finger",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/trigger-finger/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-meniscus",
+    "title": "Meniscus tear",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/meniscus-tear/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-plantar",
+    "title": "Plantar fasciitis",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/plantar-fasciitis/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-metatarsal",
+    "title": "Pain in the ball of the foot",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/symptoms/foot-pain/pain-in-the-ball-of-the-foot/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-tension",
+    "title": "Tension headaches",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/tension-headaches/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-migraine",
+    "title": "Migraine",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/migraine/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-costochondritis",
+    "title": "Costochondritis",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/costochondritis/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "nhs-indigestion",
+    "title": "Indigestion",
+    "publisher": "NHS",
+    "url": "https://www.nhs.uk/conditions/indigestion/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "aaos-biceps",
+    "title": "Biceps tendinitis",
+    "publisher": "AAOS OrthoInfo",
+    "url": "https://www.orthoinfo.org/diseases--conditions/biceps-tendinitis/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "aaos-neck",
+    "title": "Cervical radiculopathy",
+    "publisher": "AAOS OrthoInfo",
+    "url": "https://www.orthoinfo.org/diseases--conditions/cervical-radiculopathy-pinched-nerve/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "aaos-achilles",
+    "title": "Achilles tendinitis",
+    "publisher": "AAOS OrthoInfo",
+    "url": "https://www.orthoinfo.org/diseases--conditions/achilles-tendinitis/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "aaos-stress",
+    "title": "Stress fractures",
+    "publisher": "AAOS OrthoInfo",
+    "url": "https://www.orthoinfo.org/diseases--conditions/stress-fractures/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "aaos-thigh",
+    "title": "Muscle strains in the thigh",
+    "publisher": "AAOS OrthoInfo",
+    "url": "https://www.orthoinfo.org/diseases--conditions/muscle-strains-in-the-thigh/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "aaos-patellofemoral",
+    "title": "Patellofemoral pain syndrome",
+    "publisher": "AAOS OrthoInfo",
+    "url": "https://www.orthoinfo.org/diseases--conditions/patellofemoral-pain-syndrome/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "aaos-soft-tissue",
+    "title": "Sprains, strains and other soft-tissue injuries",
+    "publisher": "AAOS OrthoInfo",
+    "url": "https://www.orthoinfo.org/diseases--conditions/sprains-strains-and-other-soft-tissue-injuries/",
+    "accessedOn": "2026-11-03"
+  },
+  {
+    "id": "cuh-gluteal",
+    "title": "Gluteal tendinopathy",
+    "publisher": "Cambridge University Hospitals NHS",
+    "url": "https://www.cuh.nhs.uk/patient-information/gluteal-tendinopathy/",
+    "accessedOn": "2026-11-03"
   }
 ]
-

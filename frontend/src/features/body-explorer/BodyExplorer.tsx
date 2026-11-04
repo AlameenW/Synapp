@@ -2,7 +2,7 @@ import { Component, lazy, Suspense, useState, type ReactNode } from 'react'
 import { Icon } from '@/components/Icon'
 import { Button } from '@/components/ui/button'
 import './explorer-layout.css'
-import { previewRegions } from './preview-regions'
+import { bodyAreas, previewRegions, regionGroups } from './preview-regions'
 import type { BodyView } from './model-regions'
 
 const BodyModel = lazy(() => import('./BodyModel'))
@@ -15,8 +15,8 @@ class ModelBoundary extends Component<{ children: ReactNode }, { failed: boolean
       : this.props.children
   }
 }
-export function BodyExplorer({ selectedId, onSelect, dark, back, setBack }: {
-  selectedId: string; onSelect: (id: string) => void; dark: boolean; back: boolean; setBack: (back: boolean) => void
+export function BodyExplorer({ selectedId, onSelect, onPick, dark, back, setBack }: {
+  selectedId: string; onSelect: (id: string) => void; onPick: (id: string) => void; dark: boolean; back: boolean; setBack: (back: boolean) => void
 }) {
   const [zoom, setZoom] = useState(1)
   const [reset, setReset] = useState(0)
@@ -27,14 +27,15 @@ export function BodyExplorer({ selectedId, onSelect, dark, back, setBack }: {
       <button type="button" aria-pressed={view === 'surface'} onClick={() => setView('surface')}>Surface</button>
       <button type="button" aria-pressed={view === 'muscles'} onClick={() => setView('muscles')}>Muscles</button>
     </div>
+    <p className="body-interaction-hint">{previewRegions.length} areas · Hover to preview. Click or tap to select.</p>
     <div className="body-stage">
       <div className="orbit-ring ring-one" /><div className="orbit-ring ring-two" />
       <div className="model-canvas">
         <ModelBoundary key={view}><Suspense fallback={<div className="model-fallback"><span className="loading-orbit" /><p>Bringing your body into view…</p></div>}>
-          <BodyModel selectedId={selectedId} onSelect={onSelect} dark={dark} back={back} zoom={zoom} reset={reset} view={view} />
+          <BodyModel selectedId={selectedId} onSelect={onPick} dark={dark} back={back} zoom={zoom} reset={reset} view={view} />
         </Suspense></ModelBoundary>
       </div>
-      <div className="stage-note"><span className="mini-dot" />Tap a point.<br /><strong>Make a connection.</strong></div>
+      <div className="stage-note"><span className="mini-dot" />Explore an area.<br /><strong>Make a connection.</strong></div>
       <div className="zoom-controls">
         <Button variant="ghost" aria-label="Zoom in" disabled={zoom >= 1.25} onClick={() => setZoom(value => Math.min(1.25, value + .1))}><Icon name="plus" size={16} /></Button>
         <Button variant="ghost" aria-label="Zoom out" disabled={zoom <= .85} onClick={() => setZoom(value => Math.max(.85, value - .1))}><Icon name="minus" size={16} /></Button>
@@ -44,7 +45,7 @@ export function BodyExplorer({ selectedId, onSelect, dark, back, setBack }: {
     <div className="stage-bottom"><div className="segmented"><button onClick={() => setBack(false)} aria-pressed={!back}>Front</button><button onClick={() => setBack(true)} aria-pressed={back}>Back</button></div><span><Icon name="rotate" size={13} /> Drag to rotate</span></div>
     <label className="accessible-region">Choose a region
       <select value={selectedId} onChange={event => onSelect(event.target.value)} aria-label="Choose a body region">
-        {previewRegions.map(region => <option key={region.id} value={region.id}>{region.name}</option>)}
+        {regionGroups.map(group => <optgroup key={group} label={group}>{previewRegions.filter(region => bodyAreas.some(area => area.group === group && (region.id === area.id || region.id === 'left_' + area.id || region.id === 'right_' + area.id))).map(region => <option key={region.id} value={region.id}>{region.name}</option>)}</optgroup>)}
       </select>
     </label>
     <p className="anatomy-caption">{view === 'surface' ? 'MakeHuman surface' : 'Z-Anatomy muscles and skeleton'} · Left and right refer to your body<br />Illustrative models with different proportions · For education</p>

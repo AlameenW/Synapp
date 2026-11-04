@@ -8,7 +8,7 @@ Base path: `/api`. All responses are JSON. The Vite development proxy forwards t
 | --- | --- |
 | GET /api/health | Process liveness: status and service |
 | GET /api/ready | Loaded topic/source counts, content status and AI availability |
-| GET /api/regions | Array of 11 selectable regions |
+| GET /api/regions | Array of 37 selectable regions |
 | GET /api/regions/:id | One region; 404 when unknown |
 | GET /api/regions/:id/topics | Array of topics for the anatomical region |
 | GET /api/topics | Search and pagination |
@@ -97,3 +97,10 @@ The Gemini key is read from `GEMINI_API_KEY` on the server and never sent to the
 
 The warning-sign check is a keyword rule for a class project, not validated triage; no match does not mean symptoms are safe.
 
+
+## Guided exploration endpoints
+
+- `GET /api/regions/:id/exploration`: warning signs and a question profile for the anatomical region.
+- `POST /api/exploration`: JSON with `regionId`, `warningStatus` (`none`, `selected`, `unsure`), `warningSigns` (IDs), and `answers` (question IDs mapped to option-ID arrays).
+
+Selected warning signs or uncertainty return help guidance with no topic matches. Otherwise every answer on the active conditional path is required; off-path answers are rejected. Profiles include ordered questions, optional `when` conditions and source-backed `comparisons`. Results include source-linked topic matches with `fit` (`closer` or `possible`), supporting `matchedAnswers`, `lessTypicalAnswers`, an answer summary, limitations and a suggested next step. Ordering compares agreement with library features and does not estimate disease likelihood. There are no diagnostic likelihoods or confidence scores. The same request limits as guidance apply; no questionnaire answers are stored.

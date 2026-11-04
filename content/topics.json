@@ -13,7 +13,9 @@
     ],
     "commonness": "No prevalence estimate is provided.",
     "generalCare": [
-      "Keep gentle movement comfortable; reduce activities that worsen pain."
+      "Keep gentle movement comfortable; reduce activities that worsen pain.",
+      "Keep comfortable movement within your current limits.",
+      "Get advice if symptoms persist, worsen or interfere with normal activities."
     ],
     "whenToSeekHelp": [
       "Seek assessment for worsening or persistent symptoms; sudden severe pain or inability to move needs urgent help."
@@ -21,7 +23,8 @@
     "sourceIds": [
       "nhs-shoulder"
     ],
-    "contentStatus": "editorial_draft"
+    "contentStatus": "editorial_draft",
+    "explorationTags": []
   },
   {
     "id": "shoulder-tendon-irritation",
@@ -44,7 +47,10 @@
     "sourceIds": [
       "nhs-shoulder"
     ],
-    "contentStatus": "editorial_draft"
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "shoulder_overhead"
+    ]
   },
   {
     "id": "elbow-overview",
@@ -59,7 +65,8 @@
     ],
     "commonness": "No prevalence estimate is provided.",
     "generalCare": [
-      "Reduce activities that provoke symptoms."
+      "Reduce activities that provoke symptoms.",
+      "Take breaks from repeated gripping or lifting that provokes pain."
     ],
     "whenToSeekHelp": [
       "Arrange assessment if pain persists despite reducing aggravating activity."
@@ -67,13 +74,16 @@
     "sourceIds": [
       "nhs-elbow"
     ],
-    "contentStatus": "editorial_draft"
+    "contentStatus": "editorial_draft",
+    "explorationTags": []
   },
   {
     "id": "tennis-elbow",
     "regionIds": [
       "left_elbow",
-      "right_elbow"
+      "right_elbow",
+      "left_forearm",
+      "right_forearm"
     ],
     "title": "Tennis elbow",
     "overview": "Tennis elbow affects tendons near the outer elbow and can occur outside racket sports.",
@@ -83,7 +93,8 @@
     ],
     "commonness": "No prevalence estimate is provided.",
     "generalCare": [
-      "Simple comfortable arm movements may help maintain motion."
+      "Simple comfortable arm movements may help maintain motion.",
+      "Take breaks from repeated gripping or lifting that provokes pain."
     ],
     "whenToSeekHelp": [
       "Seek assessment if symptoms persist after around two weeks of self-care."
@@ -91,7 +102,11 @@
     "sourceIds": [
       "nhs-elbow"
     ],
-    "contentStatus": "editorial_draft"
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "outer_elbow_grip",
+      "forearm_grip"
+    ]
   },
   {
     "id": "wrist-overview",
@@ -107,7 +122,9 @@
     ],
     "commonness": "No prevalence estimate is provided.",
     "generalCare": [
-      "Reduce painful tasks and heavy gripping."
+      "Reduce painful tasks and heavy gripping.",
+      "Keep comfortable movement within your current limits.",
+      "Get advice if symptoms persist, worsen or interfere with normal activities."
     ],
     "whenToSeekHelp": [
       "Severe pain, shape changes or loss of feeling need prompt medical help."
@@ -115,7 +132,8 @@
     "sourceIds": [
       "nhs-wrist"
     ],
-    "contentStatus": "editorial_draft"
+    "contentStatus": "editorial_draft",
+    "explorationTags": []
   },
   {
     "id": "wrist-sprain",
@@ -139,7 +157,10 @@
     "sourceIds": [
       "nhs-wrist"
     ],
-    "contentStatus": "editorial_draft"
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "wrist_twist"
+    ]
   },
   {
     "id": "back-overview",
@@ -154,7 +175,9 @@
     ],
     "commonness": "No prevalence estimate is provided.",
     "generalCare": [
-      "Stay gently active as tolerated; avoid prolonged bed rest."
+      "Stay gently active as tolerated; avoid prolonged bed rest.",
+      "Change activities that clearly aggravate the pain.",
+      "Arrange an assessment for persistent or limiting symptoms."
     ],
     "whenToSeekHelp": [
       "Seek care if pain worsens or limits daily activities. New bladder or bowel changes with back pain require emergency help."
@@ -162,7 +185,8 @@
     "sourceIds": [
       "nhs-back"
     ],
-    "contentStatus": "editorial_draft"
+    "contentStatus": "editorial_draft",
+    "explorationTags": []
   },
   {
     "id": "back-strain",
@@ -184,7 +208,10 @@
     "sourceIds": [
       "nhs-back"
     ],
-    "contentStatus": "editorial_draft"
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "back_activity"
+    ]
   },
   {
     "id": "knee-overview",
@@ -200,7 +227,9 @@
     ],
     "commonness": "No prevalence estimate is provided.",
     "generalCare": [
-      "Reduce prolonged standing and painful loading."
+      "Reduce prolonged standing and painful loading.",
+      "Keep comfortable movement within your current limits.",
+      "Get advice if symptoms persist, worsen or interfere with normal activities."
     ],
     "whenToSeekHelp": [
       "Inability to bear weight, marked swelling or a hot joint with fever needs urgent assessment."
@@ -208,7 +237,8 @@
     "sourceIds": [
       "nhs-knee"
     ],
-    "contentStatus": "editorial_draft"
+    "contentStatus": "editorial_draft",
+    "explorationTags": []
   },
   {
     "id": "knee-tendon-irritation",
@@ -231,7 +261,10 @@
     "sourceIds": [
       "nhs-knee"
     ],
-    "contentStatus": "editorial_draft"
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "below_kneecap"
+    ]
   },
   {
     "id": "ankle-overview",
@@ -247,7 +280,9 @@
     ],
     "commonness": "No prevalence estimate is provided.",
     "generalCare": [
-      "Rest from aggravating activity and use comfortable footwear."
+      "Rest from aggravating activity and use comfortable footwear.",
+      "Keep comfortable movement within your current limits.",
+      "Get advice if symptoms persist, worsen or interfere with normal activities."
     ],
     "whenToSeekHelp": [
       "Severe pain, an abnormal shape or inability to walk needs urgent assessment."
@@ -255,7 +290,8 @@
     "sourceIds": [
       "nhs-ankle"
     ],
-    "contentStatus": "editorial_draft"
+    "contentStatus": "editorial_draft",
+    "explorationTags": []
   },
   {
     "id": "ankle-sprain",
@@ -278,7 +314,1101 @@
     "sourceIds": [
       "nhs-ankle"
     ],
-    "contentStatus": "editorial_draft"
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "ankle_twist"
+    ]
+  },
+  {
+    "id": "head-overview",
+    "regionIds": [
+      "head"
+    ],
+    "title": "Head discomfort and headaches",
+    "overview": "Headaches can have several triggers, including stress and not drinking enough fluids. Selecting the head cannot identify the cause.",
+    "symptoms": [
+      "A headache that recurs or changes with activity"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Drink water, eat regular meals and take breaks from prolonged screen use."
+    ],
+    "whenToSeekHelp": [
+      "Get urgent advice for headaches triggered by exercise. Sudden extremely severe headache, new weakness, confusion, or a headache after a head injury needs emergency help."
+    ],
+    "sourceIds": [
+      "nhs-head"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": []
+  },
+  {
+    "id": "neck-overview",
+    "regionIds": [
+      "neck"
+    ],
+    "title": "Neck discomfort and stiffness",
+    "overview": "Sleep position, posture and an injury can contribute to neck discomfort. Tingling or a cold arm needs medical assessment.",
+    "symptoms": [
+      "Stiffness or discomfort when turning the head"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Keep movements gentle and comfortable. Avoid driving or cycling if limited neck movement makes it unsafe."
+    ],
+    "whenToSeekHelp": [
+      "Arrange assessment if symptoms last several weeks, worry you, or come with tingling or a cold arm."
+    ],
+    "sourceIds": [
+      "nhs-neck"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "neck_stiff"
+    ]
+  },
+  {
+    "id": "chest-overview",
+    "regionIds": [
+      "left_chest",
+      "right_chest"
+    ],
+    "title": "Chest discomfort: when to seek help",
+    "overview": "Chest pain has many causes, including muscle strain, but location or exercise history cannot rule out a serious cause. Sudden persistent chest pain, spreading pain, or pain with breathlessness needs emergency help.",
+    "symptoms": [
+      "Chest discomfort, pressure or pain",
+      "Pain that may change with breathing or movement"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Get medical advice for unexplained chest pain rather than assuming it is exercise soreness."
+    ],
+    "whenToSeekHelp": [
+      "Get emergency help for sudden pain that does not settle, pain spreading to the arms, neck, jaw or back, or chest pain with sweating, nausea, light-headedness or breathlessness."
+    ],
+    "sourceIds": [
+      "nhs-chest"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": []
+  },
+  {
+    "id": "abdomen-overview",
+    "regionIds": [
+      "abdomen"
+    ],
+    "title": "Abdominal discomfort",
+    "overview": "Abdominal pain can come from digestive and other conditions. It should not automatically be attributed to an abdominal workout.",
+    "symptoms": [
+      "Abdominal pain or cramps",
+      "Bloating or changes in bowel habits"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Ask a pharmacist or clinician about suitable next steps for mild symptoms; seek assessment if pain persists or returns."
+    ],
+    "whenToSeekHelp": [
+      "Sudden severe abdominal pain, vomiting blood, black sticky stools or difficulty breathing needs emergency help. Get urgent advice if pain rapidly worsens or occurs during pregnancy."
+    ],
+    "sourceIds": [
+      "nhs-abdomen"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "bowel_change"
+    ]
+  },
+  {
+    "id": "upper-back-overview",
+    "regionIds": [
+      "upper_back"
+    ],
+    "title": "Upper back discomfort",
+    "overview": "Back pain may involve muscle strain, but its cause is not always clear. Pain between the shoulders deserves medical assessment.",
+    "symptoms": [
+      "Pain between or around the shoulder blades"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Continue gentle daily movement as tolerated and stop exercises that worsen symptoms.",
+      "Change activities that clearly aggravate the pain.",
+      "Arrange an assessment for persistent or limiting symptoms."
+    ],
+    "whenToSeekHelp": [
+      "Arrange assessment for upper back pain, especially persistent or night pain. Chest pain, new symptoms in both legs, bladder or bowel changes, or a serious accident needs emergency help."
+    ],
+    "sourceIds": [
+      "nhs-back"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": []
+  },
+  {
+    "id": "upper-arm-overview",
+    "regionIds": [
+      "left_upper_arm",
+      "right_upper_arm"
+    ],
+    "title": "Upper arm discomfort",
+    "overview": "Arm discomfort can have several causes. The place you feel pain does not establish whether a muscle, tendon or another structure is involved.",
+    "symptoms": [
+      "Arm pain or difficulty moving",
+      "Swelling after an injury"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Raise the arm if swollen; a heat or cold pack wrapped in a towel may ease discomfort."
+    ],
+    "whenToSeekHelp": [
+      "Severe pain, difficulty moving, a change in shape or numbness needs prompt assessment. Sudden arm pain with chest pressure needs emergency help."
+    ],
+    "sourceIds": [
+      "nhs-arm"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "upper_arm_activity"
+    ]
+  },
+  {
+    "id": "forearm-overview",
+    "regionIds": [
+      "left_forearm",
+      "right_forearm"
+    ],
+    "title": "Forearm discomfort",
+    "overview": "Pain in the lower arm can have several explanations and may need examination, especially after an injury.",
+    "symptoms": [
+      "Aching or pain in the forearm",
+      "Discomfort when using the arm"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "A wrapped heat or cold pack may help discomfort; seek advice if symptoms persist."
+    ],
+    "whenToSeekHelp": [
+      "Seek prompt assessment for severe pain, numbness or a change in shape. Arm pain with exercise that eases with rest needs urgent advice."
+    ],
+    "sourceIds": [
+      "nhs-arm"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "forearm_activity"
+    ]
+  },
+  {
+    "id": "hand-overview",
+    "regionIds": [
+      "left_hand",
+      "right_hand"
+    ],
+    "title": "Hand and palm discomfort",
+    "overview": "Hand pain can follow bruising or injury; tendon, joint and nerve problems may also cause symptoms. A location alone cannot distinguish them.",
+    "symptoms": [
+      "Pain or stiffness with gripping",
+      "Swelling, tingling or reduced sensation"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce activities that aggravate the pain and keep gentle hand movement comfortable."
+    ],
+    "whenToSeekHelp": [
+      "Seek prompt help for severe pain, a change in shape or loss of feeling. Do not try to manage a suspected broken hand on your own."
+    ],
+    "sourceIds": [
+      "nhs-hand"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "hand_grip"
+    ]
+  },
+  {
+    "id": "hip-overview",
+    "regionIds": [
+      "left_hip",
+      "right_hip"
+    ],
+    "title": "Hip discomfort",
+    "overview": "Hip pain may follow repetitive exercise or an injury, and joint conditions can also contribute. It may extend into the thigh.",
+    "symptoms": [
+      "Pain around the hip or upper thigh",
+      "Stiffness or discomfort with movement"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Keep moving gently as tolerated while reducing painful loading."
+    ],
+    "whenToSeekHelp": [
+      "Get emergency assessment for severe hip pain after an injury or inability to bear weight. A hot, swollen hip with fever needs urgent help."
+    ],
+    "sourceIds": [
+      "nhs-hip"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "hip_movement"
+    ]
+  },
+  {
+    "id": "glute-overview",
+    "regionIds": [
+      "left_glute",
+      "right_glute"
+    ],
+    "title": "Glute and buttock discomfort",
+    "overview": "Pain in the buttock with burning, tingling or pain down one leg can occur with sciatica. Buttock location alone cannot establish this diagnosis.",
+    "symptoms": [
+      "Buttock pain that may extend down a leg",
+      "Tingling, numbness or weakness"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Keep gentle daily activity comfortable and avoid long periods of sitting or lying down."
+    ],
+    "whenToSeekHelp": [
+      "Seek assessment for worsening or limiting symptoms. New numbness around the genitals or anus, bladder or bowel changes, or severe worsening symptoms in both legs needs emergency help."
+    ],
+    "sourceIds": [
+      "nhs-sciatica"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": []
+  },
+  {
+    "id": "thigh-overview",
+    "regionIds": [
+      "left_thigh",
+      "right_thigh"
+    ],
+    "title": "Front thigh muscle discomfort",
+    "overview": "A muscle strain can cause pain, tenderness and bruising after overstretching. Pain in the thigh can also have other causes.",
+    "symptoms": [
+      "Tenderness after activity",
+      "Swelling or bruising"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Protect a recent injury and pause the activity that aggravates it."
+    ],
+    "whenToSeekHelp": [
+      "Seek urgent assessment for worsening pain, marked swelling or difficulty walking. Pain with one-sided leg swelling needs urgent advice; chest pain or breathlessness alongside it needs emergency help."
+    ],
+    "sourceIds": [
+      "nhs-sprains",
+      "nhs-dvt"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "thigh_activity"
+    ]
+  },
+  {
+    "id": "hamstring-overview",
+    "regionIds": [
+      "left_hamstring",
+      "right_hamstring"
+    ],
+    "title": "Hamstring discomfort",
+    "overview": "The hamstrings run along the back of the thigh. A strain can happen during sport and may cause sudden pain, swelling or bruising.",
+    "symptoms": [
+      "Pain or tenderness behind the thigh",
+      "Swelling, bruising or difficulty walking after injury"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Protect a recent injury, stop aggravating activity and elevate the leg when comfortable."
+    ],
+    "whenToSeekHelp": [
+      "Get urgent assessment for severe or worsening pain, substantial swelling or bruising, or difficulty standing or walking."
+    ],
+    "sourceIds": [
+      "nhs-hamstring"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "hamstring_activity"
+    ]
+  },
+  {
+    "id": "shin-overview",
+    "regionIds": [
+      "left_shin",
+      "right_shin"
+    ],
+    "title": "Shin discomfort and exercise",
+    "overview": "Shin splints can cause tenderness along the front of the lower leg after exercise. Other injuries can cause similar pain.",
+    "symptoms": [
+      "Pain or tenderness along the shin"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Pause the exercise that provoked pain and consider comfortable lower-impact activity. Build exercise back up gradually."
+    ],
+    "whenToSeekHelp": [
+      "Arrange assessment if pain is worsening or not improving. Severe pain after a shin injury needs urgent assessment."
+    ],
+    "sourceIds": [
+      "nhs-shin"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "shin_running"
+    ]
+  },
+  {
+    "id": "calf-overview",
+    "regionIds": [
+      "left_calf",
+      "right_calf"
+    ],
+    "title": "Calf discomfort",
+    "overview": "A calf muscle strain can follow overstretching, but calf pain must not automatically be treated as a sports injury. A blood clot can cause pain and swelling in one leg.",
+    "symptoms": [
+      "Pain or tenderness in the calf",
+      "Swelling or bruising"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Protect a suspected recent muscle injury and pause aggravating activity. Seek advice rather than exercising through unexplained swelling."
+    ],
+    "whenToSeekHelp": [
+      "Get urgent medical advice for one-sided leg swelling and pain, especially with skin colour changes. Associated chest pain or breathlessness needs emergency help."
+    ],
+    "sourceIds": [
+      "nhs-sprains",
+      "nhs-dvt"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "calf_activity"
+    ]
+  },
+  {
+    "id": "foot-overview",
+    "regionIds": [
+      "left_foot",
+      "right_foot"
+    ],
+    "title": "Foot discomfort",
+    "overview": "Foot pain may follow exercise, pressure from footwear or an injury. A painful spot does not identify its cause.",
+    "symptoms": [
+      "Pain on the top of the foot",
+      "Swelling or discomfort when walking"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Rest from aggravating tasks and use comfortable, supportive footwear."
+    ],
+    "whenToSeekHelp": [
+      "Seek assessment if pain worsens, keeps returning, limits activity or comes with tingling. Severe injury pain, a change in shape or inability to walk needs urgent help."
+    ],
+    "sourceIds": [
+      "nhs-foot"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "top_foot"
+    ]
+  },
+  {
+    "id": "frozen-shoulder",
+    "regionIds": [
+      "left_shoulder",
+      "right_shoulder"
+    ],
+    "title": "Frozen shoulder",
+    "overview": "Persistent pain with pronounced stiffness can occur when the shoulder capsule tightens. An examination is needed to distinguish it from tendon or joint problems.",
+    "symptoms": [
+      "Pain that may disturb sleep",
+      "Difficulty reaching or turning the arm"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Keep movement gentle rather than forcing the joint.",
+      "Follow exercises chosen by a clinician or physiotherapist.",
+      "Avoid inventing strenuous gym exercises for a stiff, painful shoulder."
+    ],
+    "whenToSeekHelp": [
+      "Arrange assessment for persistent stiffness or major movement restriction."
+    ],
+    "sourceIds": [
+      "nhs-frozen"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "restricted_shoulder"
+    ]
+  },
+  {
+    "id": "elbow-bursitis",
+    "regionIds": [
+      "left_elbow",
+      "right_elbow"
+    ],
+    "title": "Swelling over the elbow tip",
+    "overview": "An irritated bursa can cause a tender, swollen area over a joint. Examination may be needed to check for infection.",
+    "symptoms": [
+      "Swelling and tenderness",
+      "Pain with pressure or movement"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce pressure on the elbow.",
+      "A cold pack wrapped in a towel may help."
+    ],
+    "whenToSeekHelp": [
+      "A hot swollen joint with fever, severe pain or inability to move needs urgent assessment."
+    ],
+    "sourceIds": [
+      "nhs-bursitis"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "elbow_pressure"
+    ]
+  },
+  {
+    "id": "carpal-tunnel",
+    "regionIds": [
+      "left_wrist",
+      "right_wrist",
+      "left_hand",
+      "right_hand"
+    ],
+    "title": "Carpal tunnel syndrome",
+    "overview": "Pressure on the median nerve at the wrist can cause hand and finger symptoms, often worse at night. Other nerve problems can look similar.",
+    "symptoms": [
+      "Tingling or pins and needles",
+      "Weak thumb or difficulty gripping",
+      "Symptoms that come and go, often at night"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce repeated wrist bending and forceful gripping that provoke symptoms.",
+      "Ask a pharmacist or clinician whether a night wrist splint is suitable.",
+      "Seek assessment when symptoms persist or worsen."
+    ],
+    "whenToSeekHelp": [
+      "New loss of feeling or marked weakness needs prompt assessment."
+    ],
+    "sourceIds": [
+      "nhs-carpal"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "tingling_fingers"
+    ]
+  },
+  {
+    "id": "trigger-finger",
+    "regionIds": [
+      "left_hand",
+      "right_hand"
+    ],
+    "title": "Trigger finger or thumb",
+    "overview": "A finger tendon can catch as it moves, leaving the finger bent or producing a click when it straightens. A clinician can assess persistent catching.",
+    "symptoms": [
+      "Clicking, catching or locking of a finger",
+      "Stiffness or pain near the finger base"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce the repetitive gripping that aggravates it.",
+      "Discuss persistent symptoms and possible splinting with a clinician."
+    ],
+    "whenToSeekHelp": [
+      "Seek assessment if the finger remains stuck or normal activities are affected."
+    ],
+    "sourceIds": [
+      "nhs-trigger"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "finger_catching"
+    ]
+  },
+  {
+    "id": "meniscus-tear",
+    "regionIds": [
+      "left_knee",
+      "right_knee"
+    ],
+    "title": "Meniscus injury information",
+    "overview": "The meniscus cushions the knee. A twist can damage it, but pain, clicking or swelling alone cannot confirm a tear.",
+    "symptoms": [
+      "Pain after twisting the knee",
+      "Swelling or stiffness",
+      "Catching, giving way or difficulty straightening"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Pause twisting and impact activities that aggravate pain.",
+      "Keep comfortable movement without forcing a locked knee.",
+      "Seek an assessment to guide the next steps."
+    ],
+    "whenToSeekHelp": [
+      "Inability to bear weight, a locked knee or marked swelling needs prompt medical assessment."
+    ],
+    "sourceIds": [
+      "nhs-meniscus"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "knee_twist",
+      "knee_catching"
+    ]
+  },
+  {
+    "id": "patellofemoral-pain",
+    "regionIds": [
+      "left_knee",
+      "right_knee"
+    ],
+    "title": "Pain around the kneecap",
+    "overview": "Patellofemoral pain describes discomfort around or behind the kneecap. Activity, training load and how the joint moves may contribute; a physical assessment helps identify the cause.",
+    "symptoms": [
+      "An ache at the front of the knee",
+      "Pain with stairs, squatting or running",
+      "Discomfort after prolonged sitting with the knee bent"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce the activity that provokes symptoms.",
+      "Choose comfortable lower-impact activity while seeking advice.",
+      "A clinician or physiotherapist can assess movement and appropriate exercises."
+    ],
+    "whenToSeekHelp": [
+      "Arrange assessment for persistent pain; major swelling or inability to walk needs urgent advice."
+    ],
+    "sourceIds": [
+      "aaos-patellofemoral"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "front_knee_load"
+    ]
+  },
+  {
+    "id": "plantar-fasciitis",
+    "regionIds": [
+      "left_foot",
+      "right_foot"
+    ],
+    "title": "Heel and arch pain",
+    "overview": "Plantar fasciitis involves the tissue along the sole. Pain near the heel or arch may be worse with the first steps after rest; other foot conditions can cause similar pain.",
+    "symptoms": [
+      "Pain under the heel or along the arch",
+      "Pain on first standing after sleep or sitting"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Use comfortable shoes with heel cushioning and arch support.",
+      "Reduce long periods of standing and painful impact exercise.",
+      "Ask a clinician about appropriate stretches if symptoms continue."
+    ],
+    "whenToSeekHelp": [
+      "Seek assessment for worsening pain, tingling, or symptoms limiting daily activity."
+    ],
+    "sourceIds": [
+      "nhs-plantar"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "first_step_heel"
+    ]
+  },
+  {
+    "id": "metatarsalgia",
+    "regionIds": [
+      "left_foot",
+      "right_foot"
+    ],
+    "title": "Pain in the ball of the foot",
+    "overview": "Pain under the forefoot is called metatarsalgia. Footwear pressure, exercise and several other conditions may contribute.",
+    "symptoms": [
+      "Aching or burning beneath the forefoot",
+      "Pain with walking or standing"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce aggravating walking or running.",
+      "Try comfortable footwear with room for the toes.",
+      "Ask a pharmacist or clinician about suitable cushioning."
+    ],
+    "whenToSeekHelp": [
+      "Seek assessment if pain recurs, worsens, affects walking or comes with reduced sensation."
+    ],
+    "sourceIds": [
+      "nhs-metatarsal"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "forefoot_load"
+    ]
+  },
+  {
+    "id": "tension-headache",
+    "regionIds": [
+      "head"
+    ],
+    "title": "Tension-type headache information",
+    "overview": "A pressing or tightening headache on both sides can occur with tension-type headaches. The pattern is a starting point for discussion, not confirmation of a cause.",
+    "symptoms": [
+      "Pressure or tightness on both sides",
+      "Tenderness around the head or neck"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Try relaxation and regular sleep habits.",
+      "Notice whether stress or caffeine relates to recurring headaches.",
+      "Keep a record to discuss with a clinician."
+    ],
+    "whenToSeekHelp": [
+      "Seek assessment for frequent or severe headaches, and urgent help for a new warning sign."
+    ],
+    "sourceIds": [
+      "nhs-tension"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "head_pressure"
+    ]
+  },
+  {
+    "id": "migraine-information",
+    "regionIds": [
+      "head"
+    ],
+    "title": "Migraine information",
+    "overview": "Migraine can involve a throbbing headache with nausea or sensitivity to light and sound. Some people notice an aura. New neurological symptoms should not be assumed to be migraine.",
+    "symptoms": [
+      "Throbbing pain, often on one side",
+      "Feeling sick",
+      "Sensitivity to light or sound"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "A quiet, dark room may be more comfortable during an episode.",
+      "Keep regular meals and sleep habits.",
+      "Discuss frequent or changing headaches with a clinician."
+    ],
+    "whenToSeekHelp": [
+      "Sudden severe headache, new weakness, confusion or loss of vision needs emergency help."
+    ],
+    "sourceIds": [
+      "nhs-migraine"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "head_pulsing"
+    ]
+  },
+  {
+    "id": "costochondritis-information",
+    "regionIds": [
+      "left_chest",
+      "right_chest"
+    ],
+    "title": "Chest-wall inflammation information",
+    "overview": "Costochondritis affects the rib connections at the breastbone. It may cause sharp pain with movement, pressure or deep breathing. Those features do not rule out heart or lung problems.",
+    "symptoms": [
+      "Pain near the breastbone",
+      "Discomfort with upper-body movement or deep breathing"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Get medical advice for unexplained chest pain.",
+      "If a clinician has confirmed a chest-wall cause, discuss suitable activity changes and pain relief."
+    ],
+    "whenToSeekHelp": [
+      "Persistent sudden chest pain, spreading pain or pain with breathlessness needs emergency help."
+    ],
+    "sourceIds": [
+      "nhs-costochondritis"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "chest_movement"
+    ]
+  },
+  {
+    "id": "indigestion-information",
+    "regionIds": [
+      "abdomen"
+    ],
+    "title": "Indigestion-related symptoms",
+    "overview": "Indigestion may cause fullness, bloating or heartburn after eating. Abdominal pain has many other causes and should not automatically be labelled indigestion.",
+    "symptoms": [
+      "Fullness or bloating after meals",
+      "Heartburn or a bitter taste",
+      "Nausea or burping"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Notice food and drink triggers.",
+      "Avoid eating close to bedtime if it provokes symptoms.",
+      "Ask a pharmacist about suitable options for mild symptoms."
+    ],
+    "whenToSeekHelp": [
+      "Seek assessment for persistent symptoms, swallowing difficulty, unexplained weight loss or bleeding."
+    ],
+    "sourceIds": [
+      "nhs-indigestion"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "after_meals"
+    ]
+  },
+  {
+    "id": "biceps-tendon",
+    "regionIds": [
+      "left_upper_arm",
+      "right_upper_arm"
+    ],
+    "title": "Biceps tendon irritation",
+    "overview": "The biceps tendon near the shoulder can become irritated. Discomfort may travel down the upper arm and overlap with other shoulder problems.",
+    "symptoms": [
+      "Pain near the front of the shoulder or upper arm",
+      "Pain with overhead lifting or reaching backward"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce painful overhead lifting.",
+      "Avoid repeatedly testing the painful movement.",
+      "Seek assessment for persistent pain or weakness before resuming strenuous loads."
+    ],
+    "whenToSeekHelp": [
+      "A sudden injury with significant weakness or loss of movement needs prompt assessment."
+    ],
+    "sourceIds": [
+      "aaos-biceps"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "upper_arm_lifting"
+    ]
+  },
+  {
+    "id": "neck-nerve-information",
+    "regionIds": [
+      "neck"
+    ],
+    "title": "Neck-related nerve symptoms",
+    "overview": "Irritation of a nerve in the neck can cause pain travelling down an arm. Similar symptoms can arise elsewhere, so examination may be needed.",
+    "symptoms": [
+      "Pain travelling from neck to arm",
+      "Pins and needles",
+      "Weakness in an arm or hand"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce positions that aggravate symptoms.",
+      "Avoid forceful neck movements or self-testing.",
+      "Arrange a clinical assessment for ongoing arm symptoms."
+    ],
+    "whenToSeekHelp": [
+      "New or worsening weakness or loss of sensation needs prompt assessment."
+    ],
+    "sourceIds": [
+      "aaos-neck"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "neck_arm"
+    ]
+  },
+  {
+    "id": "achilles-tendon",
+    "regionIds": [
+      "left_ankle",
+      "right_ankle"
+    ],
+    "title": "Achilles tendon discomfort",
+    "overview": "The Achilles tendon connects the calf to the heel. Repeated loading can contribute to irritation; location alone cannot distinguish this from a tear or another injury.",
+    "symptoms": [
+      "Stiffness at the back of the heel, especially in the morning",
+      "Pain with activity",
+      "Tenderness or swelling along the tendon"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce painful running and jumping.",
+      "Avoid repeatedly loading the painful tendon to test it.",
+      "Seek guidance on gradual loading and suitable footwear."
+    ],
+    "whenToSeekHelp": [
+      "A sudden pop with difficulty walking or pushing off needs prompt assessment."
+    ],
+    "sourceIds": [
+      "aaos-achilles"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "back_heel_load"
+    ]
+  },
+  {
+    "id": "shin-bone-stress",
+    "regionIds": [
+      "left_shin",
+      "right_shin"
+    ],
+    "title": "Focal shin pain and bone stress",
+    "overview": "Repeated loading can cause a bone stress injury. Pain in a specific spot after increased training deserves assessment rather than assuming it is shin splints.",
+    "symptoms": [
+      "Pain focused on one spot",
+      "Pain with loading that may later occur at rest"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Stop impact activity that provokes the pain.",
+      "Arrange assessment before resuming running or jumping.",
+      "Discuss recent training changes with a clinician."
+    ],
+    "whenToSeekHelp": [
+      "Seek prompt assessment for worsening pain, pain at rest or difficulty bearing weight."
+    ],
+    "sourceIds": [
+      "aaos-stress"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "focal_shin"
+    ]
+  },
+  {
+    "id": "quadriceps-strain",
+    "regionIds": [
+      "left_thigh",
+      "right_thigh"
+    ],
+    "title": "Quadriceps strain information",
+    "overview": "A strain can affect the muscles at the front of the thigh after a forceful movement.",
+    "symptoms": [
+      "Sudden pain or tenderness",
+      "Swelling or bruising"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Pause painful sporting activity.",
+      "Protect a recent injury and seek advice if function is affected."
+    ],
+    "whenToSeekHelp": [
+      "Marked weakness, substantial swelling or difficulty walking needs assessment."
+    ],
+    "sourceIds": [
+      "aaos-thigh"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "thigh_pull"
+    ]
+  },
+  {
+    "id": "hamstring-strain-activity",
+    "regionIds": [
+      "left_hamstring",
+      "right_hamstring"
+    ],
+    "title": "Hamstring strain and activity",
+    "overview": "A forceful movement can strain the muscles behind the thigh. Severity cannot be judged from the pain location alone.",
+    "symptoms": [
+      "Sudden pain during activity",
+      "Bruising or tenderness afterward"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Stop the activity that caused the pain.",
+      "Return to demanding sport with appropriate professional guidance."
+    ],
+    "whenToSeekHelp": [
+      "A pop with marked pain, weakness or difficulty walking needs prompt assessment."
+    ],
+    "sourceIds": [
+      "aaos-thigh"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "hamstring_pull"
+    ]
+  },
+  {
+    "id": "gluteal-tendon",
+    "regionIds": [
+      "left_glute",
+      "right_glute",
+      "left_hip",
+      "right_hip"
+    ],
+    "title": "Outer hip and gluteal tendon discomfort",
+    "overview": "Gluteal tendinopathy can cause pain over the outer hip, where gluteal tendons attach. It differs from buttock pain travelling down the leg, but symptoms may overlap.",
+    "symptoms": [
+      "Pain over the outer hip",
+      "Discomfort lying on that side",
+      "Pain with stairs or standing on one leg"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce positions that compress the painful outer hip.",
+      "Avoid repeatedly lying on the painful side.",
+      "A physiotherapist can assess suitable load changes and exercises."
+    ],
+    "whenToSeekHelp": [
+      "Arrange assessment for persistent or limiting symptoms; sudden severe pain after injury needs urgent advice."
+    ],
+    "sourceIds": [
+      "cuh-gluteal"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "outer_hip"
+    ]
+  },
+  {
+    "id": "hip-bursitis",
+    "regionIds": [
+      "left_hip",
+      "right_hip"
+    ],
+    "title": "Bursa irritation around the hip",
+    "overview": "An irritated bursa can cause an achy, tender area around a joint. Other hip problems can feel similar.",
+    "symptoms": [
+      "Tenderness around the hip",
+      "Pain with pressure or movement"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce direct pressure on the painful area.",
+      "A wrapped cold pack may ease discomfort."
+    ],
+    "whenToSeekHelp": [
+      "Fever with a hot, swollen joint or severe movement difficulty needs urgent help."
+    ],
+    "sourceIds": [
+      "nhs-bursitis"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "hip_pressure"
+    ]
+  },
+  {
+    "id": "upper-back-muscle",
+    "regionIds": [
+      "upper_back"
+    ],
+    "title": "Muscular upper back discomfort",
+    "overview": "A muscle strain is one possible explanation for discomfort after a forceful or repetitive activity. Upper back pain still deserves assessment if it persists or worries you.",
+    "symptoms": [
+      "Pain or tenderness with movement",
+      "Muscle tightness after activity"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Reduce aggravating loading.",
+      "Discuss persistent pain and appropriate movement with a clinician."
+    ],
+    "whenToSeekHelp": [
+      "Seek urgent help for rapidly worsening pain or back pain with chest symptoms."
+    ],
+    "sourceIds": [
+      "aaos-soft-tissue",
+      "nhs-back"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "back_activity"
+    ]
+  },
+  {
+    "id": "calf-strain",
+    "regionIds": [
+      "left_calf",
+      "right_calf"
+    ],
+    "title": "Calf muscle strain information",
+    "overview": "A sudden push-off or overstretch can strain a calf muscle. Unexplained one-sided swelling must not be assumed to be a strain.",
+    "symptoms": [
+      "Pain after a forceful movement",
+      "Local tenderness or bruising"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Stop painful running or jumping.",
+      "Protect a recent injury and arrange assessment if walking is affected."
+    ],
+    "whenToSeekHelp": [
+      "New one-sided leg swelling needs urgent advice. Chest pain or breathlessness alongside it needs emergency help."
+    ],
+    "sourceIds": [
+      "aaos-soft-tissue",
+      "nhs-dvt"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "calf_pull"
+    ]
+  },
+  {
+    "id": "sciatica-information",
+    "regionIds": [
+      "lower_back",
+      "left_glute",
+      "right_glute"
+    ],
+    "title": "Back-related leg pain information",
+    "overview": "Sciatica can cause burning or sharp pain through the buttock and down one leg. A clinician may need to distinguish it from muscle, joint or other nerve problems.",
+    "symptoms": [
+      "Pain travelling down a leg",
+      "Tingling or pins and needles",
+      "Possible leg weakness"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Continue comfortable everyday movement.",
+      "Avoid long periods of sitting or lying still.",
+      "Arrange assessment if symptoms persist, worsen or limit daily activity."
+    ],
+    "whenToSeekHelp": [
+      "New bladder or bowel changes, groin numbness or severe symptoms in both legs needs emergency help."
+    ],
+    "sourceIds": [
+      "nhs-sciatica"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "leg_radiation"
+    ]
+  },
+  {
+    "id": "chest-muscle-information",
+    "regionIds": [
+      "left_chest",
+      "right_chest"
+    ],
+    "title": "Exercise-related chest muscle discomfort",
+    "overview": "Chest muscles can be strained during exercise. Pain that follows exercise or changes with movement cannot safely identify a muscle strain by itself.",
+    "symptoms": [
+      "Pain following chest exercise or an injury",
+      "Discomfort with upper-body movement"
+    ],
+    "commonness": "No prevalence estimate is provided.",
+    "generalCare": [
+      "Get medical advice for unexplained chest pain.",
+      "Discuss exercise changes after the cause has been assessed."
+    ],
+    "whenToSeekHelp": [
+      "Sudden persistent pain, spreading pain, sweating or breathlessness needs emergency help."
+    ],
+    "sourceIds": [
+      "nhs-chest"
+    ],
+    "contentStatus": "editorial_draft",
+    "explorationTags": [
+      "chest_activity"
+    ]
   }
 ]
-

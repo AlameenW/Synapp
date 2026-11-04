@@ -15,6 +15,7 @@ export interface Topic {
   whenToSeekHelp: string[]
   sourceIds: string[]
   contentStatus: 'editorial_draft' | 'clinically_reviewed'
+  explorationTags?: string[]
 }
 
 export interface GuidanceInput {
@@ -77,3 +78,23 @@ export interface ChatResponse {
   notice?: string
 }
 export interface Readiness { status: string; aiEnabled: boolean; aiProvider?: string }
+
+export interface ExplorationOption { id: string; label: string }
+export interface ExplorationCondition { questionId: string; optionIds: string[] }
+export interface ExplorationQuestion { id: string; prompt: string; multiple: boolean; options: ExplorationOption[]; when?: ExplorationCondition }
+export interface ExplorationComparison { topicId: string; clues: ExplorationCondition[]; lessTypical: ExplorationCondition[] }
+export interface ExplorationProfile { area: string; questions: ExplorationQuestion[]; comparisons: ExplorationComparison[] }
+export interface ExplorationWarning { id: string; label: string; areas: string[]; level: 'urgent' | 'emergency'; action: string; sourceIds: string[] }
+export interface ExplorationCatalog { version: number; warningSigns: ExplorationWarning[]; profiles: ExplorationProfile[] }
+export interface ExplorationInput { regionId: string; warningStatus: 'none' | 'selected' | 'unsure'; warningSigns: string[]; answers: Record<string, string[]> }
+export interface ExplorationResponse {
+  regionId: string
+  disposition: 'educational' | 'urgent' | 'emergency'
+  summary: string
+  nextStep: string
+  reasons: string[]
+  matches: { topic: Topic; matchedAnswers: string[]; lessTypicalAnswers: string[]; fit: 'closer' | 'possible' }[]
+  sourceIds: string[]
+  answerSummary: string[]
+  limitations: string[]
+}
