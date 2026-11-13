@@ -41,7 +41,7 @@ final class BackendTests: XCTestCase, @unchecked Sendable {
             }
             try await app.test(.GET, "/api/regions") { response async throws in
                 let regions = try response.content.decode([BodyRegion].self)
-                XCTAssertEqual(regions.count, 11)
+                XCTAssertEqual(regions.count, 37)
             }
             try await app.test(.GET, "/api/sources/nhs-knee") { response async throws in
                 XCTAssertEqual(try response.content.decode(HealthSource.self).publisher, "NHS")
@@ -53,13 +53,13 @@ final class BackendTests: XCTestCase, @unchecked Sendable {
         try await withApp { app in
             try await app.test(.GET, "/api/regions/right_knee/topics") { response async throws in
                 let topics = try response.content.decode([Topic].self)
-                XCTAssertEqual(topics.count, 2)
+                XCTAssertGreaterThanOrEqual(topics.count, 3)
                 XCTAssertTrue(topics.allSatisfy { $0.regionIds.contains("right_knee") })
                 XCTAssertTrue(topics.allSatisfy { !$0.sourceIds.isEmpty })
             }
             try await app.test(.GET, "/api/topics?regionId=right_knee&limit=1&offset=1") { response async throws in
                 let page = try response.content.decode(TopicPage.self)
-                XCTAssertEqual(page.total, 2)
+                XCTAssertGreaterThanOrEqual(page.total, 3)
                 XCTAssertEqual(page.items.count, 1)
                 XCTAssertEqual(page.offset, 1)
             }
@@ -70,6 +70,19 @@ final class BackendTests: XCTestCase, @unchecked Sendable {
             }
             try await app.test(.GET, "/api/topics?offset=99999") { response async throws in
                 XCTAssertTrue(try response.content.decode(TopicPage.self).items.isEmpty)
+            }
+        }
+    }
+
+    func testEverySelectableRegionHasMatchingTopics() async throws {
+        try await withApp(limit: 200) { app in
+            for region in BodyRegion.all {
+                try await app.test(.GET, "/api/regions/\(region.id)/topics") { response async throws in
+                    XCTAssertEqual(response.status, .ok, region.id)
+                    let topics = try response.content.decode([Topic].self)
+                    XCTAssertFalse(topics.isEmpty, region.id)
+                    XCTAssertTrue(topics.allSatisfy { $0.regionIds.contains(region.id) }, region.id)
+                }
             }
         }
     }
@@ -115,8 +128,8 @@ final class BackendTests: XCTestCase, @unchecked Sendable {
                 let guidance = try response.content.decode(GuidanceResponse.self)
                 XCTAssertEqual(guidance.mode, "educational")
                 XCTAssertEqual(guidance.disposition, "not_assessed")
-                XCTAssertEqual(guidance.topics.count, 2)
-                XCTAssertEqual(guidance.sourceIds, ["nhs-knee"])
+                XCTAssertEqual(guidance.topics.count, 4)
+                XCTAssertEqual(Set(guidance.sourceIds), Set(["nhs-knee", "nhs-meniscus", "aaos-patellofemoral"]))
                 XCTAssertFalse(guidance.aiEnabled)
                 XCTAssertTrue(guidance.limitations.contains { $0.contains("not medically interpreted") })
             })

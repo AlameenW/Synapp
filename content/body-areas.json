@@ -1,0 +1,23 @@
+[
+  { "id": "head", "name": "Head", "paired": false, "back": false, "group": "Head & torso", "aliases": ["headache", "headaches", "scalp"] },
+  { "id": "neck", "name": "Neck", "paired": false, "back": false, "group": "Head & torso", "aliases": ["stiff neck", "cervical"] },
+  { "id": "chest", "name": "Chest", "paired": true, "back": false, "group": "Head & torso", "aliases": ["pec", "pecs", "pectoral", "ribs"] },
+  { "id": "abdomen", "name": "Abdomen", "paired": false, "back": false, "group": "Head & torso", "aliases": ["abs", "abdominal", "stomach", "belly", "tummy", "core"] },
+  { "id": "upper_back", "name": "Upper back", "paired": false, "back": true, "group": "Head & torso", "aliases": ["upper back", "trapezius", "traps", "shoulder blades", "thoracic"] },
+  { "id": "lower_back", "name": "Lower back", "paired": false, "back": true, "group": "Head & torso", "aliases": ["back", "spine", "lumbar"] },
+  { "id": "shoulder", "name": "Shoulder", "paired": true, "back": false, "group": "Arms & hands", "aliases": ["rotator cuff", "collarbone"] },
+  { "id": "upper_arm", "name": "Upper arm", "paired": true, "back": false, "group": "Arms & hands", "aliases": ["bicep", "biceps", "tricep", "triceps"] },
+  { "id": "elbow", "name": "Elbow", "paired": true, "back": false, "group": "Arms & hands", "aliases": ["tennis elbow", "golfer"] },
+  { "id": "forearm", "name": "Forearm", "paired": true, "back": false, "group": "Arms & hands", "aliases": ["lower arm", "forearms"] },
+  { "id": "wrist", "name": "Wrist", "paired": true, "back": false, "group": "Arms & hands", "aliases": ["carpal", "grip"] },
+  { "id": "hand", "name": "Hand", "paired": true, "back": false, "group": "Arms & hands", "aliases": ["palm", "finger", "thumb", "knuckles"] },
+  { "id": "hip", "name": "Hip", "paired": true, "back": false, "group": "Legs & feet", "aliases": ["hip flexor", "pelvis", "hips"] },
+  { "id": "glute", "name": "Glute", "paired": true, "back": true, "group": "Legs & feet", "aliases": ["glutes", "buttock", "buttocks", "bottom"] },
+  { "id": "thigh", "name": "Front thigh", "paired": true, "back": false, "group": "Legs & feet", "aliases": ["quad", "quads", "quadriceps", "thigh"] },
+  { "id": "hamstring", "name": "Hamstring", "paired": true, "back": true, "group": "Legs & feet", "aliases": ["back thigh", "back of thigh", "hamstrings"] },
+  { "id": "knee", "name": "Knee", "paired": true, "back": false, "group": "Legs & feet", "aliases": ["patella", "kneecap"] },
+  { "id": "shin", "name": "Shin", "paired": true, "back": false, "group": "Legs & feet", "aliases": ["shins", "tibia", "shin splints"] },
+  { "id": "calf", "name": "Calf", "paired": true, "back": true, "group": "Legs & feet", "aliases": ["calves", "gastrocnemius", "soleus"] },
+  { "id": "ankle", "name": "Ankle", "paired": true, "back": false, "group": "Legs & feet", "aliases": ["achilles"] },
+  { "id": "foot", "name": "Foot", "paired": true, "back": false, "group": "Legs & feet", "aliases": ["feet", "heel", "toes", "arch", "plantar"] }
+]

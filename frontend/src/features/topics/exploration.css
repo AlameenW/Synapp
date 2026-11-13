@@ -1,0 +1,33 @@
+.guided-exploration[hidden] { display: none; }
+.guide-launch { width: 100%; display: flex; align-items: center; gap: 10px; text-align: left; margin: 18px 0 0; padding: 13px; border-radius: 12px; color: var(--foreground); background: var(--lavender); border: 1px solid color-mix(in srgb,var(--primary) 20%,var(--border)); }
+.guide-launch > svg { color: var(--primary); flex-shrink: 0; }.guide-launch > svg:last-child { margin-left: auto; }
+.topic-expanded-sources { padding: 0 13px 14px; }
+.guide-launch strong, .guide-launch small { display: block; }.guide-launch strong { font-size: 12px; font-weight: 650; }.guide-launch small { font-size: 10px; margin-top: 5px; color: var(--soft-text); }
+.guided-exploration { font-size: 12px; line-height: 1.7; }
+.guide-heading { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 10px; color: var(--soft-text); }.guide-badge { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-weight: 650; }
+.guide-progress { height: 4px; margin: 12px 0 22px; border-radius: 6px; background: var(--muted); overflow: hidden; }.guide-progress span { display: block; height: 100%; background: var(--primary); }
+.guided-exploration h3 { font-size: 20px; line-height: 1.4; font-weight: 630; letter-spacing: -.3px; }.guided-exploration h3:focus { outline: none; }
+.guide-copy { color: var(--soft-text); font-size: 12px; line-height: 1.8; margin: 12px 0 18px; }
+.guide-choices { display: grid; gap: 9px; border: 0; padding: 0; margin: 0 0 15px; }
+.guide-choice { display: flex; align-items: flex-start; gap: 11px; padding: 13px; min-height: 48px; border: 1px solid var(--border); border-radius: 11px; cursor: pointer; color: var(--foreground); font-size: 12px; line-height: 1.7; }
+.guide-choice input { flex-shrink: 0; width: 17px; height: 17px; margin-top: 3px; accent-color: var(--primary); }.guide-choice.checked { border-color: var(--primary); background: color-mix(in srgb,var(--primary) 7%,var(--card)); }.guide-choice:focus-within { outline: 2px solid var(--ring); outline-offset: 2px; }.guide-choice:has(input:disabled) { opacity: .55; }
+.guide-note { font-size: 10px; color: var(--muted-foreground); line-height: 1.8; margin: 13px 0; }.guide-actions { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; margin: 18px 0 8px; }
+.guide-primary, .guide-secondary { min-height: 44px; padding: 11px 15px; border-radius: 10px; font-size: 11px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.guide-primary { background: var(--primary); color: var(--primary-foreground); border: 1px solid var(--primary); }.guide-primary:disabled { opacity: .45; cursor: not-allowed; }.guide-secondary { background: var(--card); color: var(--foreground); border: 1px solid var(--border); }.guide-actions .guide-primary { margin-left: auto; }
+.guide-primary:focus-visible, .guide-secondary:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
+.guide-result { display: flex; align-items: flex-start; gap: 10px; padding: 15px; border-radius: 12px; margin: 18px 0 12px; background: var(--lavender); }.guide-result > svg { flex-shrink: 0; margin-top: 3px; color: var(--primary); }.guide-result strong { font-weight: 650; }.guide-result p { margin-top: 5px; }
+.guide-result.emergency, .guide-result.urgent { background: var(--coral); border: 1px solid color-mix(in srgb,var(--coral-text) 25%,var(--border)); }.guide-result.emergency > svg, .guide-result.urgent > svg { color: var(--coral-text); }
+.guide-match { border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin: 14px 0; }.guide-match h4 { font-size: 15px; font-weight: 650; }.guide-match > p { margin-top: 10px; color: var(--soft-text); }.guide-match .guide-match-reason { color: var(--primary); font-size: 11px; }.guide-match details { margin-top: 13px; }.guide-match summary { cursor: pointer; color: var(--primary); font-size: 11px; }.guide-match h5 { margin-top: 13px; font-weight: 650; font-size: 12px; }
+.guide-branch { display: flex; align-items: center; gap: 6px; margin: 10px 0; color: var(--primary); font-size: 11px; }
+.guide-fit { display: inline-block; margin-bottom: 10px; padding: 4px 8px; border-radius: 6px; color: var(--soft-text); background: var(--muted); font-size: 10px; }
+.guide-fit.closer { color: var(--primary); background: var(--lavender); }
+.guide-differences { padding: 0 10px 10px; border-left: 2px solid var(--border); color: var(--soft-text); }.guide-differences p { font-size: 10px; }
+.guide-match ul, .guide-reasons, .guide-answer-summary ul { padding-left: 19px; list-style: disc; margin-top: 8px; }.guide-match li, .guide-reasons li, .guide-answer-summary li { margin-bottom: 7px; }
+.guide-limitations { border-left: 3px solid var(--border); padding-left: 12px; margin: 18px 0; font-size: 10px; color: var(--soft-text); }.guide-limitations p + p { margin-top: 7px; }
+.guide-sources, .issue-sources { display: flex; flex-wrap: wrap; gap: 7px 12px; margin-top: 14px; font-size: 10px; }.guide-sources a, .issue-sources a { display: inline-flex; align-items: center; gap: 4px; color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+.guide-answer-summary { margin: 18px 0; color: var(--soft-text); font-size: 11px; }.guide-answer-summary summary { cursor: pointer; font-weight: 600; }.guide-offline { padding: 15px; border: 1px solid var(--border); border-radius: 11px; margin: 18px 0; }.guide-offline button { margin-top: 12px; }
+.issue-section { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; padding: 0 14px 14px; }.issue-section > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 9px; padding: 14px 0 0; font-size: 12px; font-weight: 650; }.issue-section[open] > summary { margin-bottom: 12px; }.issue-section[open] > summary svg { transform: rotate(90deg); }.issue-section .care-list { margin-top: 8px; }.issue-section .care-alert { margin-top: 14px; }.issue-section .symptom-list { margin-bottom: 0; }
+.workspace > .anatomy-panel { align-self: start; }
+.workspace > .anatomy-panel > .body-stage { flex: 0 0 526px; }
+@media (max-width: 760px) { .workspace > .anatomy-panel > .body-stage { flex-basis: 490px; }.topic-panel .topic-tabs button { font-size: 11px; }.guided-exploration h3 { font-size: 19px; } }
+@media (max-width: 370px) { .topic-panel .topic-tabs button { font-size: 10px; } }

@@ -11,6 +11,7 @@ struct Topic: Content, Equatable {
     let whenToSeekHelp: [String]
     let sourceIds: [String]
     let contentStatus: String
+    var explorationTags: [String]? = nil
 }
 
 struct HealthSource: Content, Equatable {

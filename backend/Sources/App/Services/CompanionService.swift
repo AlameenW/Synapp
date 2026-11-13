@@ -21,12 +21,27 @@ struct CompanionService: Sendable {
 
     /// Body areas in the library, with everyday words people use for them.
     static let areas: [(id: String, label: String, words: [String])] = [
-        ("shoulder", "shoulder", ["shoulder", "shoulders", "rotator", "collarbone"]),
-        ("elbow", "elbow", ["elbow", "elbows", "forearm", "tennis elbow", "golfer's elbow"]),
-        ("wrist", "wrist", ["wrist", "wrists", "hand", "hands", "carpal", "grip"]),
-        ("lower_back", "lower back", ["back", "lower back", "spine", "lumbar"]),
-        ("knee", "knee", ["knee", "knees", "kneecap", "patella"]),
-        ("ankle", "ankle", ["ankle", "ankles", "foot", "feet", "heel", "achilles"]),
+        ("head", "head", ["head", "heads", "headache", "headaches", "scalp"]),
+        ("neck", "neck", ["neck", "necks", "stiff neck", "cervical"]),
+        ("chest", "chest", ["chest", "chests", "pec", "pecs", "pectoral", "ribs"]),
+        ("abdomen", "abdomen", ["abdomen", "abdomens", "abs", "abdominal", "stomach", "belly", "tummy", "core"]),
+        ("upper_back", "upper back", ["upper back", "upper backs", "trapezius", "traps", "shoulder blades", "thoracic"]),
+        ("lower_back", "lower back", ["lower back", "lower backs", "back", "spine", "lumbar"]),
+        ("shoulder", "shoulder", ["shoulder", "shoulders", "rotator cuff", "collarbone"]),
+        ("upper_arm", "upper arm", ["upper arm", "upper arms", "bicep", "biceps", "tricep", "triceps"]),
+        ("elbow", "elbow", ["elbow", "elbows", "tennis elbow", "golfer"]),
+        ("forearm", "forearm", ["forearm", "forearms", "lower arm"]),
+        ("wrist", "wrist", ["wrist", "wrists", "carpal", "grip"]),
+        ("hand", "hand", ["hand", "hands", "palm", "finger", "thumb", "knuckles"]),
+        ("hip", "hip", ["hip", "hips", "hip flexor", "pelvis"]),
+        ("glute", "glute", ["glute", "glutes", "buttock", "buttocks", "bottom"]),
+        ("thigh", "front thigh", ["front thigh", "thigh", "thighs", "quad", "quads", "quadriceps"]),
+        ("hamstring", "hamstring", ["hamstring", "hamstrings", "back thigh", "back of thigh"]),
+        ("knee", "knee", ["knee", "knees", "patella", "kneecap"]),
+        ("shin", "shin", ["shin", "shins", "tibia", "shin splints"]),
+        ("calf", "calf", ["calf", "calfs", "calves", "gastrocnemius", "soleus"]),
+        ("ankle", "ankle", ["ankle", "ankles", "achilles"]),
+        ("foot", "foot", ["foot", "foots", "feet", "heel", "toes", "arch", "plantar"]),
     ]
 
     func reply(to input: ChatInput, client: any Client, logger: Logger) async -> ChatResponse {
@@ -67,7 +82,7 @@ struct CompanionService: Sendable {
         let mentioned = Self.areasMentioned(in: message).first
         guard let area = mentioned ?? viewingArea, let entry = Self.areas.first(where: { $0.id == area }) else {
             return ChatResponse(mode: "library", aiEnabled: aiEnabled, regionId: viewing?.id,
-                                reply: "I have saved information about shoulders, elbows, wrists, the lower back, knees and ankles. Which one are you curious about?",
+                                reply: "I have saved information about the head, torso, arms, hands, legs and feet. Which area are you curious about?",
                                 sourceIds: [], notice: notice)
         }
         let areaTopics = topics(for: area)

@@ -4,6 +4,7 @@ import Vapor
 struct ContentLibrary: Sendable {
     let topics: [Topic]
     let sources: [HealthSource]
+    let exploration: ExplorationCatalog?
 
     init(directory: URL) throws {
         func read<T: Decodable>(_ name: String, as type: T.Type) throws -> T {
@@ -15,10 +16,11 @@ struct ContentLibrary: Sendable {
             return try JSONDecoder().decode(type, from: Data(contentsOf: url))
         }
         try self.init(topics: read("topics.json", as: [Topic].self),
-                      sources: read("sources.json", as: [HealthSource].self))
+                      sources: read("sources.json", as: [HealthSource].self),
+                      exploration: read("exploration.json", as: ExplorationCatalog.self))
     }
 
-    init(topics: [Topic], sources: [HealthSource]) throws {
+    init(topics: [Topic], sources: [HealthSource], exploration: ExplorationCatalog? = nil) throws {
         let regionIds = Set(BodyRegion.all.map(\.id))
         let sourceIds = Set(sources.map(\.id))
         let screeningSources: Set<String> = ["nhs-chest", "nhs-back", "nhs-sprains", "nhs-knee"]
@@ -52,6 +54,7 @@ struct ContentLibrary: Sendable {
         }
         self.topics = topics.sorted { $0.id < $1.id }
         self.sources = sources.sorted { $0.id < $1.id }
+        self.exploration = try exploration?.validated(topics: topics, sources: sources)
     }
 
     func topics(for regionId: String) -> [Topic] {

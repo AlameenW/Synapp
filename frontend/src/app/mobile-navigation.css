@@ -1,0 +1,46 @@
+.mobile-navigation { display: none; }
+
+@media (max-width: 760px) {
+  :root { --mobile-nav-height: calc(66px + env(safe-area-inset-bottom, 0px)); }
+  html { scroll-padding-bottom: calc(var(--mobile-nav-height) + 16px); }
+  .app-shell .main-shell { padding-bottom: calc(var(--mobile-nav-height) + 20px); }
+  .mobile-navigation {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    height: var(--mobile-nav-height);
+    padding: 7px max(12px, env(safe-area-inset-right, 0px)) calc(7px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
+    background: color-mix(in srgb, var(--card) 94%, transparent);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -6px 24px #24243e08;
+    backdrop-filter: blur(14px);
+  }
+  .mobile-navigation .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 48px;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--soft-text);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mobile-navigation .mobile-nav-item.active {
+    background: color-mix(in srgb, var(--primary) 12%, var(--card));
+    color: var(--primary);
+  }
+  .mobile-navigation .mobile-nav-item:focus-visible { outline: 3px solid var(--ring); outline-offset: -3px; }
+  #companion-drawer.companion-drawer { width: 100%; bottom: var(--mobile-nav-height); }
+  .companion-drawer .companion-toggle { display: none; }
+  #companion-drawer .chat-composer input { font-size: 16px; }
+}

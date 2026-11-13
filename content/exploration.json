@@ -1,0 +1,6322 @@
+{
+  "version": 2,
+  "warningSigns": [
+    {
+      "id": "chest_breathing",
+      "label": "Ongoing chest pressure or spreading chest pain, chest pain with sweating or sickness, or severe difficulty breathing",
+      "areas": [
+        "*"
+      ],
+      "level": "emergency",
+      "action": "Seek emergency medical help now. Contact your local emergency number or emergency department.",
+      "sourceIds": [
+        "nhs-chest"
+      ]
+    },
+    {
+      "id": "serious_accident",
+      "label": "Symptoms following a serious accident, such as a major fall or collision",
+      "areas": [
+        "*"
+      ],
+      "level": "emergency",
+      "action": "Seek emergency medical help now. Contact your local emergency number or emergency department.",
+      "sourceIds": [
+        "nhs-back"
+      ]
+    },
+    {
+      "id": "sudden_severe",
+      "label": "Sudden very severe pain, or pain rapidly becoming severe",
+      "areas": [
+        "neck",
+        "chest",
+        "upper_back",
+        "lower_back",
+        "shoulder",
+        "upper_arm",
+        "elbow",
+        "forearm",
+        "wrist",
+        "hand",
+        "hip",
+        "glute",
+        "thigh",
+        "hamstring",
+        "knee",
+        "shin",
+        "calf",
+        "ankle",
+        "foot"
+      ],
+      "level": "urgent",
+      "action": "Seek urgent medical advice now. If symptoms are severe or you believe this is an emergency, contact your local emergency number.",
+      "sourceIds": [
+        "nhs-sprains",
+        "nhs-back"
+      ]
+    },
+    {
+      "id": "circulation",
+      "label": "An injured limb is blue/grey, cold, or has lost feeling",
+      "areas": [
+        "shoulder",
+        "upper_arm",
+        "elbow",
+        "forearm",
+        "wrist",
+        "hand",
+        "hip",
+        "glute",
+        "thigh",
+        "hamstring",
+        "knee",
+        "shin",
+        "calf",
+        "ankle",
+        "foot"
+      ],
+      "level": "emergency",
+      "action": "Seek emergency medical help now. Contact your local emergency number or emergency department.",
+      "sourceIds": [
+        "nhs-sprains"
+      ]
+    },
+    {
+      "id": "deformity",
+      "label": "A limb or joint has changed shape or is angled abnormally",
+      "areas": [
+        "shoulder",
+        "upper_arm",
+        "elbow",
+        "forearm",
+        "wrist",
+        "hand",
+        "hip",
+        "glute",
+        "thigh",
+        "hamstring",
+        "knee",
+        "shin",
+        "calf",
+        "ankle",
+        "foot"
+      ],
+      "level": "emergency",
+      "action": "Seek emergency medical help now. Contact your local emergency number or emergency department.",
+      "sourceIds": [
+        "nhs-sprains"
+      ]
+    },
+    {
+      "id": "function",
+      "label": "Cannot put any weight on the affected limb, or cannot move or use it at all",
+      "areas": [
+        "shoulder",
+        "upper_arm",
+        "elbow",
+        "forearm",
+        "wrist",
+        "hand",
+        "hip",
+        "glute",
+        "thigh",
+        "hamstring",
+        "knee",
+        "shin",
+        "calf",
+        "ankle",
+        "foot"
+      ],
+      "level": "urgent",
+      "action": "Seek urgent medical advice now. If symptoms are severe or you believe this is an emergency, contact your local emergency number.",
+      "sourceIds": [
+        "nhs-sprains"
+      ]
+    },
+    {
+      "id": "hot_joint",
+      "label": "A hot, swollen joint with fever or feeling unwell",
+      "areas": [
+        "shoulder",
+        "upper_arm",
+        "elbow",
+        "forearm",
+        "wrist",
+        "hand",
+        "hip",
+        "glute",
+        "thigh",
+        "hamstring",
+        "knee",
+        "shin",
+        "calf",
+        "ankle",
+        "foot"
+      ],
+      "level": "urgent",
+      "action": "Seek urgent medical advice now. If symptoms are severe or you believe this is an emergency, contact your local emergency number.",
+      "sourceIds": [
+        "nhs-knee"
+      ]
+    },
+    {
+      "id": "spinal_neurology",
+      "label": "Back or leg pain with new bladder/bowel changes, groin numbness, or severe symptoms in both legs",
+      "areas": [
+        "upper_back",
+        "lower_back",
+        "glute",
+        "hamstring"
+      ],
+      "level": "emergency",
+      "action": "Seek emergency medical help now. Contact your local emergency number or emergency department.",
+      "sourceIds": [
+        "nhs-back",
+        "nhs-sciatica"
+      ]
+    },
+    {
+      "id": "leg_swelling",
+      "label": "New unexplained pain and swelling in one leg",
+      "areas": [
+        "hip",
+        "glute",
+        "thigh",
+        "hamstring",
+        "knee",
+        "shin",
+        "calf",
+        "ankle",
+        "foot"
+      ],
+      "level": "urgent",
+      "action": "Seek urgent medical advice now. If symptoms are severe or you believe this is an emergency, contact your local emergency number.",
+      "sourceIds": [
+        "nhs-dvt"
+      ]
+    },
+    {
+      "id": "head_neurology",
+      "label": "Sudden extremely painful headache, new weakness, confusion, seizure, vision loss, or severe headache with fever and a stiff neck",
+      "areas": [
+        "head",
+        "neck"
+      ],
+      "level": "emergency",
+      "action": "Seek emergency medical help now. Contact your local emergency number or emergency department.",
+      "sourceIds": [
+        "nhs-head"
+      ]
+    },
+    {
+      "id": "head_injury",
+      "label": "A headache after a recent head injury",
+      "areas": [
+        "head"
+      ],
+      "level": "emergency",
+      "action": "Seek emergency medical help now. Contact your local emergency number or emergency department.",
+      "sourceIds": [
+        "nhs-head"
+      ]
+    },
+    {
+      "id": "exercise_headache",
+      "label": "A headache triggered or made worse by exercise or coughing",
+      "areas": [
+        "head"
+      ],
+      "level": "urgent",
+      "action": "Seek urgent medical advice now. If symptoms are severe or you believe this is an emergency, contact your local emergency number.",
+      "sourceIds": [
+        "nhs-head"
+      ]
+    },
+    {
+      "id": "abdominal_warning",
+      "label": "Sudden severe abdominal pain, vomiting blood, black sticky stools, or inability to pass urine or stool",
+      "areas": [
+        "abdomen"
+      ],
+      "level": "emergency",
+      "action": "Seek emergency medical help now. Contact your local emergency number or emergency department.",
+      "sourceIds": [
+        "nhs-abdomen"
+      ]
+    },
+    {
+      "id": "leg_breathing",
+      "label": "Leg pain or swelling with chest pain or shortness of breath",
+      "areas": [
+        "hip",
+        "glute",
+        "thigh",
+        "hamstring",
+        "knee",
+        "shin",
+        "calf",
+        "ankle",
+        "foot"
+      ],
+      "level": "emergency",
+      "action": "Seek emergency medical help now. Contact your local emergency number or emergency department.",
+      "sourceIds": [
+        "nhs-dvt"
+      ]
+    },
+    {
+      "id": "abdominal_urgent",
+      "label": "Abdominal pain during pregnancy, blood in the stool, or abdominal pain that suddenly gets much worse",
+      "areas": [
+        "abdomen"
+      ],
+      "level": "urgent",
+      "action": "Seek urgent medical advice now. If symptoms are severe or you believe this is an emergency, contact your local emergency number.",
+      "sourceIds": [
+        "nhs-abdomen"
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "area": "head",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "head_pressure",
+              "label": "Pressure or tightness on both sides"
+            },
+            {
+              "id": "head_pulsing",
+              "label": "Throbbing head pain"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "It began suddenly"
+            },
+            {
+              "id": "gradual_load",
+              "label": "It built up gradually"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious trigger"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "head_sides",
+          "prompt": "Is the pressure on both sides of your head?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "head_pressure"
+            ]
+          }
+        },
+        {
+          "id": "head_daily",
+          "prompt": "Can you carry on with normal activities without making it worse?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "head_pressure"
+            ]
+          }
+        },
+        {
+          "id": "head_nausea",
+          "prompt": "Do you also feel sick or unusually sensitive to light or sound?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "head_pulsing"
+            ]
+          }
+        },
+        {
+          "id": "head_one_side",
+          "prompt": "Is the throbbing mainly on one side?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "head_pulsing"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "tension-headache",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "head_pressure"
+              ]
+            },
+            {
+              "questionId": "head_sides",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "head_daily",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "head_sides",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "head_daily",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "migraine-information",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "head_pulsing"
+              ]
+            },
+            {
+              "questionId": "head_nausea",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "head_one_side",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "head_nausea",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "head_one_side",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "neck",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "neck_stiff",
+              "label": "Stiffness when turning the head"
+            },
+            {
+              "id": "neck_arm",
+              "label": "Pain or tingling travelling into an arm"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "neck_movement",
+          "prompt": "Is turning your head the main movement that feels stiff?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "neck_stiff"
+            ]
+          }
+        },
+        {
+          "id": "neck_radiation",
+          "prompt": "Does the pain travel from your neck into an arm?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "neck_arm"
+            ]
+          }
+        },
+        {
+          "id": "neck_tingling",
+          "prompt": "Is there also tingling or pins and needles in that arm?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "neck_arm"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "neck-overview",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "neck_stiff"
+              ]
+            },
+            {
+              "questionId": "neck_movement",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "neck_movement",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "neck-nerve-information",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "neck_arm"
+              ]
+            },
+            {
+              "questionId": "neck_radiation",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "neck_tingling",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "neck_radiation",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "neck_tingling",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "chest",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "chest_movement",
+              "label": "Discomfort with chest movement or deep breathing"
+            },
+            {
+              "id": "chest_activity",
+              "label": "Discomfort following chest exercise"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "chest_breastbone",
+          "prompt": "Is the discomfort near the breastbone in the centre of your chest?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "chest_movement"
+            ]
+          }
+        },
+        {
+          "id": "chest_breath",
+          "prompt": "Have you noticed the discomfort with deep breathing or normal upper-body movement?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "chest_movement"
+            ]
+          }
+        },
+        {
+          "id": "chest_exercise",
+          "prompt": "Did this follow chest exercise, lifting or an injury?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "chest_activity"
+            ]
+          }
+        },
+        {
+          "id": "chest_moving",
+          "prompt": "Does normal upper-body movement bring on the same discomfort?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "chest_activity"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "costochondritis-information",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "chest_movement"
+              ]
+            },
+            {
+              "questionId": "chest_breastbone",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "chest_breath",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "chest_breastbone",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "chest_breath",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "chest-muscle-information",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "chest_activity"
+              ]
+            },
+            {
+              "questionId": "chest_exercise",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "chest_moving",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "chest_exercise",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "chest_moving",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "abdomen",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "after_meals",
+              "label": "Fullness, heartburn or bloating after meals"
+            },
+            {
+              "id": "bowel_change",
+              "label": "Cramps or a change in bowel habits"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "It began suddenly"
+            },
+            {
+              "id": "gradual_load",
+              "label": "It built up gradually"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious trigger"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "meal_burning",
+          "prompt": "Do you get heartburn, burping or a bitter taste after meals?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "after_meals"
+            ]
+          }
+        },
+        {
+          "id": "meal_fullness",
+          "prompt": "Do you feel unusually full or bloated after eating?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "after_meals"
+            ]
+          }
+        },
+        {
+          "id": "bowel_pattern",
+          "prompt": "Have you noticed constipation, diarrhoea or a change in your usual bowel habits?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "bowel_change"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "abdomen-overview",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "bowel_change"
+              ]
+            },
+            {
+              "questionId": "bowel_pattern",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "bowel_pattern",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "indigestion-information",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "after_meals"
+              ]
+            },
+            {
+              "questionId": "meal_burning",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "meal_fullness",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "meal_burning",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "meal_fullness",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "upper_back",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "back_activity",
+              "label": "Tenderness with upper-body activity"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "upper_back_moving",
+          "prompt": "Is the tender area uncomfortable with normal upper-body movement?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "back_activity"
+            ]
+          }
+        },
+        {
+          "id": "upper_back_load",
+          "prompt": "Did the tightness or tenderness follow exercise, lifting or a repeated task?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "back_activity"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "upper-back-muscle",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "back_activity"
+              ]
+            },
+            {
+              "questionId": "upper_back_moving",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "upper_back_load",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "upper_back_moving",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "upper_back_load",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "lower_back",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "back_activity",
+              "label": "Local pain after activity"
+            },
+            {
+              "id": "leg_radiation",
+              "label": "Pain travelling through a buttock and down a leg"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "back_local",
+          "prompt": "Does the discomfort stay mainly in your lower back?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "back_activity"
+            ]
+          }
+        },
+        {
+          "id": "back_load",
+          "prompt": "Did it follow lifting, exercise or a repeated movement?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "back_activity"
+            ]
+          }
+        },
+        {
+          "id": "leg_below",
+          "prompt": "Does the pain travel along the back of a leg, sometimes toward the foot?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "leg_radiation"
+            ]
+          }
+        },
+        {
+          "id": "leg_tingling",
+          "prompt": "Do you also notice tingling or pins and needles in that leg?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "leg_radiation"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "back-strain",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "back_activity"
+              ]
+            },
+            {
+              "questionId": "back_local",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "back_load",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "back_local",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "back_load",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "sciatica-information",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "leg_radiation"
+              ]
+            },
+            {
+              "questionId": "leg_below",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "leg_tingling",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "leg_below",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "leg_tingling",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "shoulder",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "shoulder_overhead",
+              "label": "Pain when using or lifting the arm"
+            },
+            {
+              "id": "restricted_shoulder",
+              "label": "Stiffness or restricted shoulder movement"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "shoulder_reach",
+          "prompt": "Is lifting your arm overhead a usual trigger?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "shoulder_overhead"
+            ]
+          }
+        },
+        {
+          "id": "shoulder_stiff",
+          "prompt": "Is your shoulder stiff in several directions, including reaching behind you?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "restricted_shoulder",
+              "shoulder_overhead"
+            ]
+          }
+        },
+        {
+          "id": "shoulder_slow",
+          "prompt": "Has that stiffness developed gradually and stayed for weeks or months?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "shoulder_stiff",
+            "optionIds": [
+              "yes"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "shoulder-tendon-irritation",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "shoulder_overhead"
+              ]
+            },
+            {
+              "questionId": "shoulder_reach",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "shoulder_reach",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "frozen-shoulder",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "restricted_shoulder"
+              ]
+            },
+            {
+              "questionId": "shoulder_stiff",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "shoulder_slow",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "duration",
+              "optionIds": [
+                "persistent"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "shoulder_stiff",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "shoulder_slow",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "upper_arm",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "upper_arm_lifting",
+              "label": "Pain near the front of the upper arm with lifting"
+            },
+            {
+              "id": "upper_arm_activity",
+              "label": "Aching with general arm activity"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "arm_front",
+          "prompt": "Is the discomfort near the front of your shoulder or upper arm?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "upper_arm_lifting"
+            ]
+          }
+        },
+        {
+          "id": "arm_overhead",
+          "prompt": "Does overhead lifting or reaching behind you bring it on?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "upper_arm_lifting"
+            ]
+          }
+        },
+        {
+          "id": "arm_general",
+          "prompt": "Is the ache linked to using your arm rather than a particular finger or wrist movement?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "upper_arm_activity"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "upper-arm-overview",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "upper_arm_activity"
+              ]
+            },
+            {
+              "questionId": "arm_general",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "arm_general",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "biceps-tendon",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "upper_arm_lifting"
+              ]
+            },
+            {
+              "questionId": "arm_front",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "arm_overhead",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "arm_front",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "arm_overhead",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "elbow",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "outer_elbow_grip",
+              "label": "Pain at the outer elbow with gripping"
+            },
+            {
+              "id": "elbow_pressure",
+              "label": "Tenderness or swelling over the elbow tip"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "elbow_outer",
+          "prompt": "Is the tender spot on the outside of your elbow?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "outer_elbow_grip"
+            ]
+          }
+        },
+        {
+          "id": "elbow_gripping",
+          "prompt": "Does gripping or moving your wrist bring on the elbow pain?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "outer_elbow_grip"
+            ]
+          }
+        },
+        {
+          "id": "elbow_tip",
+          "prompt": "Is there local swelling or tenderness over the bony elbow tip?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "elbow_pressure"
+            ]
+          }
+        },
+        {
+          "id": "elbow_lean",
+          "prompt": "Is leaning on that elbow uncomfortable?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "elbow_pressure"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "tennis-elbow",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "outer_elbow_grip"
+              ]
+            },
+            {
+              "questionId": "elbow_outer",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "elbow_gripping",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "elbow_outer",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "elbow_gripping",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "elbow-bursitis",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "elbow_pressure"
+              ]
+            },
+            {
+              "questionId": "elbow_tip",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "elbow_lean",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "elbow_tip",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "elbow_lean",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "forearm",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "forearm_grip",
+              "label": "Discomfort with gripping or wrist movement"
+            },
+            {
+              "id": "forearm_activity",
+              "label": "Aching with general arm activity"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "forearm_outer",
+          "prompt": "Does the discomfort also reach the outside of your elbow?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "forearm_grip"
+            ]
+          }
+        },
+        {
+          "id": "forearm_wrist",
+          "prompt": "Does gripping or moving your wrist bring it on?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "forearm_grip"
+            ]
+          }
+        },
+        {
+          "id": "forearm_load",
+          "prompt": "Did the ache follow repeated arm use or exercise?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "forearm_activity"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "tennis-elbow",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "forearm_grip"
+              ]
+            },
+            {
+              "questionId": "forearm_outer",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "forearm_wrist",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "forearm_outer",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "forearm_wrist",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "forearm-overview",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "forearm_activity"
+              ]
+            },
+            {
+              "questionId": "forearm_load",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "forearm_load",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "wrist",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "wrist_twist",
+              "label": "Pain after a wrist twist or fall"
+            },
+            {
+              "id": "tingling_fingers",
+              "label": "Tingling in the hand or fingers"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "wrist_swelling",
+          "prompt": "Did swelling or bruising appear after the twist or fall?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "wrist_twist"
+            ]
+          }
+        },
+        {
+          "id": "wrist_move",
+          "prompt": "Is the injured wrist uncomfortable with normal movement?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "wrist_twist"
+            ]
+          }
+        },
+        {
+          "id": "finger_distribution",
+          "prompt": "Which fingers usually tingle?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "median",
+              "label": "Mainly the thumb, index or middle fingers"
+            },
+            {
+              "id": "other_fingers",
+              "label": "Mainly other fingers or a different area"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "tingling_fingers"
+            ]
+          }
+        },
+        {
+          "id": "tingling_night",
+          "prompt": "Are the tingling symptoms worse at night or do they wake you?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "tingling_fingers"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "wrist-sprain",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "wrist_twist"
+              ]
+            },
+            {
+              "questionId": "wrist_swelling",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "wrist_move",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "wrist_swelling",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "wrist_move",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "carpal-tunnel",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "tingling_fingers"
+              ]
+            },
+            {
+              "questionId": "finger_distribution",
+              "optionIds": [
+                "median"
+              ]
+            },
+            {
+              "questionId": "tingling_night",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "finger_distribution",
+              "optionIds": [
+                "other_fingers"
+              ]
+            },
+            {
+              "questionId": "tingling_night",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "hand",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "hand_grip",
+              "label": "Pain with gripping"
+            },
+            {
+              "id": "finger_catching",
+              "label": "A finger or thumb catches or clicks"
+            },
+            {
+              "id": "tingling_fingers",
+              "label": "Tingling in the hand or fingers"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "hand_stiff",
+          "prompt": "Is gripping mainly limited by hand pain or stiffness?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "hand_grip"
+            ]
+          }
+        },
+        {
+          "id": "finger_lock",
+          "prompt": "Does a finger or thumb catch or stick when you bend and straighten it normally?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "finger_catching"
+            ]
+          }
+        },
+        {
+          "id": "finger_morning",
+          "prompt": "Is that finger especially stiff or uncomfortable in the morning?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "finger_lock",
+            "optionIds": [
+              "yes"
+            ]
+          }
+        },
+        {
+          "id": "finger_distribution",
+          "prompt": "Which fingers usually tingle?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "median",
+              "label": "Mainly the thumb, index or middle fingers"
+            },
+            {
+              "id": "other_fingers",
+              "label": "Mainly other fingers or a different area"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "tingling_fingers"
+            ]
+          }
+        },
+        {
+          "id": "tingling_night",
+          "prompt": "Are the tingling symptoms worse at night or do they wake you?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "tingling_fingers"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "hand-overview",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "hand_grip"
+              ]
+            },
+            {
+              "questionId": "hand_stiff",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "hand_stiff",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "carpal-tunnel",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "tingling_fingers"
+              ]
+            },
+            {
+              "questionId": "finger_distribution",
+              "optionIds": [
+                "median"
+              ]
+            },
+            {
+              "questionId": "tingling_night",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "finger_distribution",
+              "optionIds": [
+                "other_fingers"
+              ]
+            },
+            {
+              "questionId": "tingling_night",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "trigger-finger",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "finger_catching"
+              ]
+            },
+            {
+              "questionId": "finger_lock",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "finger_morning",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "finger_lock",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "finger_morning",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "hip",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "hip_movement",
+              "label": "Pain around the hip with movement"
+            },
+            {
+              "id": "outer_hip",
+              "label": "Pain over the outside of the hip"
+            },
+            {
+              "id": "hip_pressure",
+              "label": "Tenderness with pressure around the hip"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "hip_stiff",
+          "prompt": "Is moving the hip uncomfortable or stiff?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "hip_movement"
+            ]
+          }
+        },
+        {
+          "id": "hip_side",
+          "prompt": "Is the pain mainly over the outside of your hip?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "outer_hip",
+              "hip_pressure"
+            ]
+          }
+        },
+        {
+          "id": "hip_lying",
+          "prompt": "Is lying on that side a usual trigger?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "outer_hip",
+              "hip_pressure"
+            ]
+          }
+        },
+        {
+          "id": "hip_stairs",
+          "prompt": "Do stairs or standing on one leg during normal activities bring it on?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "outer_hip"
+            ]
+          }
+        },
+        {
+          "id": "hip_pressure_detail",
+          "prompt": "Is pressure on that area uncomfortable?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "hip_pressure"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "hip-overview",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "hip_movement"
+              ]
+            },
+            {
+              "questionId": "hip_stiff",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "hip_stiff",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "gluteal-tendon",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "outer_hip",
+                "hip_pressure"
+              ]
+            },
+            {
+              "questionId": "hip_side",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "hip_lying",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "hip_side",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "hip_lying",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "hip-bursitis",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "outer_hip",
+                "hip_pressure"
+              ]
+            },
+            {
+              "questionId": "hip_side",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "hip_lying",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "hip_side",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "hip_lying",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "glute",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "leg_radiation",
+              "label": "Pain travelling through the buttock down a leg"
+            },
+            {
+              "id": "outer_hip",
+              "label": "Pain over the outside of the hip"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "leg_below",
+          "prompt": "Does the pain travel down the back of a leg, sometimes toward the foot?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "leg_radiation"
+            ]
+          }
+        },
+        {
+          "id": "leg_tingling",
+          "prompt": "Do you also notice tingling or pins and needles in that leg?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "leg_radiation"
+            ]
+          }
+        },
+        {
+          "id": "hip_side",
+          "prompt": "Is the painful spot toward the outside of your hip?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "outer_hip"
+            ]
+          }
+        },
+        {
+          "id": "hip_lying",
+          "prompt": "Is lying on that side or using stairs a usual trigger?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "outer_hip"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "gluteal-tendon",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "outer_hip"
+              ]
+            },
+            {
+              "questionId": "hip_side",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "hip_lying",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "hip_side",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "hip_lying",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "sciatica-information",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "leg_radiation"
+              ]
+            },
+            {
+              "questionId": "leg_below",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "leg_tingling",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "leg_below",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "leg_tingling",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "thigh",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "thigh_pull",
+              "label": "A sudden pull during a forceful movement"
+            },
+            {
+              "id": "thigh_activity",
+              "label": "General tenderness after activity"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "muscle_event",
+          "prompt": "Did you feel a sudden pull in the front of your thigh during a forceful movement?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "thigh_pull"
+            ]
+          }
+        },
+        {
+          "id": "muscle_bruising",
+          "prompt": "Was there local tenderness, swelling or bruising afterward?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "thigh_pull"
+            ]
+          }
+        },
+        {
+          "id": "muscle_after",
+          "prompt": "Did the general tenderness in the front of your thigh follow activity?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "thigh_activity"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "thigh-overview",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "thigh_activity"
+              ]
+            },
+            {
+              "questionId": "muscle_after",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "muscle_after",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "quadriceps-strain",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "thigh_pull"
+              ]
+            },
+            {
+              "questionId": "muscle_event",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "muscle_bruising",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "muscle_event",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "muscle_bruising",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "hamstring",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "hamstring_pull",
+              "label": "A sudden pull behind the thigh"
+            },
+            {
+              "id": "hamstring_activity",
+              "label": "Tenderness behind the thigh after activity"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "muscle_event",
+          "prompt": "Did you feel a sudden pull in the back of your thigh during a forceful movement?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "hamstring_pull"
+            ]
+          }
+        },
+        {
+          "id": "muscle_bruising",
+          "prompt": "Was there local tenderness, swelling or bruising afterward?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "hamstring_pull"
+            ]
+          }
+        },
+        {
+          "id": "muscle_after",
+          "prompt": "Did the general tenderness in the back of your thigh follow activity?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "hamstring_activity"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "hamstring-overview",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "hamstring_activity"
+              ]
+            },
+            {
+              "questionId": "muscle_after",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "muscle_after",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "hamstring-strain-activity",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "hamstring_pull"
+              ]
+            },
+            {
+              "questionId": "muscle_event",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "muscle_bruising",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "muscle_event",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "muscle_bruising",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "knee",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "front_knee_load",
+              "label": "Around or behind the kneecap"
+            },
+            {
+              "id": "below_kneecap",
+              "label": "Just below the kneecap"
+            },
+            {
+              "id": "knee_twist",
+              "label": "Pain after twisting the knee"
+            },
+            {
+              "id": "knee_catching",
+              "label": "Catching or giving way"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "knee_stairs",
+          "prompt": "Do stairs or squats usually bring on the kneecap pain?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "front_knee_load"
+            ]
+          }
+        },
+        {
+          "id": "knee_sitting",
+          "prompt": "Is it uncomfortable after sitting with the knee bent for a long time?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "front_knee_load"
+            ]
+          }
+        },
+        {
+          "id": "knee_tendon_load",
+          "prompt": "Does running or jumping bring on pain just below the kneecap?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "below_kneecap"
+            ]
+          }
+        },
+        {
+          "id": "knee_swelling",
+          "prompt": "Did stiffness or swelling develop after the twist?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "knee_twist",
+              "knee_catching"
+            ]
+          }
+        },
+        {
+          "id": "knee_catch",
+          "prompt": "Does the knee catch, give way or feel difficult to straighten?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "knee_twist",
+              "knee_catching"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "knee-tendon-irritation",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "below_kneecap"
+              ]
+            },
+            {
+              "questionId": "knee_tendon_load",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "knee_tendon_load",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "meniscus-tear",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "knee_twist",
+                "knee_catching"
+              ]
+            },
+            {
+              "questionId": "knee_swelling",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "knee_catch",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "knee_swelling",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "knee_catch",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "patellofemoral-pain",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "front_knee_load"
+              ]
+            },
+            {
+              "questionId": "knee_stairs",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "knee_sitting",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "knee_stairs",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "knee_sitting",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "shin",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "shin_running",
+              "label": "Tenderness along the front of the shin with exercise"
+            },
+            {
+              "id": "focal_shin",
+              "label": "Pain concentrated in one specific spot"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "shin_spread",
+          "prompt": "Is the tenderness spread along the shin rather than concentrated at one small spot?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "shin_running"
+            ]
+          }
+        },
+        {
+          "id": "shin_impact",
+          "prompt": "Does running or jumping bring on the shin discomfort?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "shin_running",
+              "focal_shin"
+            ]
+          }
+        },
+        {
+          "id": "shin_point",
+          "prompt": "Is the pain concentrated at one small, specific spot?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "focal_shin"
+            ]
+          }
+        },
+        {
+          "id": "shin_rest",
+          "prompt": "Has that focused pain started to happen even at rest?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "shin_point",
+            "optionIds": [
+              "yes"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "shin-overview",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "shin_running"
+              ]
+            },
+            {
+              "questionId": "shin_spread",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "shin_impact",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "shin_spread",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "shin_impact",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "shin-bone-stress",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "focal_shin"
+              ]
+            },
+            {
+              "questionId": "shin_point",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "shin_rest",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "shin_impact",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "shin_point",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "shin_rest",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "shin_impact",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "calf",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "calf_pull",
+              "label": "A sudden pull during a push-off or stretch"
+            },
+            {
+              "id": "calf_activity",
+              "label": "General calf tenderness after activity"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "muscle_event",
+          "prompt": "Did you feel a sudden pull in the calf during a forceful movement?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "calf_pull"
+            ]
+          }
+        },
+        {
+          "id": "muscle_bruising",
+          "prompt": "Was there local tenderness, swelling or bruising afterward?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "calf_pull"
+            ]
+          }
+        },
+        {
+          "id": "muscle_after",
+          "prompt": "Did the general tenderness in the calf follow activity?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "calf_activity"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "calf-overview",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "calf_activity"
+              ]
+            },
+            {
+              "questionId": "muscle_after",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "muscle_after",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "calf-strain",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "calf_pull"
+              ]
+            },
+            {
+              "questionId": "muscle_event",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "muscle_bruising",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "muscle_event",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "muscle_bruising",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "ankle",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "ankle_twist",
+              "label": "Pain or bruising after a twist"
+            },
+            {
+              "id": "back_heel_load",
+              "label": "At the back of the heel or ankle"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "ankle_swelling",
+          "prompt": "Did swelling or bruising appear after the twist?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "ankle_twist"
+            ]
+          }
+        },
+        {
+          "id": "ankle_move",
+          "prompt": "Does normal ankle movement feel sore after the twist?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "ankle_twist"
+            ]
+          }
+        },
+        {
+          "id": "heel_morning",
+          "prompt": "Is the back of the heel stiff on waking?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "back_heel_load"
+            ]
+          }
+        },
+        {
+          "id": "heel_activity",
+          "prompt": "Does activity bring on pain along the back of the heel or ankle?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "back_heel_load"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "ankle-sprain",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "ankle_twist"
+              ]
+            },
+            {
+              "questionId": "ankle_swelling",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "ankle_move",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "ankle_swelling",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "ankle_move",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "achilles-tendon",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "back_heel_load"
+              ]
+            },
+            {
+              "questionId": "heel_morning",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "heel_activity",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "heel_morning",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "heel_activity",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "area": "foot",
+      "questions": [
+        {
+          "id": "pattern",
+          "prompt": "Which best describes the symptoms in this area?",
+          "multiple": true,
+          "options": [
+            {
+              "id": "first_step_heel",
+              "label": "Under the heel or along the arch"
+            },
+            {
+              "id": "forefoot_load",
+              "label": "Pain under the ball of the foot"
+            },
+            {
+              "id": "top_foot",
+              "label": "Pain on top of the foot"
+            },
+            {
+              "id": "other",
+              "label": "None of these / I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "onset",
+          "prompt": "How did it begin?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "sudden_event",
+              "label": "During a particular movement, twist or injury"
+            },
+            {
+              "id": "gradual_load",
+              "label": "Gradually with repeated activity"
+            },
+            {
+              "id": "no_clear_event",
+              "label": "Without an obvious event"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "heel_first",
+          "prompt": "Are the first steps after sleeping or sitting the most uncomfortable?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "first_step_heel"
+            ]
+          }
+        },
+        {
+          "id": "heel_ease",
+          "prompt": "Does it ease as you start moving, then return with longer standing or walking?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "heel_first",
+            "optionIds": [
+              "yes"
+            ]
+          }
+        },
+        {
+          "id": "ball_walk",
+          "prompt": "Is the pain under the ball of the foot worse with standing or walking?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "forefoot_load"
+            ]
+          }
+        },
+        {
+          "id": "foot_top",
+          "prompt": "Is the soreness on the top of the foot with walking or activity?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "yes",
+              "label": "Yes"
+            },
+            {
+              "id": "no",
+              "label": "No"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ],
+          "when": {
+            "questionId": "pattern",
+            "optionIds": [
+              "top_foot"
+            ]
+          }
+        },
+        {
+          "id": "duration",
+          "prompt": "How long has this been happening?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "days",
+              "label": "A few days or less"
+            },
+            {
+              "id": "weeks",
+              "label": "Around one or two weeks"
+            },
+            {
+              "id": "persistent",
+              "label": "Several weeks or longer"
+            },
+            {
+              "id": "recurring",
+              "label": "It keeps coming back"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "trend",
+          "prompt": "How is it changing?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "improving",
+              "label": "Improving"
+            },
+            {
+              "id": "unchanged",
+              "label": "About the same"
+            },
+            {
+              "id": "worsening",
+              "label": "Getting worse"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        },
+        {
+          "id": "impact",
+          "prompt": "How does it affect everyday life?",
+          "multiple": false,
+          "options": [
+            {
+              "id": "manageable",
+              "label": "I can manage usual activities"
+            },
+            {
+              "id": "daily_tasks",
+              "label": "It limits normal daily tasks"
+            },
+            {
+              "id": "sleep",
+              "label": "It interrupts sleep"
+            },
+            {
+              "id": "unsure",
+              "label": "I am not sure"
+            }
+          ]
+        }
+      ],
+      "comparisons": [
+        {
+          "topicId": "foot-overview",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "top_foot"
+              ]
+            },
+            {
+              "questionId": "foot_top",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "foot_top",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "plantar-fasciitis",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "first_step_heel"
+              ]
+            },
+            {
+              "questionId": "heel_first",
+              "optionIds": [
+                "yes"
+              ]
+            },
+            {
+              "questionId": "heel_ease",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "heel_first",
+              "optionIds": [
+                "no"
+              ]
+            },
+            {
+              "questionId": "heel_ease",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        },
+        {
+          "topicId": "metatarsalgia",
+          "clues": [
+            {
+              "questionId": "pattern",
+              "optionIds": [
+                "forefoot_load"
+              ]
+            },
+            {
+              "questionId": "ball_walk",
+              "optionIds": [
+                "yes"
+              ]
+            }
+          ],
+          "lessTypical": [
+            {
+              "questionId": "ball_walk",
+              "optionIds": [
+                "no"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
