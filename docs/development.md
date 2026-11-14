@@ -55,6 +55,20 @@ curl -H "Content-Type: application/json" --data-binary @docs/guidance-example.js
 
 On Windows PowerShell use `curl.exe` to avoid the older PowerShell alias.
 
+## Evaluate Tendi
+
+With the backend running and `GEMINI_API_KEY` set in `backend/.env`:
+
+```sh
+# From the repository root; no npm packages required
+node scripts/tendi-eval/run.mjs              # all cases (about 8 minutes)
+node scripts/tendi-eval/run.mjs --only safety --verbose
+```
+
+The script sends each question in `scripts/tendi-eval/cases.json` to `POST /api/chat` and checks the reply mode plus Tendi's rules: no diagnosis wording, medication doses, recovery timelines or links; about 120 words; the "not a diagnosis" reminder; correct handling of urgent, off-topic and prompt-injection messages. Results are saved in `eval-results/` (git-ignored) so runs can be compared. The default 6.5 s delay keeps under the chat rate limit; raise `CHAT_REQUESTS_PER_MINUTE` in `backend/.env` to run faster. Each run uses one Gemini request per case.
+
+Tendi sends Gemini only the library topics relevant to each conversation (see `CompanionService.relevantTopics`), plus the other topic titles, instead of the whole library.
+
 ## Ownership and next steps
 
 1. UI: connect topic panels and structured screening to the documented API.

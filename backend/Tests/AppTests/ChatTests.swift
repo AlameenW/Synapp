@@ -93,7 +93,8 @@ final class ChatTests: XCTestCase, @unchecked Sendable {
         try await withBareApp { app in
             // If the AI were called, this fake would fail and the reply mode would be "library", not "safety".
             let companion = try service(.failure(.badStatus(500)))
-            for message in ["I have chest pain after lifting", "My ankle is bent the wrong way", "I can't put weight on my knee"] {
+            for message in ["I have chest pain after lifting", "My ankle is bent the wrong way", "I can't put weight on my knee",
+                            "My chest feels really tight and heavy right now"] {
                 let reply = await companion.reply(to: ChatInput(regionId: "right_knee", message: message),
                                                   client: app.client, logger: app.logger)
                 XCTAssertEqual(reply.mode, "safety", message)
@@ -145,6 +146,9 @@ final class ChatTests: XCTestCase, @unchecked Sendable {
         let text = CompanionService.instructions(viewing: nil, topics: library.topics)
         XCTAssertTrue(text.contains(CompanionService.offTopicMarker))
         XCTAssertTrue(text.contains("ONLY help with health and the human body"))
+        // Mixed and medication questions must not be declined as off topic.
+        XCTAssertTrue(text.contains("When a message mixes topics, never use"))
+        XCTAssertTrue(text.contains("pharmacist"))
     }
 
     func testExpandedAreasHaveCompanionLibrarySummaries() throws {
@@ -170,6 +174,55 @@ final class ChatTests: XCTestCase, @unchecked Sendable {
         XCTAssertTrue(text.contains("Knee discomfort"))
         XCTAssertTrue(text.contains("Lower back selected"))
         XCTAssertTrue(CompanionService.instructions(viewing: nil, topics: library.topics).contains("hasn't selected a body part"))
+    }
+
+    func testRetrievalSendsOnlyRelevantTopics() throws {
+        let topics = try ContentLibrary(directory: contentDirectory).topics
+        func ids(_ message: String, history: [ChatTurn] = [], viewing: String? = nil) -> [String] {
+            let region = viewing.flatMap { id in BodyRegion.all.first { $0.id == id } }
+            return CompanionService.relevantTopics(message: message, history: history, viewing: region, in: topics).map(\.id)
+        }
+
+        // A named body part picks that part's topics and nothing unrelated.
+        let knee = ids("Why does my knee ache after squats?")
+        XCTAssertTrue(Set(["knee-overview", "meniscus-tear", "patellofemoral-pain"]).isSubset(of: Set(knee)))
+        XCTAssertFalse(knee.contains("ankle-overview"))
+
+        // A follow-up with no body part uses the user's earlier message.
+        let followUp = ids("What stretches help?", history: [
+            ChatTurn(role: "user", text: "My hamstring feels tight after sprints"),
+            ChatTurn(role: "assistant", text: "Tight muscles after sprinting are common."),
+        ])
+        XCTAssertTrue(followUp.contains("hamstring-overview"))
+
+        // A vague question uses the selected region; a named body part wins over the selection.
+        XCTAssertTrue(ids("What could cause this?", viewing: "left_wrist").contains("wrist-overview"))
+        let heel = ids("My heel hurts first thing in the morning", viewing: "right_knee")
+        XCTAssertEqual(heel.first, "plantar-fasciitis")
+        XCTAssertFalse(heel.contains("knee-overview"))
+
+        // Topic names count even without a body-part word.
+        XCTAssertEqual(ids("What is sciatica?"), ["sciatica-information"])
+        XCTAssertEqual(ids("Is this tennis elbow?").first, "tennis-elbow")
+
+        // Nothing matches a general question, and results are capped.
+        XCTAssertTrue(ids("How much sleep do I need to recover?").isEmpty)
+        XCTAssertLessThanOrEqual(ids("My knee, ankle, hip, shoulder and wrist all ache").count, CompanionService.maxPromptTopics)
+    }
+
+    func testFocusedInstructionsAreSmallerAndListOtherTopics() throws {
+        let topics = try ContentLibrary(directory: contentDirectory).topics
+        let picked = CompanionService.relevantTopics(message: "Why does my knee ache?", history: [], viewing: nil, in: topics)
+        let focused = CompanionService.instructions(viewing: nil, topics: picked, catalog: topics)
+        let full = CompanionService.instructions(viewing: nil, topics: topics)
+        XCTAssertLessThan(focused.count, full.count / 2)
+        XCTAssertTrue(focused.contains("### Knee discomfort"))
+        XCTAssertFalse(focused.contains("### Ankle discomfort"))
+        XCTAssertTrue(focused.contains("- Ankle discomfort"))   // still listed by title
+        XCTAssertTrue(focused.contains("Never diagnose"))
+
+        let none = CompanionService.instructions(viewing: nil, topics: [], catalog: topics)
+        XCTAssertTrue(none.contains("No library entry matched"))
     }
 
     func testAnswersAreNotLimitedToTheSelectedRegion() async throws {
