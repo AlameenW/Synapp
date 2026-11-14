@@ -1,8 +1,6 @@
-/* Header: the "Find care near you" button next to the theme toggle */
+/* Header actions (theme toggle) */
 .header-actions .help-toggle { font-size: 16px; font-weight: 650; color: var(--soft-text); }
 .header-actions .help-toggle:hover { border-color: var(--primary); color: var(--primary); }
 .header-actions { gap: 10px; }
 /* Keep "MOVE WELL." pinned to the bottom of the sidebar. */
 .side-rail .rail-bottom { margin-top: auto; }
-/* "Find care" dialog: the call-first notice shown above the Google Maps choices */
-.dialog-inner > p.care-urgent { background: var(--coral); color: var(--coral-text); border-radius: 12px; padding: 12px 14px; line-height: 1.6; }

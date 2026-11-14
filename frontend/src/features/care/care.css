@@ -1,0 +1,19 @@
+/* "Find care near you": a collapsed row under a guided-exploration result that opens into Google Maps buttons */
+.care-options { border: 1px solid var(--border); border-radius: 12px; margin: 14px 0; }
+.care-options summary { display: flex; align-items: center; gap: 10px; padding: 12px 14px; cursor: pointer; list-style: none; border-radius: 12px; }
+.care-options summary::-webkit-details-marker { display: none; }
+.care-options summary > svg:first-child { color: var(--primary); flex-shrink: 0; }
+.care-options summary span { flex: 1; font-size: 13px; font-weight: 650; }
+.care-options summary small { display: block; font-size: 10px; font-weight: 400; color: var(--muted-foreground); margin-top: 2px; }
+.care-options summary:hover span, .care-options summary:focus-visible span { color: var(--primary); }
+.care-options summary:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+.care-chevron { color: var(--muted-foreground); transition: transform .2s ease; }
+.care-options[open] .care-chevron { transform: rotate(90deg); }
+.care-options[open] summary small { display: none; }
+.care-choices { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 14px; }
+.care-choices a { display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--border); color: var(--foreground); font-size: 12px; font-weight: 600; transition: border-color .18s, background-color .18s, color .18s; }
+.care-choices a:hover, .care-choices a:focus-visible { border-color: var(--primary); color: var(--primary); }
+.care-choices a.suggested { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
+.care-choices a.suggested:hover, .care-choices a.suggested:focus-visible { color: var(--primary-foreground); filter: brightness(1.08); }
+.care-options > p { font-size: 10px; color: var(--muted-foreground); line-height: 1.7; padding: 10px 14px 13px; }
+@media (prefers-reduced-motion: reduce) { .care-chevron { transition: none; } }
