@@ -39,7 +39,8 @@ struct ChatInput: Content {
 }
 
 /// POST /api/chat response.
-/// mode: "ai" (Gemini wrote it), "library" (saved summary fallback) or "safety" (warning-sign message; no AI call).
+/// mode: "ai" (Gemini wrote it), "library" (saved summary fallback), "safety" (warning-sign message; no AI call)
+/// or "off_topic" (not a health question). followUps: up to 3 suggested next questions, only in "ai" mode.
 struct ChatResponse: Content {
     let mode: String
     let aiEnabled: Bool
@@ -47,4 +48,5 @@ struct ChatResponse: Content {
     let reply: String
     let sourceIds: [String]
     let notice: String?
+    var followUps: [String]? = nil
 }

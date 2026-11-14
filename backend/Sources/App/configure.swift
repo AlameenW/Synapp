@@ -15,7 +15,9 @@ func configure(_ app: Application, configuration supplied: BackendConfiguration?
     try app.register(collection: RegionController(library: library))
     try app.register(collection: GuidanceController(service: EducationalGuidanceService(library: library), limiter: limiter))
     try app.register(collection: ExplorationController(service: ExplorationService(library: library), limiter: limiter))
-    let generator: (any TextGenerating)? = configuration.geminiApiKey.map { GeminiClient(apiKey: $0, model: configuration.geminiModel) as any TextGenerating }
+    let generator: (any TextGenerating)? = configuration.geminiApiKey.map {
+        GeminiClient(apiKey: $0, model: configuration.geminiModel, responseSchema: CompanionService.replySchema) as any TextGenerating
+    }
     let companion = CompanionService(library: library, generator: generator)
     try app.register(collection: ChatController(
         service: companion,

@@ -76,6 +76,8 @@ export interface ChatResponse {
   reply: string
   sourceIds: string[]
   notice?: string
+  /** Up to 3 suggested next questions (AI replies only). */
+  followUps?: string[]
 }
 export interface Readiness { status: string; aiEnabled: boolean; aiProvider?: string }
 

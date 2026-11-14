@@ -84,7 +84,7 @@ See [OpenAPI specification](openapi.json) for machine-readable schemas.
 | message | Required; trimmed length 1–1000 characters |
 | history | Optional; at most 8 earlier turns `{role: "user" or "assistant", text}`, each 1–2000 characters |
 
-Response: `{mode, aiEnabled, regionId, reply, sourceIds, notice?}`.
+Response: `{mode, aiEnabled, regionId, reply, sourceIds, notice?, followUps?}`. `followUps` holds up to 3 suggested next questions (AI replies only); the UI shows them as buttons under the latest answer.
 
 | mode | Meaning |
 | --- | --- |
@@ -92,6 +92,8 @@ Response: `{mode, aiEnabled, regionId, reply, sourceIds, notice?}`.
 | ai | Gemini wrote the reply, instructed to stay within the curated topics for the region and never diagnose |
 | library | AI is not configured or failed; the reply is the saved library summary and `notice` explains why |
 | off_topic | The question wasn't about health or the body. Gemini returns a marker and the server substitutes a fixed, polite decline, so off-topic answers never reach the user |
+
+Gemini is asked for a JSON reply (`reply`, `topicIds`, `followUps`, `offTopic`) using structured output. `sourceIds` come from the library topics Gemini reports using, limited to the topics it was sent; if it reports none, they follow the body parts in the conversation. Plain-text replies are still accepted as a fallback.
 
 The Gemini key is read from `GEMINI_API_KEY` on the server and never sent to the browser. `GEMINI_MODEL` defaults to `gemini-3.5-flash-lite`. `CHAT_REQUESTS_PER_MINUTE` (default 10) limits requests per client IP. Messages are not stored or logged; only the failure kind is logged when Gemini errors. `sourceIds` always come from the content library, never from the model. On Gemini's free tier, Google may use submitted text to improve its products, so the UI tells users their question is sent to Google Gemini.
 
