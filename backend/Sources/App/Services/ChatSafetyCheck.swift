@@ -20,6 +20,7 @@ struct ChatSafetyCheck: Sendable {
         (["bone sticking out", "bone is sticking out", "looks deformed", "out of place", "dislocated", "wrong angle", "bent the wrong way"], "nhs-sprains"),
         (["car crash", "car accident", "hit by a car", "fell from a height", "head injury"], "nhs-back"),
     ]
+    private static let chestPressureWords = ["tight", "tightness", "heavy", "heaviness", "pressure", "squeezing", "crushing"]
     private static let urgent: [(phrases: [String], source: String)] = [
         (["can't walk", "cannot walk", "can't put weight", "can't bear weight", "cannot bear weight", "can't move my", "cannot move my"], "nhs-sprains"),
         (["fever", "feverish", "hot and swollen", "red and swollen"], "nhs-knee"),
@@ -39,7 +40,11 @@ struct ChatSafetyCheck: Sendable {
                         reply: "I'm really sorry you're going through this. Please reach out for support right now: contact your local emergency number, or a crisis line such as 988 (call or text in the US). You don't have to handle this alone, and talking to someone can help.",
                         sourceIds: [])
         }
-        let hits = Self.emergency.filter { $0.phrases.contains(where: { mentions($0) }) }
+        var hits = Self.emergency.filter { $0.phrases.contains(where: { mentions($0) }) }
+        // "My chest feels really tight": the chest plus a pressure word anywhere in the message, not only exact phrases.
+        if words.contains("chest"), Self.chestPressureWords.contains(where: { words.contains($0) }) {
+            hits.append((phrases: [], source: "nhs-chest"))
+        }
         if !hits.isEmpty {
             return Flag(level: "emergency",
                         reply: "What you describe can be a warning sign that needs help right away. Please contact your local emergency number or go to an emergency department now. Don't wait for this app — I can't assess emergencies.",
