@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import rawCatalog from '../../../../content/exploration.json'
 import { Icon } from '@/components/Icon'
+import { CareOptions } from '@/features/care/CareOptions'
 import { api } from '@/lib/api'
 import { localSources, regionArea } from './library'
 import { activeQuestions, pruneAnswers } from './exploration-flow'
@@ -106,8 +107,11 @@ export function GuidedExploration({ regionId, regionName, hidden, onBrowse, onAs
       {offline && <div className="guide-offline" role="status"><p>Guided results are unavailable right now. Your answers have not been interpreted. You can retry or browse the saved library.</p><button onClick={() => void submit()} className="guide-secondary">Retry guided results</button></div>}
       {result && <>
         {result.disposition !== 'educational' && <div className={'guide-result ' + result.disposition} role="alert"><Icon name="shield" size={20} /><div><strong>Please act on this</strong><p>{result.nextStep}</p></div></div>}
-        <p className="guide-copy">{result.summary}</p>
+        {(result.disposition === 'educational' || result.summary !== result.nextStep) && <p className="guide-copy">{result.summary}</p>}
         {result.disposition !== 'educational' && <ul className="guide-reasons">{result.reasons.map(reason => <li key={reason}>{reason}</li>)}</ul>}
+        {/* Where to go: emergency room first for emergencies, urgent care for urgent signs. */}
+        {result.disposition === 'emergency' && <CareOptions show={['emergency', 'urgent']} suggested="emergency" />}
+        {result.disposition === 'urgent' && <CareOptions show={['urgent', 'emergency']} suggested="urgent" />}
         {result.disposition === 'educational' && result.matches.map(match => <article className="guide-match" key={match.topic.id}>
           <span className={'guide-fit ' + match.fit}>{match.fit === 'closer' ? 'Closer symptom match' : 'Possible overlap · more detail needed'}</span>
           <h4>{match.topic.title}</h4><p>{match.topic.overview}</p>
@@ -118,6 +122,8 @@ export function GuidedExploration({ regionId, regionName, hidden, onBrowse, onAs
           <div className="guide-sources">{localSources.filter(source => match.topic.sourceIds.includes(source.id)).map(source => <a key={source.id} href={source.url} target="_blank" rel="noreferrer">{source.title}<Icon name="external" size={11} /></a>)}</div>
         </article>)}
         {result.disposition === 'educational' && <div className="guide-result educational" role="status"><Icon name="book" size={20} /><div><strong>{result.matches.length ? 'Suggested next step' : 'Keep exploring'}</strong><p>{result.nextStep}</p></div></div>}
+        {/* For everyday aches, offer someone who can assess it in person. */}
+        {result.disposition === 'educational' && <CareOptions show={['physio', 'urgent']} suggested="physio" />}
         <div className="guide-limitations">{result.limitations.map(text => <p key={text}>{text}</p>)}</div>
         {(result.disposition !== 'educational' || result.matches.length === 0) && <div className="guide-sources">{sources.map(source => <a key={source.id} href={source.url} target="_blank" rel="noreferrer">{source.title}<Icon name="external" size={11} /></a>)}</div>}
       </>}
