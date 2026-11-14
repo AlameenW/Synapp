@@ -18,14 +18,27 @@ struct GeminiClient: TextGenerating {
     let apiKey: String
     let model: String
     var timeoutSeconds: UInt64 = 20
+    /// When set, Gemini must reply with JSON matching this schema (structured output).
+    var responseSchema: GeminiSchema? = nil
 
     func generate(system: String, turns: [ChatTurn], client: any Client) async throws -> String {
+        do {
+            return try await send(system: system, turns: turns, schema: responseSchema, client: client)
+        } catch TextGenerationError.badStatus(400) where responseSchema != nil {
+            // If this model rejects the JSON schema, still answer as plain text; the companion accepts both.
+            return try await send(system: system, turns: turns, schema: nil, client: client)
+        }
+    }
+
+    private func send(system: String, turns: [ChatTurn], schema: GeminiSchema?, client: any Client) async throws -> String {
         let uri = URI(string: "https://generativelanguage.googleapis.com/v1beta/models/\(model):generateContent")
         let headers: HTTPHeaders = ["x-goog-api-key": apiKey, "Content-Type": "application/json"]
         let body = GeminiRequest(
             systemInstruction: .init(role: nil, parts: [.init(text: system)]),
             contents: turns.map { .init(role: $0.role == "assistant" ? "model" : "user", parts: [.init(text: $0.text)]) },
-            generationConfig: .init(maxOutputTokens: 1024)
+            generationConfig: .init(maxOutputTokens: 1024,
+                                    responseMimeType: schema == nil ? nil : "application/json",
+                                    responseSchema: schema)
         )
         let response = try await Self.withTimeout(seconds: timeoutSeconds) {
             try await client.post(uri, headers: headers) { request in
@@ -73,6 +86,21 @@ struct GeminiContent: Content {
 
 struct GeminiGenerationConfig: Content {
     let maxOutputTokens: Int
+    var responseMimeType: String? = nil
+    var responseSchema: GeminiSchema? = nil
+}
+
+/// The subset of Gemini's response schema format that Tendi uses (objects of strings, booleans and string arrays).
+struct GeminiSchema: Content, Sendable {
+    var type: String
+    var properties: [String: GeminiSchema]? = nil
+    var items: GeminiItemSchema? = nil
+    var required: [String]? = nil
+    var propertyOrdering: [String]? = nil
+}
+
+struct GeminiItemSchema: Content, Sendable {
+    var type: String
 }
 
 struct GeminiRequest: Content {

@@ -144,10 +144,11 @@ final class ChatTests: XCTestCase, @unchecked Sendable {
         }
         let library = try ContentLibrary(directory: contentDirectory)
         let text = CompanionService.instructions(viewing: nil, topics: library.topics)
-        XCTAssertTrue(text.contains(CompanionService.offTopicMarker))
+        XCTAssertTrue(text.contains("set \"offTopic\" to true"))
+        XCTAssertTrue(text.contains("Response format"))
         XCTAssertTrue(text.contains("ONLY help with health and the human body"))
         // Mixed and medication questions must not be declined as off topic.
-        XCTAssertTrue(text.contains("When a message mixes topics, never use"))
+        XCTAssertTrue(text.contains("When a message mixes topics, never set \"offTopic\" to true"))
         XCTAssertTrue(text.contains("pharmacist"))
     }
 
@@ -223,6 +224,47 @@ final class ChatTests: XCTestCase, @unchecked Sendable {
 
         let none = CompanionService.instructions(viewing: nil, topics: [], catalog: topics)
         XCTAssertTrue(none.contains("No library entry matched"))
+    }
+
+    func testStructuredRepliesGiveSourcesAndFollowUps() async throws {
+        try await withBareApp { app in
+            let input = ChatInput(regionId: "right_knee", message: "Why does my knee ache after squats?")
+            let json = """
+            {"offTopic": false, "reply": "Knee aches after squats are common. This is general information, not a diagnosis.",
+             "topicIds": ["patellofemoral-pain", "ankle-overview", "made-up-id"],
+             "followUps": ["What warm-up might help?", "What warm-up might help?", "See https://example.com", "", "Is rest better than stretching?", "When should I see someone?", "A fourth question?"]}
+            """
+            let reply = try await service(.success(json)).reply(to: input, client: app.client, logger: app.logger)
+            XCTAssertEqual(reply.mode, "ai")
+            XCTAssertTrue(reply.reply.hasPrefix("Knee aches after squats"))
+            // Only topics Tendi was sent count: the ankle and made-up IDs are ignored.
+            let library = try ContentLibrary(directory: contentDirectory)
+            let kneecap = library.topics.first { $0.id == "patellofemoral-pain" }!
+            XCTAssertEqual(reply.sourceIds, Array(Set(kneecap.sourceIds)).sorted())
+            // Duplicates, links and empty items are dropped, and at most 3 are kept.
+            XCTAssertEqual(reply.followUps, ["What warm-up might help?", "Is rest better than stretching?", "When should I see someone?"])
+
+            // JSON in a code fence still works, and offTopic gives the fixed decline.
+            let fenced = "```json\n{\"offTopic\": true, \"reply\": \"\", \"topicIds\": [], \"followUps\": []}\n```"
+            let declined = try await service(.success(fenced)).reply(to: input, client: app.client, logger: app.logger)
+            XCTAssertEqual(declined.mode, "off_topic")
+            XCTAssertEqual(declined.reply, CompanionService.offTopicReply)
+
+            // Unknown topic IDs only: sources fall back to the body parts discussed.
+            let unknown = #"{"offTopic": false, "reply": "General knee information.", "topicIds": ["nope"], "followUps": []}"#
+            let fallback = try await service(.success(unknown)).reply(to: input, client: app.client, logger: app.logger)
+            XCTAssertTrue(fallback.sourceIds.contains("nhs-knee"))
+            XCTAssertEqual(fallback.followUps, [])
+
+            // A JSON reply with no answer text falls back to the saved library.
+            let empty = #"{"offTopic": false, "reply": "  ", "topicIds": [], "followUps": []}"#
+            let failed = try await service(.success(empty)).reply(to: input, client: app.client, logger: app.logger)
+            XCTAssertEqual(failed.mode, "library")
+        }
+        // Topic IDs are in the prompt so Gemini can report which entries it used.
+        let topics = try ContentLibrary(directory: contentDirectory).topics
+        let text = CompanionService.instructions(viewing: nil, topics: Array(topics.prefix(1)), catalog: topics)
+        XCTAssertTrue(text.contains("(id: \(topics[0].id))"))
     }
 
     func testAnswersAreNotLimitedToTheSelectedRegion() async throws {
