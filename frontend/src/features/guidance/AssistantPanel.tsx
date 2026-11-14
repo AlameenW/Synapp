@@ -9,7 +9,7 @@ import './tendi.css'
 
 // mode: where an answer came from. "offline" = the backend couldn't be reached, so the browser used its saved copy.
 type Mode = 'ai' | 'library' | 'safety' | 'off_topic' | 'offline'
-interface Message { id: number; role: 'user' | 'assistant'; text: string; sources?: string[]; mode?: Mode; notice?: string }
+interface Message { id: number; role: 'user' | 'assistant'; text: string; sources?: string[]; mode?: Mode; notice?: string; followUps?: string[] }
 const modeLabel: Record<Mode, string> = { ai: 'AI · Gemini', library: 'Library', safety: 'Safety first', off_topic: 'Health only', offline: 'Library' }
 
 // Ask the backend once whether Tendi's AI is switched on (shared by every region's panel).
@@ -67,7 +67,7 @@ export function AssistantPanel({ regionId, regionName, request, onExpand }: {
       const reply = await api.chat({ regionId, message, history }, controller.signal)
       setAIEnabled(reply.aiEnabled)
       setMessages(previous => [...previous, { id: Date.now(), role: 'assistant', text: reply.reply,
-        sources: reply.sourceIds, mode: reply.mode, notice: reply.notice }])
+        sources: reply.sourceIds, mode: reply.mode, notice: reply.notice, followUps: reply.followUps }])
     } catch (error) {
       if (controller.signal.aborted) return
       const reason = error instanceof Error && error.message !== 'Failed to fetch' ? error.message : null
@@ -85,11 +85,15 @@ export function AssistantPanel({ regionId, regionName, request, onExpand }: {
         <h3>Hi, I'm Tendi!<br />A little curious?</h3>
         <p>Like a tendon, I help connect the dots. Ask me about any aches, movements or recovery questions.</p>
         <div className="chat-suggestions">{['Why do my knees ache after squats?', 'How should I warm up before lifting?', 'Soreness or injury: how can I tell?'].map(text => <button key={text} onClick={() => send(text)}>{text}<Icon name="arrow" size={14} /></button>)}</div>
-      </div> : <div className="message-list" role="log" aria-label="Conversation with Tendi" aria-live="polite">{messages.map(message => <motion.div key={message.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className={'message ' + message.role + (message.mode ? ' mode-' + message.mode : '')}>
+      </div> : <div className="message-list" role="log" aria-label="Conversation with Tendi" aria-live="polite">{messages.map((message, index) => <motion.div key={message.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className={'message ' + message.role + (message.mode ? ' mode-' + message.mode : '')}>
         {message.role === 'assistant' && <span className="message-label"><Icon name={message.mode === 'safety' ? 'shield' : 'spark'} size={13} /> TENDI{message.mode && <span className="message-mode">{modeLabel[message.mode]}</span>}</span>}
         <p>{message.text}</p>
         {message.notice && <p className="message-notice">{message.notice}</p>}
         {message.sources?.map(id => { const source = localSources.find(item => item.id === id); return source ? <a key={id} href={source.url} target="_blank" rel="noreferrer">{source.publisher} source <Icon name="external" size={11} /></a> : null })}
+        {/* Suggested next questions, only under Tendi's latest answer. */}
+        {message.followUps?.length && index === messages.length - 1 && !pending ? <div className="chat-followups" aria-label="Suggested questions">
+          {message.followUps.map(text => <button key={text} type="button" onClick={() => send(text)}>{text}<Icon name="arrow" size={12} /></button>)}
+        </div> : null}
       </motion.div>)}
         {pending && <div className="message assistant tendi-typing" role="status"><span className="message-label"><Icon name="spark" size={13} /> TENDI</span><p><span className="typing-dots" aria-hidden="true"><i /><i /><i /></span> Tendi is thinking…</p></div>}
         <div ref={end} /></div>}
