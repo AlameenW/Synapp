@@ -14,13 +14,6 @@ import { BrandMark } from '@/components/BrandMark'
 import './header.css'
 import './mobile-navigation.css'
 
-// "Find care" choices. Each opens a Google Maps search in a new tab; Synapp never asks for or sees the user's location.
-const mapsSearch = (query: string) => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(query)
-const careOptions = [
-  { id: 'emergency', title: 'Emergency room', detail: 'For severe or sudden symptoms', url: mapsSearch('emergency room near me') },
-  { id: 'urgent', title: 'Urgent care', detail: 'Needs attention soon, but not an emergency', url: mapsSearch('urgent care near me') },
-  { id: 'physio', title: 'Physical therapy / sports medicine', detail: 'For ongoing aches, injuries and recovery', url: mapsSearch('physical therapist near me') },
-]
 
 export default function App() {
   const { dark, toggleTheme } = useTheme()
@@ -28,7 +21,7 @@ export default function App() {
   const [selectedId, setSelectedId] = useState('right_shoulder')
   const [back, setBack] = useState(false)
   const [request, setRequest] = useState<{ text: string; id: number } | null>(null)
-  const [modal, setModal] = useState<'sources' | 'about' | 'assistant' | 'care' | null>(null)
+  const [modal, setModal] = useState<'sources' | 'about' | 'assistant' | null>(null)
   const [companionOpen, setCompanionOpen] = useState(false)
   const [hash, setHash] = useState(() => window.location.hash)
   useEffect(() => {
@@ -72,12 +65,11 @@ export default function App() {
       <aside className="side-rail" aria-label="Quick navigation">
         <BrandMark />
         <nav><a className={'rail-link' + (view === 'explore' ? ' active' : '')} href="#explore" aria-label="Body explorer" aria-current={view === 'explore' ? 'page' : undefined}><Icon name="body" size={23} /></a><a className={'rail-link' + (view === 'search' ? ' active' : '')} href="#search" aria-label="Search body parts" aria-current={view === 'search' ? 'page' : undefined}><Icon name="search" size={21} /></a><button className={'rail-link' + (companionOpen ? ' active' : '')} onClick={() => setCompanionOpen(open => !open)} aria-label="Tendi, your movement companion" aria-expanded={companionOpen} aria-controls="companion-drawer"><Icon name="chat" size={21} /></button></nav>
-        <span className="rail-bottom">MOVE<br />WELL.</span>
       </aside>
       <div className="main-shell">
         <header className="topbar">
           <Wordmark />
-          <div className="header-actions"><Button variant="ghost" className="theme-toggle help-toggle" onClick={() => setModal('care')} aria-label="Find care near you" title="Find care near you"><Icon name="pin" size={19} /></Button><Button variant="ghost" className="theme-toggle" onClick={toggleTheme} aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'} aria-pressed={dark}><Icon name={dark ? 'sun' : 'moon'} size={19} /></Button></div>
+          <div className="header-actions"><Button variant="ghost" className="theme-toggle" onClick={toggleTheme} aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'} aria-pressed={dark}><Icon name={dark ? 'sun' : 'moon'} size={19} /></Button></div>
         </header>
         {view === 'search' && <SearchPage onOpen={openRegion} />}
         <main id="explore" hidden={view === 'search'}>
@@ -114,9 +106,9 @@ export default function App() {
     </div>
     <dialog ref={dialog} className="info-dialog" onCancel={() => setModal(null)} onClick={event => { if (event.target === event.currentTarget) setModal(null) }} aria-labelledby="dialog-title">
       <div className="dialog-inner"><Button variant="ghost" className="dialog-close" aria-label="Close dialog" onClick={() => setModal(null)}><Icon name="close" /></Button>
-        <span className="dialog-emblem"><Icon name={modal === 'sources' ? 'book' : modal === 'care' ? 'pin' : 'spark'} size={30} /></span>
-        <h2 id="dialog-title">{modal === 'care' ? 'Find care near you.' : modal === 'sources' ? 'A little knowledge. From real sources.' : modal === 'assistant' ? 'Meet Tendi, your movement companion.' : 'Get to know the body you move in.'}</h2>
-        {modal === 'care' ? <><p className="care-urgent"><strong>If this is an emergency, call your local emergency number first.</strong> Don't wait to look up a location.</p><p>Choose the kind of care you're looking for. Each option opens Google Maps with nearby places, hours and directions.</p><ul className="source-list">{careOptions.map(option => <li key={option.id}><a href={option.url} target="_blank" rel="noreferrer"><span>{option.title}<small>{option.detail}</small></span><Icon name="external" size={17} /></a></li>)}</ul><p>Synapp doesn't ask for or see your location; Google Maps works it out on its side. These are search results, not recommendations from Synapp.</p></> : modal === 'sources' ? <><p>Our starting library draws on NHS information. These summaries are educational drafts, not clinically reviewed advice.</p><ul className="source-list">{localSources.map(source => <li key={source.id}><a href={source.url} target="_blank" rel="noreferrer"><span>{source.title}<small>{source.publisher}</small></span><Icon name="external" size={17} /></a></li>)}</ul></> : modal === 'assistant' ? <><p>Like a tendon connecting muscle to bone, Tendi connects you to the right information. Ask Tendi about any aches, movements or recovery questions. Tendi answers using Synapp's library, written up by Google Gemini AI. Conversations aren't saved: they clear when you reload the page.</p><p>Each question, plus your last few messages, is sent to Google Gemini to write the answer, so skip names and other personal details. If you mention a warning sign such as chest pain or losing feeling, Tendi points you to urgent help instead of answering. Tendi can make mistakes, doesn't diagnose and doesn't create treatment plans. If you need medical advice, speak with a qualified professional.</p></> : <><p>Select an area on the 3D figure, or choose a region from the list. Explore possible explanations, associated symptoms, and general care information, with links to the original sources.</p><div className="dialog-steps"><span>01 <strong>Explore your body</strong></span><span>02 <strong>Follow your curiosity</strong></span></div><p>The body views are illustrative models with different proportions, and the information cannot establish a diagnosis. If you think you need urgent or emergency care, seek help directly rather than relying on this app.</p></>}
+        <span className="dialog-emblem"><Icon name={modal === 'sources' ? 'book' : 'spark'} size={30} /></span>
+        <h2 id="dialog-title">{modal === 'sources' ? 'A little knowledge. From real sources.' : modal === 'assistant' ? 'Meet Tendi, your movement companion.' : 'Get to know the body you move in.'}</h2>
+        {modal === 'sources' ? <><p>Our starting library draws on NHS information. These summaries are educational drafts, not clinically reviewed advice.</p><ul className="source-list">{localSources.map(source => <li key={source.id}><a href={source.url} target="_blank" rel="noreferrer"><span>{source.title}<small>{source.publisher}</small></span><Icon name="external" size={17} /></a></li>)}</ul></> : modal === 'assistant' ? <><p>Like a tendon connecting muscle to bone, Tendi connects you to the right information. Ask Tendi about any aches, movements or recovery questions. Tendi answers using Synapp's library, written up by Google Gemini AI. Conversations aren't saved: they clear when you reload the page.</p><p>Each question, plus your last few messages, is sent to Google Gemini to write the answer, so skip names and other personal details. If you mention a warning sign such as chest pain or losing feeling, Tendi points you to urgent help instead of answering. Tendi can make mistakes, doesn't diagnose and doesn't create treatment plans. If you need medical advice, speak with a qualified professional.</p></> : <><p>Select an area on the 3D figure, or choose a region from the list. Explore possible explanations, associated symptoms, and general care information, with links to the original sources.</p><div className="dialog-steps"><span>01 <strong>Explore your body</strong></span><span>02 <strong>Follow your curiosity</strong></span></div><p>The body views are illustrative models with different proportions, and the information cannot establish a diagnosis. If you think you need urgent or emergency care, seek help directly rather than relying on this app.</p></>}
       </div>
     </dialog>
   </MotionConfig>
