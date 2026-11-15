@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Icon } from '@/components/Icon'
 import { localSources, localTopics } from './library'
@@ -7,8 +7,8 @@ import { api } from '@/lib/api'
 import type { HealthSource, Topic } from '@/types/api'
 import './exploration.css'
 
-const tabs = ['overview', 'symptoms', 'care', 'guide'] as const
-const tabNames = { overview: 'Overview', symptoms: 'Symptoms', care: 'Care', guide: 'Questions' }
+const tabs = ['symptoms', 'guide'] as const
+const tabNames = { symptoms: 'Symptoms', guide: 'Questions' }
 function SourceLinks({ ids, sources }: { ids: string[]; sources: HealthSource[] }) {
   return <div className="issue-sources">{ids.map(id => {
     const source = sources.find(item => item.id === id)
@@ -16,13 +16,46 @@ function SourceLinks({ ids, sources }: { ids: string[]; sources: HealthSource[] 
   })}</div>
 }
 
+/** One issue inside the Symptoms tab: its description, symptoms and when to get help, with a button that slides
+ *  over to its general care steps (and back). Focus moves to the new view so keyboard and screen-reader users follow. */
+function IssueBody({ topic, sources, showCare, onCare }: { topic: Topic; sources: HealthSource[]; showCare: boolean; onCare: (open: boolean) => void }) {
+  // Set when the user switches views; the next view takes focus as soon as it appears.
+  const moveFocus = useRef(false)
+  const focusOnMount = (element: HTMLElement | null) => { if (element && moveFocus.current) { moveFocus.current = false; element.focus() } }
+  function switchTo(care: boolean) { moveFocus.current = true; onCare(care) }
+  return <div className="issue-slider">
+    <AnimatePresence mode="wait" initial={false}>
+      {showCare
+        ? <motion.div key="care" className="issue-pane" initial={{ x: 48, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 48, opacity: 0 }} transition={{ duration: .22, ease: 'easeOut' }}>
+          <button className="issue-back" onClick={() => switchTo(false)}><Icon name="arrow" size={14} style={{ transform: 'rotate(180deg)' }} />Back to symptoms</button>
+          <h4 ref={focusOnMount} tabIndex={-1}>General care</h4>
+          <p className="micro-copy">Care depends on the cause. This is general information, not a personalised treatment plan.</p>
+          <ol className="care-list">{topic.generalCare.map((text, i) => <li key={text}><span>{String(i + 1).padStart(2, '0')}</span><p>{text}</p></li>)}</ol>
+          <SourceLinks ids={topic.sourceIds} sources={sources} />
+        </motion.div>
+        : <motion.div key="symptoms" className="issue-pane" initial={{ x: -48, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -48, opacity: 0 }} transition={{ duration: .22, ease: 'easeOut' }}>
+          <p className="issue-overview">{topic.overview}</p>
+          <h4>What people may notice</h4>
+          <ul className="symptom-list">{topic.symptoms.map(text => <li key={text}><span /><p>{text}</p></li>)}</ul>
+          <div className="issue-warning"><Icon name="shield" size={16} /><p><strong>Get medical help: </strong>{topic.whenToSeekHelp.join(' ')}</p></div>
+          <div className="issue-footer">
+            <SourceLinks ids={topic.sourceIds} sources={sources} />
+            <button ref={focusOnMount} className="issue-care-button" onClick={() => switchTo(true)}>General care for this<Icon name="arrow" size={14} /></button>
+          </div>
+        </motion.div>}
+    </AnimatePresence>
+  </div>
+}
+
 export function TopicPanel({ regionId, regionName, onAsk }: { regionId: string; regionName: string; onAsk: (prompt: string) => void }) {
   const [topics, setTopics] = useState<Topic[]>(() => localTopics.filter(topic => topic.regionIds.includes(regionId)))
   const [sources, setSources] = useState<HealthSource[]>(localSources)
   const [saved, setSaved] = useState(true)
-  const [tab, setTab] = useState<typeof tabs[number]>('overview')
-  const [expanded, setExpanded] = useState<string | null>(null)
+  const [tab, setTab] = useState<typeof tabs[number]>('symptoms')
+  // Which issue (if any) is showing its general care view instead of its symptoms.
+  const [careFor, setCareFor] = useState<string | null>(null)
   useEffect(() => {
+    setCareFor(null)
     const controller = new AbortController()
     const timeout = setTimeout(() => controller.abort(), 3500)
     Promise.all([api.topics(regionId, controller.signal), api.sources(controller.signal)])
@@ -34,12 +67,10 @@ export function TopicPanel({ regionId, regionName, onAsk }: { regionId: string; 
       .finally(() => clearTimeout(timeout))
     return () => { controller.abort(); clearTimeout(timeout) }
   }, [regionId])
-  function startGuide() { setTab('guide'); document.getElementById('tab-guide')?.focus() }
   return <section className="topic-panel panel" aria-labelledby="region-title">
     <div className="section-kicker"><span className="number-label">02</span> GET TO KNOW YOUR BODY <span className="tiny-spark">✳</span></div>
     <div className="region-heading"><div><p className="eyebrow">NOW EXPLORING</p><h2 id="region-title">{regionName}<span>.</span></h2></div><span className="region-glyph"><Icon name="body" size={31} /></span></div>
     <p className="panel-intro">Explore possible issues, compare their symptoms and learn about general care.</p>
-    {tab !== 'guide' && <button className="guide-launch" onClick={startGuide}><Icon name="spark" size={22} /><span><strong>Help me explore my symptoms</strong><small>A few questions · Warning signs checked first</small></span><Icon name="arrow" size={17} /></button>}
     <div className="topic-tabs" role="tablist" aria-label="Region information">
       {tabs.map(value => <button key={value} role="tab" id={'tab-' + value} aria-controls={'panel-' + value} aria-selected={tab === value} tabIndex={tab === value ? 0 : -1}
         onKeyDown={event => {
@@ -55,29 +86,17 @@ export function TopicPanel({ regionId, regionName, onAsk }: { regionId: string; 
     </div>
     <div className="topic-content">
       <div id="panel-guide" role="tabpanel" aria-labelledby="tab-guide" hidden={tab !== 'guide'}>
-        <GuidedExploration regionId={regionId} regionName={regionName} hidden={tab !== 'guide'} onBrowse={() => setTab('overview')} onAsk={onAsk} />
+        <GuidedExploration regionId={regionId} regionName={regionName} hidden={tab !== 'guide'} onBrowse={() => setTab('symptoms')} onAsk={onAsk} />
       </div>
       {tab !== 'guide' && <motion.div key={tab} role="tabpanel" id={'panel-' + tab} aria-labelledby={'tab-' + tab}
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .15 }}>
-        {tab === 'overview' && <>
-          <div className="content-label"><h3>Issues to learn about</h3><span>{String(topics.length).padStart(2, '0')} topics</span></div>
-          <p className="micro-copy">Different conditions can feel alike. These pages cannot establish a diagnosis.</p>
-          <div className="topic-card-list">{topics.map((topic, index) => <article className={'topic-card ' + (expanded === topic.id ? 'expanded' : '')} key={topic.id}>
-            <button className="topic-card-trigger" aria-expanded={expanded === topic.id} onClick={() => setExpanded(expanded === topic.id ? null : topic.id)}>
-              <span className={'topic-icon tint-' + index % 2}><Icon name={index === 0 ? 'body' : 'heart'} size={20} /></span>
-              <span><strong>{topic.title.replace(' information', '')}</strong><small>{topic.symptoms.slice(0, 2).join(' · ')}</small></span><Icon name="chevron" size={16} />
-            </button>
-            <AnimatePresence initial={false}>{expanded === topic.id && <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="topic-card-description"><p>{topic.overview}</p><div className="topic-expanded-sources"><SourceLinks ids={topic.sourceIds} sources={sources} /></div><button className="text-button" onClick={() => setTab('symptoms')}>Compare symptoms<Icon name="arrow" size={14} /></button></motion.div>}</AnimatePresence>
-          </article>)}</div>
-          <div className="insight-card"><span className="insight-icon"><Icon name="spark" size={20} /></span><div><h3>Patterns are useful context.</h3><p>When it started, which movements trigger it and how it affects daily life can help a professional assess the problem.</p></div></div>
-        </>}
         {tab === 'symptoms' && <>
-          <div className="content-label"><h3>Compare symptom patterns</h3><Icon name="body" size={18} /></div><p className="micro-copy">Open an issue to see what may occur with it. Overlapping symptoms are common.</p>
-          {topics.map((topic, index) => <details className="issue-section" key={topic.id} open={index === 0}><summary>{topic.title}<Icon name="chevron" size={16} /></summary><p className="micro-copy">{topic.overview}</p><ul className="symptom-list">{topic.symptoms.map(text => <li key={text}><span /><p>{text}</p></li>)}</ul><SourceLinks ids={topic.sourceIds} sources={sources} /></details>)}
-        </>}
-        {tab === 'care' && <>
-          <div className="content-label"><h3>Care depends on the cause</h3><Icon name="heart" size={18} /></div><p className="micro-copy">Choose an issue to read its general care information. This is not a personalised treatment plan.</p>
-          {topics.map((topic, index) => <details className="issue-section" key={topic.id} open={index === 0}><summary>{topic.title}<Icon name="chevron" size={16} /></summary><ol className="care-list">{topic.generalCare.map((text, i) => <li key={text}><span>{String(i + 1).padStart(2, '0')}</span><p>{text}</p></li>)}</ol><div className="care-alert"><Icon name="shield" size={19} /><div><strong>When to get medical help</strong>{topic.whenToSeekHelp.map(text => <p key={text}>{text}</p>)}</div></div><SourceLinks ids={topic.sourceIds} sources={sources} /></details>)}
+          <div className="content-label"><h3>Issues to learn about</h3><span>{String(topics.length).padStart(2, '0')} topics</span></div>
+          <p className="micro-copy">Open an issue to see what may occur with it and how to care for it. Different conditions can feel alike, so these pages cannot establish a diagnosis.</p>
+          {topics.map((topic, index) => <details className="issue-section" key={topic.id} open={index === 0}>
+            <summary>{topic.title}<Icon name="chevron" size={16} /></summary>
+            <IssueBody topic={topic} sources={sources} showCare={careFor === topic.id} onCare={open => setCareFor(open ? topic.id : null)} />
+          </details>)}
         </>}
       </motion.div>}
     </div>

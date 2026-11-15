@@ -72,7 +72,6 @@ export function GuidedExploration({ regionId, regionName, hidden, onBrowse, onAs
 
   const sources = result?.sourceIds.map(id => localSources.find(item => item.id === id)).filter(item => item !== undefined) ?? []
   return <section hidden={hidden} className="guided-exploration" aria-label="Guided symptom exploration">
-    <div className="guide-heading"><span className="guide-badge"><Icon name="spark" size={16} /> Guided exploration</span><span>{step === lastStep ? 'Your symptom comparison' : step === 0 ? 'Start here' : `${step} of ${questions.length}`}</span></div>
     <div className="guide-progress" aria-hidden="true"><span style={{ width: `${step / lastStep * 100}%` }} /></div>
     {step === 0 && <>
       <h3 ref={heading} tabIndex={-1}>First, check for warning signs.</h3>
