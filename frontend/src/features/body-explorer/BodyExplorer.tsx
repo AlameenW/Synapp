@@ -35,7 +35,6 @@ export function BodyExplorer({ selectedId, onSelect, onPick, dark, back, setBack
           <BodyModel selectedId={selectedId} onSelect={onPick} dark={dark} back={back} zoom={zoom} reset={reset} view={view} />
         </Suspense></ModelBoundary>
       </div>
-      <div className="stage-note"><span className="mini-dot" />Explore an area.<br /><strong>Make a connection.</strong></div>
       <div className="zoom-controls">
         <Button variant="ghost" aria-label="Zoom in" disabled={zoom >= 1.25} onClick={() => setZoom(value => Math.min(1.25, value + .1))}><Icon name="plus" size={16} /></Button>
         <Button variant="ghost" aria-label="Zoom out" disabled={zoom <= .85} onClick={() => setZoom(value => Math.max(.85, value - .1))}><Icon name="minus" size={16} /></Button>
