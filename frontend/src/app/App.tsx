@@ -4,7 +4,8 @@ import { Icon } from '@/components/Icon'
 import { Button } from '@/components/ui/button'
 import { Wordmark } from '@/components/Wordmark'
 import { BodyExplorer } from '@/features/body-explorer/BodyExplorer'
-import { bodyAreas, isRearRegion, previewRegions } from '@/features/body-explorer/preview-regions'
+import { isRearRegion, previewRegions } from '@/features/body-explorer/preview-regions'
+import { BodyLine } from '@/features/body-explorer/BodyLine'
 import { TopicPanel } from '@/features/topics/TopicPanel'
 import { AssistantPanel } from '@/features/guidance/AssistantPanel'
 import { SearchPage } from '@/features/search/SearchPage'
@@ -76,7 +77,7 @@ export default function App() {
           <motion.div className="hero" initial={{ opacity: 0, y: reduced ? 0 : 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5 }}>
             <div><div className="hero-kicker"><span /> MADE FOR THE WAY YOU MOVE</div><h1>Your body.<br className="mobile-break" /> <span>Better understood.</span></h1><p>A little curiosity. A clearer picture. Explore your body and find your next step.</p></div>
           </motion.div>
-          <div className="region-bar"><span className="region-bar-label"><span className="number-label">01</span> PICK YOUR FOCUS</span><div className="region-pills" aria-label="Quick region selection">{bodyAreas.map(({ id, name, paired }) => <button key={id} aria-pressed={area === id} onClick={() => select(paired ? (selectedId.startsWith('left_') ? 'left_' : 'right_') + id : id)}>{area === id && <span className="pill-dot" />}{name}</button>)}</div></div>
+          <div className="region-bar"><span className="region-bar-label"><span className="number-label">01</span> PICK YOUR FOCUS</span><BodyLine active={area} onPick={({ id, paired }) => select(paired ? (selectedId.startsWith('left_') ? 'left_' : 'right_') + id : id)} /></div>
           <div className="workspace">
             <BodyExplorer selectedId={selectedId} onSelect={select} onPick={pick} dark={dark} back={back} setBack={setBack} />
             <motion.div key={selectedId} className="details-column" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: .16 }}>
