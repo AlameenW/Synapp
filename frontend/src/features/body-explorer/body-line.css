@@ -1,0 +1,27 @@
+/* "Pick your focus" as a body line: stops along one track, head to toe, like a transit map */
+.region-bar { min-width: 0; }
+.body-line { position: relative; flex: 1; min-width: 0; --stop: 92px; --line-y: 30px; }
+.body-line-track { overflow-x: auto; scrollbar-width: none; cursor: grab; user-select: none; -webkit-user-select: none; overscroll-behavior-x: contain; }
+.body-line-track::-webkit-scrollbar { display: none; }
+.body-line-track.dragging, .body-line-track.dragging button { cursor: grabbing; }
+.body-line-stops { list-style: none; margin: 0; padding: 0 8px; display: flex; width: max-content; position: relative; }
+/* The line itself, from the first stop's centre to the last stop's centre */
+.body-line-stops::before { content: ''; position: absolute; top: var(--line-y); left: calc(8px + var(--stop) / 2); right: calc(8px + var(--stop) / 2); height: 2px; margin-top: -1px; background: var(--border); }
+.body-line-stops li { position: relative; width: var(--stop); flex-shrink: 0; padding-top: 18px; }
+/* A short tick and label where each body group begins */
+.body-line-group { position: absolute; top: 0; left: calc(var(--stop) / 2); font-size: 9px; font-weight: 650; letter-spacing: 1px; text-transform: uppercase; color: var(--muted-foreground); white-space: nowrap; transform: translateX(-6px); }
+.body-line-stops li.group-start:not(:first-child)::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 6px; width: 1px; background: var(--border); }
+.body-line-stops button { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 9px; padding: 6px 4px 8px; background: none; border: 0; border-radius: 10px; color: var(--muted-foreground); font-size: 11px; cursor: inherit; }
+.body-line-dot { position: relative; z-index: 1; width: 10px; height: 10px; border-radius: 50%; background: var(--background); border: 2px solid var(--muted-foreground); transition: transform .18s ease, background-color .18s, border-color .18s, box-shadow .18s; }
+.body-line-name { white-space: nowrap; transition: color .18s; }
+.body-line-stops button:hover .body-line-dot { border-color: var(--primary); transform: scale(1.2); }
+.body-line-stops button:hover .body-line-name { color: var(--foreground); }
+.body-line-stops button:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+.body-line-stops button[aria-pressed=true] .body-line-dot { background: var(--primary); border-color: var(--primary); transform: scale(1.5); box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 22%, transparent); }
+.body-line-stops button[aria-pressed=true] .body-line-name { color: var(--foreground); font-weight: 650; }
+/* Fade the edge(s) that have more stops beyond them. */
+.body-line.more-after .body-line-track { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 72px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 72px), transparent); }
+.body-line.more-before .body-line-track { -webkit-mask-image: linear-gradient(to right, transparent, #000 72px); mask-image: linear-gradient(to right, transparent, #000 72px); }
+.body-line.more-before.more-after .body-line-track { -webkit-mask-image: linear-gradient(to right, transparent, #000 72px, #000 calc(100% - 72px), transparent); mask-image: linear-gradient(to right, transparent, #000 72px, #000 calc(100% - 72px), transparent); }
+@media (max-width: 760px) { .body-line { --stop: 82px; } }
+@media (prefers-reduced-motion: reduce) { .body-line-dot, .body-line-name { transition: none; } }
