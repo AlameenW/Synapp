@@ -69,7 +69,7 @@ export function TopicPanel({ regionId, regionName, onAsk }: { regionId: string; 
   }, [regionId])
   return <section className="topic-panel panel" aria-labelledby="region-title">
     <div className="section-kicker"><span className="number-label">02</span> GET TO KNOW YOUR BODY <span className="tiny-spark">✳</span></div>
-    <div className="region-heading"><div><p className="eyebrow">NOW EXPLORING</p><h2 id="region-title">{regionName}<span>.</span></h2></div><span className="region-glyph"><Icon name="body" size={31} /></span></div>
+    <div className="region-heading"><div><p className="eyebrow">NOW EXPLORING</p><h2 id="region-title">{regionName}</h2></div><span className="region-glyph"><Icon name="body" size={31} /></span></div>
     <p className="panel-intro">Explore possible issues, compare their symptoms and learn about general care.</p>
     <div className="topic-tabs" role="tablist" aria-label="Region information">
       {tabs.map(value => <button key={value} role="tab" id={'tab-' + value} aria-controls={'panel-' + value} aria-selected={tab === value} tabIndex={tab === value ? 0 : -1}
