@@ -79,6 +79,16 @@ export interface ChatResponse {
   /** Up to 3 suggested next questions (AI replies only). */
   followUps?: string[]
 }
+/** Tendi's search suggestions. mode: "ai" (Gemini picked library topics), "safety" (warning-sign words, see message),
+ *  "off_topic" (not about the body), "none" (only the warning-sign check ran) or "unavailable" (AI off or failed). */
+export interface SearchSuggestion { topicId: string; title: string; area: string; reason: string }
+export interface SearchSuggestResponse {
+  mode: 'ai' | 'safety' | 'off_topic' | 'none' | 'unavailable'
+  suggestions: SearchSuggestion[]
+  message?: string
+  sourceIds: string[]
+  level?: 'emergency' | 'urgent'
+}
 export interface Readiness { status: string; aiEnabled: boolean; aiProvider?: string }
 
 export interface ExplorationOption { id: string; label: string }

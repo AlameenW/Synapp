@@ -47,7 +47,9 @@ function IssueBody({ topic, sources, showCare, onCare }: { topic: Topic; sources
   </div>
 }
 
-export function TopicPanel({ regionId, regionName, onAsk }: { regionId: string; regionName: string; onAsk: (prompt: string) => void }) {
+export function TopicPanel({ regionId, regionName, onAsk, focusTopic }: {
+  regionId: string; regionName: string; onAsk: (prompt: string) => void; focusTopic?: { id: string; stamp: number } | null
+}) {
   const [topics, setTopics] = useState<Topic[]>(() => localTopics.filter(topic => topic.regionIds.includes(regionId)))
   const [sources, setSources] = useState<HealthSource[]>(localSources)
   const [saved, setSaved] = useState(true)
@@ -67,6 +69,13 @@ export function TopicPanel({ regionId, regionName, onAsk }: { regionId: string; 
       .finally(() => clearTimeout(timeout))
     return () => { controller.abort(); clearTimeout(timeout) }
   }, [regionId])
+  // Open a specific issue (e.g. one Tendi suggested in search): switch to Symptoms and bring that issue into view.
+  useEffect(() => {
+    if (!focusTopic) return
+    setTab('symptoms')
+    const frame = requestAnimationFrame(() => document.getElementById('issue-' + focusTopic.id)?.scrollIntoView({ block: 'nearest' }))
+    return () => cancelAnimationFrame(frame)
+  }, [focusTopic])
   return <section className="topic-panel panel" aria-labelledby="region-title">
     <div className="section-kicker"><span className="number-label">02</span> GET TO KNOW YOUR BODY <span className="tiny-spark">✳</span></div>
     <div className="region-heading"><div><p className="eyebrow">NOW EXPLORING</p><h2 id="region-title">{regionName}</h2></div><span className="region-glyph"><Icon name="body" size={31} /></span></div>
@@ -93,7 +102,8 @@ export function TopicPanel({ regionId, regionName, onAsk }: { regionId: string; 
         {tab === 'symptoms' && <>
           <div className="content-label"><h3>Issues to learn about</h3><span>{String(topics.length).padStart(2, '0')} topics</span></div>
           <p className="micro-copy">Open an issue to see what may occur with it and how to care for it. Different conditions can feel alike, so these pages cannot establish a diagnosis.</p>
-          {topics.map((topic, index) => <details className="issue-section" key={topic.id} open={index === 0}>
+          {topics.map((topic, index) => <details className="issue-section" id={'issue-' + topic.id} key={topic.id + (focusTopic?.id === topic.id ? focusTopic.stamp : '')}
+            open={focusTopic && topics.some(item => item.id === focusTopic.id) ? topic.id === focusTopic.id : index === 0}>
             <summary>{topic.title}<Icon name="chevron" size={16} /></summary>
             <IssueBody topic={topic} sources={sources} showCare={careFor === topic.id} onCare={open => setCareFor(open ? topic.id : null)} />
           </details>)}

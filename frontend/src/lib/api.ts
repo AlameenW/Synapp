@@ -1,4 +1,4 @@
-import type { BodyRegion, Topic, HealthSource, ChatRequest, ChatResponse, Readiness, ExplorationInput, ExplorationResponse } from '@/types/api'
+import type { BodyRegion, Topic, HealthSource, ChatRequest, ChatResponse, Readiness, SearchSuggestResponse, ExplorationInput, ExplorationResponse } from '@/types/api'
 
 async function get<T>(path: string, signal?: AbortSignal): Promise<T> {
   const response = await fetch('/api' + path, { signal })
@@ -24,5 +24,6 @@ export const api = {
   ready: (signal?: AbortSignal) => get<Readiness>('/ready', signal),
   chat: (body: ChatRequest, signal?: AbortSignal) => post<ChatResponse>('/chat', body, signal),
   explore: (body: ExplorationInput, signal?: AbortSignal) => post<ExplorationResponse>('/exploration', body, signal),
+  suggest: (query: string, useAI: boolean, signal?: AbortSignal) => post<SearchSuggestResponse>('/search/suggest', { query, useAI }, signal),
 }
 

@@ -22,6 +22,14 @@ func configure(_ app: Application, configuration supplied: BackendConfiguration?
     try app.register(collection: ChatController(
         service: companion,
         limiter: RateLimiter(limit: configuration.chatLimit, windowSeconds: configuration.rateWindowSeconds)))
+    // Tendi's search suggestions share the Gemini key but have their own per-minute limit, separate from chat.
+    let searchGenerator: (any TextGenerating)? = configuration.geminiApiKey.map {
+        GeminiClient(apiKey: $0, model: configuration.geminiModel) as any TextGenerating
+    }
+    try app.register(collection: SearchSuggestController(
+        service: SearchSuggestService(library: library, generator: searchGenerator),
+        checkLimiter: RateLimiter(limit: 120, windowSeconds: configuration.rateWindowSeconds),
+        aiLimiter: RateLimiter(limit: configuration.chatLimit, windowSeconds: configuration.rateWindowSeconds)))
     app.logger.notice(companion.aiEnabled ? "Tendi AI: on (\(configuration.geminiModel))" : "Tendi AI: off (no GEMINI_API_KEY); using the saved library")
     app.get("api", "health") { _ in
         ["status": "ok", "service": "synapp"]
