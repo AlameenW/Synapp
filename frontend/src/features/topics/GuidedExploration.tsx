@@ -122,7 +122,7 @@ export function GuidedExploration({ regionId, regionName, hidden, onBrowse, onAs
         </article>)}
         {result.disposition === 'educational' && <div className="guide-result educational" role="status"><Icon name="book" size={20} /><div><strong>{result.matches.length ? 'Suggested next step' : 'Keep exploring'}</strong><p>{result.nextStep}</p></div></div>}
         {/* For everyday aches, offer someone who can assess it in person. */}
-        {result.disposition === 'educational' && <CareOptions show={['physio', 'urgent']} suggested="physio" />}
+        {result.disposition === 'educational' && <CareOptions show={['physio', 'urgent', 'emergency']} suggested="physio" />}
         <div className="guide-limitations">{result.limitations.map(text => <p key={text}>{text}</p>)}</div>
         {(result.disposition !== 'educational' || result.matches.length === 0) && <div className="guide-sources">{sources.map(source => <a key={source.id} href={source.url} target="_blank" rel="noreferrer">{source.title}<Icon name="external" size={11} /></a>)}</div>}
       </>}
