@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import { Icon } from '@/components/Icon'
 import { localSources, localTopics } from './library'
 import { GuidedExploration } from './GuidedExploration'
+import { CareOptions } from '@/features/care/CareOptions'
 import { api } from '@/lib/api'
 import type { HealthSource, Topic } from '@/types/api'
 import './exploration.css'
@@ -31,6 +32,8 @@ function IssueBody({ topic, sources, showCare, onCare }: { topic: Topic; sources
           <h4 ref={focusOnMount} tabIndex={-1}>General care</h4>
           <p className="micro-copy">Care depends on the cause. This is general information, not a personalised treatment plan.</p>
           <ol className="care-list">{topic.generalCare.map((text, i) => <li key={text}><span>{String(i + 1).padStart(2, '0')}</span><p>{text}</p></li>)}</ol>
+          {/* For someone who'd like it looked at in person; collapsed until opened. */}
+          <CareOptions show={['physio', 'urgent', 'emergency']} suggested="physio" />
           <SourceLinks ids={topic.sourceIds} sources={sources} />
         </motion.div>
         : <motion.div key="symptoms" className="issue-pane" initial={{ x: -48, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: -48, opacity: 0 }} transition={{ duration: .22, ease: 'easeOut' }}>
