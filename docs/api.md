@@ -106,3 +106,25 @@ The warning-sign check is a keyword rule for a class project, not validated tria
 - `POST /api/exploration`: JSON with `regionId`, `warningStatus` (`none`, `selected`, `unsure`), `warningSigns` (IDs), and `answers` (question IDs mapped to option-ID arrays).
 
 Selected warning signs or uncertainty return help guidance with no topic matches. Otherwise every answer on the active conditional path is required; off-path answers are rejected. Profiles include ordered questions, optional `when` conditions and source-backed `comparisons`. Results include source-linked topic matches with `fit` (`closer` or `possible`), supporting `matchedAnswers`, `lessTypicalAnswers`, an answer summary, limitations and a suggested next step. Ordering compares agreement with library features and does not estimate disease likelihood. There are no diagnostic likelihoods or confidence scores. The same request limits as guidance apply; no questionnaire answers are stored.
+
+## Search suggestions (Tendi)
+
+`POST /api/search/suggest` with `Content-Type: application/json`:
+
+| Field | Requirements |
+| --- | --- |
+| query | Required; trimmed length 2–120 characters |
+| useAI | Optional, default true. `false` runs only the warning-sign check (no Gemini call) |
+
+Response: `{mode, suggestions, message?, sourceIds, level?}`; each suggestion is `{topicId, title, area, reason}`.
+
+| mode | Meaning |
+| --- | --- |
+| safety | A warning-sign phrase matched in Swift. `message` says where to get help, `level` is `emergency` or `urgent`; **no AI call is made** |
+| ai | Gemini picked up to 3 library topics. Only IDs that exist in the library are returned |
+| off_topic | The search isn't about the body, health or movement |
+| none | `useAI` was false and no warning sign matched |
+| unavailable | AI is not configured or the request failed |
+
+The search page calls this with `useAI: false` after the user pauses typing, so warning signs are always caught, and with `useAI: true` when its own word matching finds nothing (or only partial matches for a multi-word description), or when the user taps "Ask Tendi". Only AI requests count toward `CHAT_REQUESTS_PER_MINUTE`; warning-sign checks have a separate limit of 120 per minute.
+
