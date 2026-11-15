@@ -3,14 +3,17 @@ import { motion } from 'motion/react'
 import { Icon } from '@/components/Icon'
 import { areaNames, localTopics } from '@/features/topics/library'
 import { bodyAreas, previewRegions, regionGroups } from '@/features/body-explorer/preview-regions'
+import { matchArea, terms } from './match'
+import { TendiSafety, TendiSuggestions } from './TendiSuggestions'
+import { useTendiSearch } from './useTendiSearch'
 import './search.css'
 
 // Extra words people might type for each body area.
 const aliases: Record<string, string[]> = Object.fromEntries(bodyAreas.map(area => [area.id, area.aliases]))
 
-interface Result { area: string; label: string; group: string; topics: string[]; match: string | null }
+interface Result { area: string; label: string; group: string; topics: string[]; match: string | null; matched: number; total: number }
 
-export function SearchPage({ onOpen }: { onOpen: (regionId: string) => void }) {
+export function SearchPage({ onOpen }: { onOpen: (regionId: string, topicId?: string) => void }) {
   const [query, setQuery] = useState('')
   const results = useMemo<Result[]>(() => {
     const q = query.trim().toLowerCase()
@@ -18,16 +21,20 @@ export function SearchPage({ onOpen }: { onOpen: (regionId: string) => void }) {
       const label = areaNames[area]
       const topics = localTopics.filter(topic => topic.regionIds.some(id => id.endsWith(area)))
       const titles = topics.map(topic => topic.title)
-      if (!q) return [{ area, label, group, topics: titles, match: null }]
-      const names = [label, 'left ' + label, 'right ' + label, ...aliases[area]].map(text => text.toLowerCase())
-      if (names.some(text => text.includes(q))) return [{ area, label, group, topics: titles, match: null }]
-      // Otherwise look inside this area's topics (titles, symptoms, overviews).
-      const hit = topics.flatMap(topic => [topic.title, ...topic.symptoms, topic.overview]).find(text => text.toLowerCase().includes(q))
-      return hit ? [{ area, label, group, topics: titles, match: hit }] : []
+      if (!q) return [{ area, label, group, topics: titles, match: null, matched: 0, total: 0 }]
+      // Each word is matched on its own, in the area's names or inside its topics (titles, symptoms, overviews).
+      const found = matchArea(q, [label, 'left ' + label, 'right ' + label, ...aliases[area]], topics.flatMap(topic => [topic.title, ...topic.symptoms, topic.overview]))
+      return found ? [{ area, label, group, topics: titles, ...found }] : []
     })
   }, [query])
+  // If some areas match every word, show only those; otherwise show the partial matches, best first.
+  const complete = results.filter(result => result.matched === result.total)
+  const shown = (complete.length ? complete : results).slice().sort((a, b) => b.matched - a.matched)
+  // Tendi steps in by itself when nothing matches, or when a description of several words only partly matches.
+  const autoTendi = query.trim().length >= 3 && (shown.length === 0 || (terms(query).length >= 2 && complete.length === 0))
+  const tendi = useTendiSearch(query, autoTendi)
   // Results stay in catalog order, split into their body groups; groups with no matches are left out.
-  const groups = regionGroups.map(group => ({ group, items: results.filter(result => result.group === group) })).filter(entry => entry.items.length)
+  const groups = regionGroups.map(group => ({ group, items: shown.filter(result => result.group === group) })).filter(entry => entry.items.length)
 
   return <main className="search-page" id="search">
     <div className="search-hero">
@@ -42,9 +49,10 @@ export function SearchPage({ onOpen }: { onOpen: (regionId: string) => void }) {
         placeholder="Try “knee”, “sprain” or “back”…" autoFocus autoComplete="off" maxLength={60} />
       {query && <button className="search-clear" onClick={() => setQuery('')} aria-label="Clear search"><Icon name="close" size={16} /></button>}
     </div>
-    <p className="search-count" aria-live="polite">{query.trim() ? results.length + (results.length === 1 ? ' match' : ' matches') : 'All body parts'}</p>
+    <p className="search-count" aria-live="polite">{query.trim() ? shown.length + (shown.length === 1 ? ' match' : ' matches') : 'All body parts'}</p>
 
-    {results.length ? <div className="search-groups">
+    <TendiSafety tendi={tendi} />
+    {shown.length ? <><div className="search-groups">
       {groups.map(({ group, items }, index) => <section key={group} aria-labelledby={'search-group-' + index}>
         <div className="search-group-head"><h2 id={'search-group-' + index}>{group}</h2><span>{String(items.length).padStart(2, '0')}</span></div>
         <ul className="search-rows">
@@ -63,10 +71,11 @@ export function SearchPage({ onOpen }: { onOpen: (regionId: string) => void }) {
           </motion.li>)}
         </ul>
       </section>)}
-    </div> : <div className="search-empty">
+    </div>
+    <div className="tendi-after-results"><TendiSuggestions tendi={tendi} offerAsk onOpen={onOpen} /></div></> : <TendiSuggestions tendi={tendi} offerAsk={false} onOpen={onOpen} fallback={<div className="search-empty">
       <Icon name="search" size={28} />
       <h2>No body parts match “{query.trim()}”.</h2>
       <p>Try a body part like shoulder, knee or back.</p>
-    </div>}
+    </div>} />}
   </main>
 }

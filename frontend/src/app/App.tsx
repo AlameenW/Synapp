@@ -44,10 +44,13 @@ export default function App() {
   }, [companionOpen])
   const name = previewRegions.find(region => region.id === selectedId)?.name ?? 'Body'
   const area = regionArea(selectedId)
-  function select(id: string) { setSelectedId(id); setBack(isRearRegion(id)); setRequest(null) }
+  // An issue to open in the topic panel, e.g. one Tendi suggested on the search page. `stamp` re-triggers the same issue.
+  const [focusTopic, setFocusTopic] = useState<{ id: string; stamp: number } | null>(null)
+  function select(id: string) { setSelectedId(id); setBack(isRearRegion(id)); setRequest(null); setFocusTopic(null) }
   function pick(id: string) { setSelectedId(id); setRequest(null) }
-  function openRegion(id: string) {
+  function openRegion(id: string, topicId?: string) {
     select(id)
+    if (topicId) setFocusTopic({ id: topicId, stamp: Date.now() })
     window.location.hash = 'explore'
     window.scrollTo({ top: 0 })
   }
@@ -81,7 +84,7 @@ export default function App() {
           <div className="workspace">
             <BodyExplorer selectedId={selectedId} onSelect={select} onPick={pick} dark={dark} back={back} setBack={setBack} />
             <motion.div key={selectedId} className="details-column" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: .16 }}>
-              <TopicPanel regionId={selectedId} regionName={name} onAsk={ask} />
+              <TopicPanel regionId={selectedId} regionName={name} onAsk={ask} focusTopic={focusTopic} />
             </motion.div>
           </div>
         </main>
