@@ -22,7 +22,7 @@ export default function App() {
   const [selectedId, setSelectedId] = useState('right_shoulder')
   const [back, setBack] = useState(false)
   const [request, setRequest] = useState<{ text: string; id: number } | null>(null)
-  const [modal, setModal] = useState<'sources' | 'about' | 'assistant' | null>(null)
+  const [modal, setModal] = useState<'sources' | 'assistant' | null>(null)
   const [companionOpen, setCompanionOpen] = useState(false)
   const [hash, setHash] = useState(() => window.location.hash)
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function App() {
         {view === 'search' && <SearchPage onOpen={openRegion} />}
         <main id="explore" hidden={view === 'search'}>
           <motion.div className="hero" initial={{ opacity: 0, y: reduced ? 0 : 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5 }}>
-            <div><div className="hero-kicker"><span /> MADE FOR THE WAY YOU MOVE</div><h1>Your body.<br className="mobile-break" /> <span>Better understood.</span></h1><p>A little curiosity. A clearer picture. Explore your body and find your next step.</p></div>
+            <div><div className="hero-kicker"><span /> MADE FOR THE WAY YOU MOVE</div><h1>Your body.<br className="mobile-break" /> <span>Better understood.</span></h1><p>Explore your body and find your next step.</p></div>
           </motion.div>
           <div className="region-bar"><span className="region-bar-label"><span className="number-label">01</span> PICK YOUR FOCUS</span><BodyLine active={area} onPick={({ id, paired }) => select(paired ? (selectedId.startsWith('left_') ? 'left_' : 'right_') + id : id)} /></div>
           <div className="workspace">
@@ -84,7 +84,6 @@ export default function App() {
               <TopicPanel regionId={selectedId} regionName={name} onAsk={ask} />
             </motion.div>
           </div>
-          <div className="bottom-strip"><div><span className="small-mark">✳</span><strong>Less guesswork. More understanding.</strong><span>Your next chapter of movement starts here.</span></div><button onClick={() => setModal('about')}>Meet Synapp <Icon name="arrow" size={15} /></button></div>
         </main>
         <footer className="footer"><p><Icon name="shield" size={14} /> For education, not diagnosis. Content is an editorial draft awaiting clinical review.</p><button onClick={() => setModal('sources')}>Our sources <Icon name="external" size={12} /></button><span>Move with curiosity.</span></footer>
       </div>
@@ -108,8 +107,8 @@ export default function App() {
     <dialog ref={dialog} className="info-dialog" onCancel={() => setModal(null)} onClick={event => { if (event.target === event.currentTarget) setModal(null) }} aria-labelledby="dialog-title">
       <div className="dialog-inner"><Button variant="ghost" className="dialog-close" aria-label="Close dialog" onClick={() => setModal(null)}><Icon name="close" /></Button>
         <span className="dialog-emblem"><Icon name={modal === 'sources' ? 'book' : 'spark'} size={30} /></span>
-        <h2 id="dialog-title">{modal === 'sources' ? 'A little knowledge. From real sources.' : modal === 'assistant' ? 'Meet Tendi, your movement companion.' : 'Get to know the body you move in.'}</h2>
-        {modal === 'sources' ? <><p>Our starting library draws on NHS information. These summaries are educational drafts, not clinically reviewed advice.</p><ul className="source-list">{localSources.map(source => <li key={source.id}><a href={source.url} target="_blank" rel="noreferrer"><span>{source.title}<small>{source.publisher}</small></span><Icon name="external" size={17} /></a></li>)}</ul></> : modal === 'assistant' ? <><p>Like a tendon connecting muscle to bone, Tendi connects you to the right information. Ask Tendi about any aches, movements or recovery questions. Tendi answers using Synapp's library, written up by Google Gemini AI. Conversations aren't saved: they clear when you reload the page.</p><p>Each question, plus your last few messages, is sent to Google Gemini to write the answer, so skip names and other personal details. If you mention a warning sign such as chest pain or losing feeling, Tendi points you to urgent help instead of answering. Tendi can make mistakes, doesn't diagnose and doesn't create treatment plans. If you need medical advice, speak with a qualified professional.</p></> : <><p>Select an area on the 3D figure, or choose a region from the list. Explore possible explanations, associated symptoms, and general care information, with links to the original sources.</p><div className="dialog-steps"><span>01 <strong>Explore your body</strong></span><span>02 <strong>Follow your curiosity</strong></span></div><p>The body views are illustrative models with different proportions, and the information cannot establish a diagnosis. If you think you need urgent or emergency care, seek help directly rather than relying on this app.</p></>}
+        <h2 id="dialog-title">{modal === 'sources' ? 'A little knowledge. From real sources.' : 'Meet Tendi, your movement companion.'}</h2>
+        {modal === 'sources' ? <><p>Our starting library draws on NHS information. These summaries are educational drafts, not clinically reviewed advice.</p><ul className="source-list">{localSources.map(source => <li key={source.id}><a href={source.url} target="_blank" rel="noreferrer"><span>{source.title}<small>{source.publisher}</small></span><Icon name="external" size={17} /></a></li>)}</ul></> : <><p>Like a tendon connecting muscle to bone, Tendi connects you to the right information. Ask Tendi about any aches, movements or recovery questions. Tendi answers using Synapp's library, written up by Google Gemini AI. Conversations aren't saved: they clear when you reload the page.</p><p>Each question, plus your last few messages, is sent to Google Gemini to write the answer, so skip names and other personal details. If you mention a warning sign such as chest pain or losing feeling, Tendi points you to urgent help instead of answering. Tendi can make mistakes, doesn't diagnose and doesn't create treatment plans. If you need medical advice, speak with a qualified professional.</p></>}
       </div>
     </dialog>
   </MotionConfig>
