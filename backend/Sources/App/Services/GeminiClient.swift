@@ -5,6 +5,15 @@ import Vapor
 /// The live app uses Gemini; tests use a fake so they never call the network.
 protocol TextGenerating: Sendable {
     func generate(system: String, turns: [ChatTurn], client: any Client) async throws -> String
+    /// Same, but asks for JSON matching `schema` (structured output) when the generator supports it.
+    func generate(system: String, turns: [ChatTurn], schema: GeminiSchema?, client: any Client) async throws -> String
+}
+
+extension TextGenerating {
+    /// Generators without structured output (such as test fakes) ignore the schema.
+    func generate(system: String, turns: [ChatTurn], schema: GeminiSchema?, client: any Client) async throws -> String {
+        try await generate(system: system, turns: turns, client: client)
+    }
 }
 
 enum TextGenerationError: Error {
@@ -22,10 +31,14 @@ struct GeminiClient: TextGenerating {
     var responseSchema: GeminiSchema? = nil
 
     func generate(system: String, turns: [ChatTurn], client: any Client) async throws -> String {
+        try await generate(system: system, turns: turns, schema: responseSchema, client: client)
+    }
+
+    func generate(system: String, turns: [ChatTurn], schema: GeminiSchema?, client: any Client) async throws -> String {
         do {
-            return try await send(system: system, turns: turns, schema: responseSchema, client: client)
-        } catch TextGenerationError.badStatus(400) where responseSchema != nil {
-            // If this model rejects the JSON schema, still answer as plain text; the companion accepts both.
+            return try await send(system: system, turns: turns, schema: schema, client: client)
+        } catch TextGenerationError.badStatus(400) where schema != nil {
+            // If this model rejects the JSON schema, still answer as plain text; callers accept both.
             return try await send(system: system, turns: turns, schema: nil, client: client)
         }
     }
@@ -99,8 +112,11 @@ struct GeminiSchema: Content, Sendable {
     var propertyOrdering: [String]? = nil
 }
 
+/// The schema for array items: a plain type, or an object of plain-typed fields.
 struct GeminiItemSchema: Content, Sendable {
     var type: String
+    var properties: [String: GeminiItemSchema]? = nil
+    var required: [String]? = nil
 }
 
 struct GeminiRequest: Content {
