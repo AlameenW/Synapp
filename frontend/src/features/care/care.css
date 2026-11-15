@@ -12,8 +12,7 @@
 .care-options[open] summary small { display: none; }
 .care-choices { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 14px; }
 .care-choices a { display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--border); color: var(--foreground); font-size: 12px; font-weight: 600; transition: border-color .18s, background-color .18s, color .18s; }
-.care-choices a:hover, .care-choices a:focus-visible { border-color: var(--primary); color: var(--primary); }
-.care-choices a.suggested { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
-.care-choices a.suggested:hover, .care-choices a.suggested:focus-visible { color: var(--primary-foreground); filter: brightness(1.08); }
+/* Every option looks the same until you hover or tab to it; the suggested one is simply listed first. */
+.care-choices a:hover, .care-choices a:focus-visible { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
 .care-options > p { font-size: 10px; color: var(--muted-foreground); line-height: 1.7; padding: 10px 14px 13px; }
 @media (prefers-reduced-motion: reduce) { .care-chevron { transition: none; } }
